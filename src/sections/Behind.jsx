@@ -99,7 +99,7 @@ export default function Behind() {
           </div>
           <ol className="dec-stack">
             {DECISIONS.map((d, i) => (
-              <li key={d.from} className="dec-card glass-frost" style={{ '--i': i }}>
+              <li key={d.from} className="dec-card">
                 <span className="t14 medium dec-no">DECISION {String(i + 1).padStart(2, '0')}</span>
                 <p className="t48 semibold dec-ft"><s>{d.from}</s><span aria-hidden="true">→</span>{d.to}</p>
                 <p className="t20 medium">{d.why}</p>

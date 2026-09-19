@@ -18,9 +18,12 @@
 .inf-runner { fill: var(--lime); stroke: var(--ink); stroke-width: 3.5; }
 
 .loop-right { position: relative; min-height: 0; }
-.loop-phones { position: absolute; left: 15%; top: 50%; width: 38%; transform: translateY(-50%); aspect-ratio: 340 / 723; container-type: inline-size; }
+.loop-phones { position: absolute; left: 9%; top: 50%; width: 38%; transform: translateY(-50%); aspect-ratio: 340 / 723; container-type: inline-size; }
 .loop-phone { position: absolute; inset: 0; opacity: 0; transform: translate(40%, 8%) scale(.96); transition: opacity .6s, transform .8s cubic-bezier(.2, .7, 0, 1), filter .6s; }
 .loop-phone.is-on { opacity: 1; transform: translate(46%, 8%); z-index: 2; }
+.loop-phone--grow { aspect-ratio: 340 / 766; }
+.loop-phone--grow .phone-screen img { object-fit: contain; }
+.loop-phone--grow .phone-screen { background: var(--white); }
 .loop-phone.is-prev { opacity: .55; transform: none; filter: grayscale(.7) contrast(.8) brightness(1.15); z-index: 1; }
 .loop-card { position: absolute; right: -3%; top: 50%; transform: translateY(-28%); width: min(416px, 50%); padding: 40px 36px; display: flex; flex-direction: column; gap: 16px; z-index: 3;
   animation: cardIn .6s cubic-bezier(.2, .7, 0, 1); }
@@ -35,14 +38,14 @@
   .loop-sub { display: none; }
   .inf { max-height: 26vh; }
   .loop-right { min-height: 44vh; }
-  .loop-phones { width: 30%; left: 4%; }
+  .loop-phones { width: 30%; left: 0; }
   .loop-card { width: 56%; right: 0; padding: 22px; gap: 10px; }
   .loop-hint { display: none; }
 }
 @media (max-width: 480px) {
   .head { gap: 10px; }
-  .loop-phones { width: 36%; left: 2%; }
-  .loop-phone.is-on { transform: translate(34%, 4%); }
+  .loop-phones { width: 36%; left: -2%; }
+  .loop-phone.is-on { transform: translate(24%, 4%); }
   .loop-card { width: 70%; right: 0; top: auto; bottom: 0; transform: none; padding: 16px; border-radius: 20px; }
   .loop-card .t36 { font-size: 20px; }
   .loop-card .t18 { font-size: 14px; }

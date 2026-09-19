@@ -1,4 +1,4 @@
-/* S08 Behind — 카운터 · 장표 마퀴 2줄 · 결정 카드 sticky 스택 */
+/* S08 Behind — 카운터 · 장표 마퀴 2줄 · 결정 전후 패널 */
 .behind { background: var(--gray-50); }
 .behind-top { padding-bottom: 56px; }
 .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 56px; }
@@ -17,13 +17,9 @@
 .mq-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .mq-item:hover, .mq-item:focus-visible { transform: scale(1.08); box-shadow: 0 24px 48px rgba(41, 51, 128, .18); position: relative; z-index: 1; }
 
-/* 결정 카드 — 왼쪽 제목 고정, 오른쪽 카드가 위로 쌓임 */
+/* 결정 전후 — 왼쪽 근거 링크, 오른쪽 구분선으로 정리한 흰 패널 */
 .behind-dec { position: relative; isolation: isolate; padding-top: 96px; }
-.behind-dec::before { content: ""; position: absolute; z-index: -1; pointer-events: none;
-  top: 64px; bottom: var(--my); right: max(0px, calc((100% - var(--content)) / 2 - 32px));
-  width: calc(min(100% - 2 * var(--mx), var(--content)) * .6 + 64px);
-  border-radius: 50%; background: var(--grad-kv); filter: blur(60px); opacity: .9; }
-.dec-in { display: grid; grid-template-columns: 40fr 60fr; gap: 48px; align-items: start; }
+.dec-in { display: grid; grid-template-columns: 36fr 64fr; gap: 64px; align-items: start; }
 .dec-head { position: sticky; top: calc(var(--gnb-h) + 24px); gap: 12px; }
 .ch-links { display: flex; flex-direction: column; margin-top: 24px; border-top: 1px solid var(--gray-200); }
 .ch-link { display: grid; grid-template-columns: 32px 1fr auto 24px; align-items: center; gap: 12px; padding: 16px 4px; border-bottom: 1px solid var(--gray-200);
@@ -33,11 +29,11 @@
 .ch-link:hover i { transform: translateX(4px); color: var(--violet-500); }
 .ch-link.is-empty b { color: var(--gray-400); }
 
-.dec-stack { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 24px; padding-bottom: 12vh; }
-/* 흰 프로스티드 글래스 — 기본 투명도로 뒤 카드의 윤곽을 흐리게 투과 */
-.dec-card { position: sticky; top: calc(var(--gnb-h) + 24px + var(--i) * 20px); min-height: 360px; padding: 40px; border-radius: var(--r-card);
-  display: flex; flex-direction: column; justify-content: space-between; gap: 32px; color: var(--ink);
-  box-shadow: var(--shadow-kv); }
+/* 배경 블롭·그림자 없이 내용의 위계와 구분선으로 결정 세 가지를 연결 */
+.dec-stack { list-style: none; margin: 0; padding: 0 40px; background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--r-card); }
+.dec-card { display: flex; flex-direction: column; gap: 20px; padding: 32px 0; color: var(--ink); }
+.dec-card + .dec-card { border-top: 1px solid var(--gray-200); }
+.dec-card > .t20 { max-width: 40em; color: var(--gray-600); }
 .dec-no { color: var(--violet-500); letter-spacing: .04em; }
 .dec-ft { display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; }
 .dec-ft s { color: var(--gray-400); text-decoration-thickness: 3px; }
@@ -47,13 +43,14 @@
   .nums { grid-template-columns: 1fr 1fr; margin-top: 32px; }
   .dec-in { grid-template-columns: 1fr; gap: 32px; }
   .dec-head { position: static; }
-  .dec-card { min-height: 280px; padding: 28px; }
+  .dec-stack { padding: 0 28px; }
   .behind-dec { padding-top: 64px; }
-  .behind-dec::before { top: 360px; right: 0; width: 100%; }
 }
 @media (max-width: 480px) {
   .mq-item { width: 200px; border-radius: 10px; }
-  .dec-card { top: calc(var(--gnb-h) + 12px + var(--i) * 12px); min-height: 240px; padding: 24px; border-radius: 24px; }
+  .dec-stack { padding: 0 24px; border-radius: 24px; }
+  .dec-card { padding: 28px 0; gap: 16px; }
+  .dec-ft { gap: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .mq-track { animation: none; }

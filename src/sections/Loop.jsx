@@ -89,7 +89,7 @@ export default function Loop() {
             <div className="loop-phones">
               {STATIONS.map((s, k) => (
                 <Phone key={s.code} src={screen(s.code)} code={s.label} width="100cqw"
-                  className={`loop-phone ${k === active ? 'is-on' : k === (active + 3) % 4 ? 'is-prev' : ''}`} />
+                  className={`loop-phone ${s.code === 'ai' ? 'loop-phone--grow' : ''} ${k === active ? 'is-on' : k === (active + 3) % 4 ? 'is-prev' : ''}`} />
               ))}
             </div>
             <Glass className="loop-card glass-frost" key={st.en}>
