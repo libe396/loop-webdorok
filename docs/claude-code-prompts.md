@@ -105,3 +105,49 @@ Play.jsx / play.css 는 건드리지 말고, 아래 5개 파일만 Figma MCP로 
   그 주소에서 첫 화면, #/archive/research, 폰 화면 이미지가 뜨는지 확인해줘
 7) CLAUDE.md "실행" 섹션에 배포 주소와 "main에 push하면 자동 배포" 한 줄 추가하고 커밋·push
 ```
+
+## #09 · S05 Focus 다크 화면 6장 export
+
+```
+S05 Focus(src/sections/Focus.jsx)는 이미 만들어져 있고, 화면 이미지만 없어.
+#01과 같은 방식으로 아래 6개 노드를 뽑아서 public/screens/ 에 넣어줘. 코드는 건드리지 마.
+파일 키 9wJzEafnp4YRzPSR6oswWX (Hi-Fi 페이지 "무인 측정 진행 — 다크 v2" 섹션)
+
+- s0.webp ← 2789:19754  S0 · 측정 모드 진입 (다크 전환)
+- a1.webp ← 2786:18937  A1 v2 · NFC 태그 대기
+- a2.webp ← 2786:18954  A2 v2 · 태그 인식 · 측정 준비
+- a3.webp ← 2786:18978  A3 v2 · 측정 중 (실시간)
+- a4.webp ← 2786:19005  A4 v2 · 종목 완료 · 자동 기록
+- s9.webp ← 2786:19127  S9 v2 · 측정 완료 (라이트 복귀)
+
+scale 2 PNG → 위에서부터 750×1624 크롭 → WebP q82. 조상 레이어(캔버스·섹션 배경)가 딸려 나오면 #05 때처럼 걷어내.
+끝나면 npm run dev로 S05 스크롤해서 다크 5장 → 라이트 S9 순서로 바뀌는지 확인하고, CLAUDE.md에 체크.
+```
+
+## #10 · (반영 완료) S05 Focus · S06 LOOP band
+
+기록용.
+- S05 `Focus.jsx`: 핀 340vh. 배경 Gray50 → Gray900(#1F232B, 앱 다크 배경) 스크럽(--d, color-mix) → 다크 화면 5장(S0·A1~A4) → 다시 밝아지며 S9. 왼쪽 단계 목록 = 화면 제목 그대로. 다크 구간엔 GNB도 다크(html.is-focus-dark)
+- S06 `Band.jsx`: 핀 240vh. 밴드가 누워 있다가(rotateX 38°) 스크롤하면 서고, 핫스팟 3개(심박·수면·강도 자동 조절) 글라스 카드로. 1024 이하는 카드 대신 아래 목록
+- `public/img/band-cut.webp`: band.webp 흰 배경 투명 처리(그림자 반투명 유지, 로고 흰색 보존)
+- Rest.jsx엔 S07~S10만 남음
+
+## #11 · (반영 완료) S08 Behind · S09 Brand · S10 Outro · 아카이브 점검
+
+기록용.
+- S08 `Behind.jsx`: 12주·70명·2,562개·6곳 카운트업 → 장표 마퀴 2줄(research / plan+make, @960 썸네일, 클릭하면 해당 챕터) → 결정 카드 3장 sticky 스택 + 챕터 4개 링크
+- S09 `Brand.jsx`: 핀 220vh, 워드마크 4벌 크로스페이드(한 화면 그라디언트 하나). 모바일은 설명 줄 숨김
+- S10 `Outro.jsx`: violet-100 워드마크 위로 커서 주변만 Intelligence 그라디언트로 차오름(SVG mask). 터치 기기는 전체 채움. CTA 마그네틱, "다음 측정까지 D-90 ↺" → 맨 위
+- Rest.jsx는 S07 처방사 자리만 남김. 안 쓰는 .todo/.nums 등 rest.css 정리
+- 아카이브 페이지 점검: 1920/390 둘 다 목차 sticky·칩·빈 상태 정상. 수정 없음
+- 남은 것: 프로토타입 체험 URL (Hero · GNB · Outro 버튼)
+
+## #12 · 커밋 + push (배포)
+
+```
+지금 작업 트리 전부 한 번에 커밋하고 push해서 배포해줘.
+1) npm run build 에러 없는지 먼저 확인
+2) git status로 .band_preview.png 같은 임시 파일이 안 올라가는지 확인 (.gitignore에 있음)
+3) 커밋 메시지: "S04 DS 에셋 · S05 Focus · S06 band · S08~S10 · 글라스"
+4) push 후 gh run watch로 배포 끝날 때까지 보고, 사이트에서 S05~S10 스크롤이 도는지 1920·390 폭 둘 다 확인
+```

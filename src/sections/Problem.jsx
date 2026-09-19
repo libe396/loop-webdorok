@@ -22,7 +22,7 @@ export default function Problem() {
           <p className="t24 medium accent">THE GAP</p>
           <h2 className="t56 semibold problem-sent">
             {SENT.map((w, i) => (
-              <span key={i} style={{ opacity: p > ((i + 0.5) / SENT.length) * 0.4 ? 1 : 0.14 }}>{w} </span>
+              <span key={i}><span style={{ opacity: p > ((i + 0.5) / SENT.length) * 0.4 ? 1 : 0.14 }}>{w}</span>{w.endsWith(',') ? <br /> : ' '}</span>
             ))}
           </h2>
           <div className="gapline" aria-hidden="true">

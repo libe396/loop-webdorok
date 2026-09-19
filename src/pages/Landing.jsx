@@ -5,7 +5,12 @@ import Hero from '../sections/Hero'
 import Problem from '../sections/Problem'
 import Loop from '../sections/Loop'
 import Play from '../sections/Play'
-import { Focus, Band, Prescriber, Behind, Brand, Outro } from '../sections/Rest'
+import Focus from '../sections/Focus'
+import Band from '../sections/Band'
+import { Prescriber } from '../sections/Rest'
+import Behind from '../sections/Behind'
+import Brand from '../sections/Brand'
+import Outro from '../sections/Outro'
 import { scrollToTarget } from '../lib/scroll'
 
 export default function Landing() {

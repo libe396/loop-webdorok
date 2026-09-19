@@ -2,7 +2,6 @@
 .loop-pin { position: sticky; top: 0; height: 100svh; min-height: 720px; display: flex; }
 .loop-in { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; height: 100%; }
 .loop-left { display: flex; flex-direction: column; gap: clamp(24px, 4vh, 56px); min-height: 0; }
-.loop-sub { color: var(--ink); }
 .inf { width: 100%; max-width: 820px; max-height: 60vh; flex: 1; min-height: 0; overflow: visible; }
 .inf-track { fill: none; stroke: var(--white); stroke-width: 22; stroke-linecap: round; }
 .inf-prog { fill: none; stroke: url(#infGrad); stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; }

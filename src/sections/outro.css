@@ -1,0 +1,15 @@
+/* S10 Outro — 커서 스포트라이트로 차오르는 워드마크 + 마그네틱 CTA */
+.outro { background: var(--gray-50); overflow: hidden; }
+.outro-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+.outro-cta { display: flex; align-items: center; gap: 20px; }
+.magnet { display: inline-block; transition: transform .35s cubic-bezier(.2, .7, 0, 1); }
+.outro-word { display: block; width: 75%; height: auto; margin-top: 56px; cursor: crosshair; touch-action: pan-y; }
+.ow-base { fill: var(--violet-100); }
+.ow-fill { transition: opacity .4s; }
+.outro-again { display: inline-flex; gap: 10px; align-items: center; margin-top: 32px; color: var(--violet-500); text-decoration: none; }
+.outro-again span { display: inline-block; transition: transform .6s cubic-bezier(.2, .7, 0, 1); }
+.outro-again:hover span { transform: rotate(-360deg); }
+.foot { display: flex; justify-content: space-between; gap: 12px; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--gray-200); flex-wrap: wrap; }
+@media (max-width: 480px) {
+  .outro-word { margin-top: 32px; }
+}

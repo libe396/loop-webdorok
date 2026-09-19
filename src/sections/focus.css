@@ -1,0 +1,54 @@
+/* S05 Focus — --d(0→1)로 Gray50 ↔ Gray900(앱 다크 배경 #1F232B) 스크럽 */
+.focus { height: 340vh; position: relative;
+  --bg: color-mix(in srgb, var(--gray-900) calc(var(--d) * 100%), var(--gray-50));
+  --fg: color-mix(in srgb, var(--white) calc(var(--d) * 100%), var(--ink));
+  --sub: color-mix(in srgb, var(--gray-400) calc(var(--d) * 100%), var(--gray-500));
+  background: var(--bg); color: var(--fg); }
+.focus-pin { position: sticky; top: 0; height: 100svh; min-height: 720px; display: flex; background: var(--bg); }
+.focus-in { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; height: 100%; }
+.focus-copy { display: flex; flex-direction: column; gap: clamp(32px, 5vh, 64px); }
+.focus .head .focus-eb { color: color-mix(in srgb, var(--violet-300) calc(var(--d) * 100%), var(--violet-500)); }
+.focus-sub { color: var(--sub); }
+
+.focus-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.focus-steps li { display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 12px 0; opacity: .32; transition: opacity .4s; }
+.focus-steps li.is-done { opacity: .5; }
+.focus-steps li.is-on { opacity: 1; }
+.focus-steps b { display: block; }
+.focus-no { padding-top: 4px; color: var(--sub); font-variant-numeric: tabular-nums; }
+.focus-steps li.is-on .focus-no { color: color-mix(in srgb, var(--lime) calc(var(--d) * 100%), var(--violet-500)); }
+.focus-body { display: block; color: var(--sub); max-height: 0; overflow: hidden; transition: max-height .4s, margin .4s; }
+.focus-steps li.is-on .focus-body { max-height: 2em; margin-top: 4px; }
+
+.focus-visual { position: relative; height: 100%; display: grid; place-items: center; }
+/* 섹션당 그라디언트 하나 — 다크일 때만 켜지는 violet 빛 */
+.focus-glow { position: absolute; width: 70%; aspect-ratio: 1; border-radius: 50%; opacity: calc(var(--d) * .9); filter: blur(40px);
+  background: radial-gradient(circle, rgba(73, 90, 238, .55), rgba(73, 90, 238, 0) 65%); }
+.focus-phones { position: relative; width: min(340px, 34vh * 0.94 + 60px); aspect-ratio: 340 / 723; container-type: inline-size; }
+.focus-phone { position: absolute; inset: 0; opacity: 0; transform: translateY(24px) scale(.98); transition: opacity .5s, transform .6s cubic-bezier(.2, .7, 0, 1); }
+.focus-phone.is-on { opacity: 1; transform: none; z-index: 1; }
+.focus .phone { background: color-mix(in srgb, #0B0D12 calc(var(--d) * 100%), var(--ink));
+  box-shadow: 0 0 0 1px color-mix(in srgb, rgba(255, 255, 255, .12) calc(var(--d) * 100%), transparent), 0 40px 80px rgba(0, 0, 0, calc(.12 + var(--d) * .3)); }
+.focus-count { position: absolute; right: 0; bottom: 8%; color: var(--sub); font-variant-numeric: tabular-nums; }
+
+/* GNB도 다크 */
+html.is-focus-dark .gnb.is-solid { background: rgba(31, 35, 43, .55); box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .08); }
+html.is-focus-dark .gnb-nav a { color: var(--gray-400); }
+html.is-focus-dark .gnb-nav a:hover { color: var(--white); }
+
+@media (max-width: 1024px) {
+  .focus { height: 300vh; }
+  .focus-pin { min-height: 0; }
+  .focus-in { grid-template-columns: 1fr; grid-template-rows: auto 1fr; gap: 8px; align-items: start; }
+  .focus-copy { gap: 16px; }
+  .focus-sub { display: none; }
+  .focus-steps li { display: none; }
+  .focus-steps li.is-on { display: grid; padding: 0; }
+  .focus-visual { min-height: 0; }
+  .focus-phones { width: min(260px, 26vh); }
+  .focus-count { bottom: 2%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .focus { height: auto; }
+  .focus-pin { position: relative; height: auto; }
+}

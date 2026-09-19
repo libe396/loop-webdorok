@@ -1,0 +1,35 @@
+/* S09 Brand — 핀 200vh, 워드마크 4벌이 겹쳐 있다가 스크롤 구간마다 하나만 켜짐 */
+.brand-s { height: 220vh; position: relative; background: var(--white); }
+.brand-pin { position: sticky; top: 0; height: 100svh; min-height: 720px; display: flex; }
+.brand-in { display: grid; grid-template-columns: 40fr 60fr; gap: 48px; align-items: center; height: 100%; }
+.brand-copy { gap: 16px; }
+.looks { list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid var(--gray-100); }
+.looks li { display: grid; grid-template-columns: 140px 1fr; gap: 12px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--gray-100); color: var(--gray-300); transition: color .35s; }
+.looks li.is-on { color: var(--ink); }
+.looks li.is-on span { color: var(--gray-500); }
+.brand-more { color: var(--violet-500); text-decoration: none; margin-top: 8px; }
+.brand-more:hover { text-decoration: underline; }
+
+.brand-stage { position: relative; display: flex; flex-direction: column; align-items: center; gap: 32px; }
+.brand-marks { position: relative; width: 100%; aspect-ratio: 271 / 142; }
+.brand-mark { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; transform: scale(.96); filter: blur(6px);
+  transition: opacity .6s, transform .8s cubic-bezier(.2, .7, 0, 1), filter .6s; }
+.brand-mark.is-on { opacity: 1; transform: none; filter: none; }
+.brand-mark svg { height: 100%; }
+.brand-note { display: flex; gap: 12px; align-items: baseline; color: var(--gray-500); animation: noteIn .5s cubic-bezier(.2, .7, 0, 1); }
+.brand-note span { color: var(--ink); letter-spacing: .04em; }
+@keyframes noteIn { from { opacity: 0; transform: translateY(8px); } }
+
+@media (max-width: 1024px) {
+  .brand-s { height: 200vh; }
+  .brand-pin { min-height: 0; }
+  .brand-in { grid-template-columns: 1fr; grid-template-rows: auto auto; align-content: center; gap: 24px; }
+  .brand-copy > .muted { display: none; }
+  .looks li { grid-template-columns: 110px 1fr; padding: 10px 0; }
+  .brand-marks { width: 80%; }
+  .brand-note { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-s { height: auto; }
+  .brand-pin { position: relative; height: auto; }
+}

@@ -49,7 +49,7 @@ export default function Loop() {
             <div className="head">
               <p className="eyebrow">HOW LOOP WORKS</p>
               <h2 className="t48 semibold">한 번 측정하면,<br />루틴은 계속됩니다.</h2>
-              <p className="t24 semibold loop-sub">측정 → 실천 → 성장 → 리포트. 스크롤을 내리면 점이 한 바퀴를 돕니다.</p>
+              <p className="t20 medium muted loop-sub">측정 → 실천 → 성장 → 리포트. 스크롤을 내리면 점이 한 바퀴를 돕니다.</p>
             </div>
             <svg className="inf" viewBox={`-20 -40 ${W + 40} ${H + 90}`} aria-hidden="true">
               <defs>

@@ -29,7 +29,7 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 - 규칙: 한 화면(섹션)에 그라디언트 하나. 실외=peach·pink, 실내·기본=violet
 
 ## 구조
-- `src/sections/` Intro(S00) · Hero(S01) · Problem(S02) · Loop(S03) · Play(S04) · Rest.jsx(S05~S10 임시 구조)
+- `src/sections/` Intro(S00) · Hero(S01) · Problem(S02) · Loop(S03) · Play(S04) · Focus(S05) · Band(S06) · Rest.jsx(S07 자리만) · Behind(S08) · Brand(S09) · Outro(S10)
 - `src/components/` Gnb, Wordmark(DS 로고 벡터), Phone(화면 목업), Button, Glass
 - `src/pages/` Landing(S00~S10) · Archive(챕터 템플릿)
 - `src/lib/useScrollProgress.js` sticky 핀 섹션 진행률(0→1) · `src/lib/scroll.js` 전역 Lenis + `scrollToTarget`
@@ -44,7 +44,12 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 - [x] S04 Play — 글라스 카드 + violet 블롭 배경. 유형 카드·코스·무브바디는 DS 원본 에셋(public/img/play/, #05) 사용, 수면 슬라이더는 DS Slider 스펙 CSS
 - [x] S04 DS 에셋 5개 export (#05) — public/img/play/. route.svg 배경은 Mesh gradient 셰이더라 SVG export에서 빠져서 같은 식으로 렌더한 래스터를 SVG 안에 넣음
 - [x] 앱 화면 이미지: `public/screens/{h0,m0,r00,ai,h4}.webp` (750×1624, 위쪽 크롭), `public/img/band.webp` — Figma MCP export → sharp WebP q82
-- [ ] S05 Focus 다크 스크럽 · S06 LOOP band 회전 · S08 장표 마퀴·결정 카드 스택 · S09 로고 스크롤 전환 · S10 커서 그라디언트 — Hi-Fi 나오는 대로
+- [x] S05 Focus(Focus.jsx) — 배경 다크 스크럽 + 무인 측정 다크 v2 화면 6장 — `public/screens/{s0,a1,a2,a3,a4,s9}.webp` export 완료 (#09)
+- [x] S06 LOOP band(Band.jsx) — 기울기 회전 + 핫스팟 글라스 카드, band-cut.webp
+- [x] S08 Behind(Behind.jsx) — 카운트업 숫자 · 장표 썸네일 마퀴 2줄(호버 정지·확대, 클릭→챕터) · 결정 카드 3장 sticky 스택 + 챕터 링크
+- [x] S09 Brand(Brand.jsx) — 핀 220vh, 워드마크 Violet→Intelligence→Delight→Clarity 전환, → #/archive/make
+- [x] S10 Outro(Outro.jsx) — 커서 스포트라이트로 차오르는 워드마크 · 마그네틱 CTA · D-90 ↺ 맨 위로
+- [ ] 프로토타입 체험 링크 (Button href="#" 자리 — 프로토타입 URL 받으면 교체: Hero · GNB · Outro)
 - [ ] S07 처방사 — 대시보드 작업 후
 - [x] 아카이브 페이지 `#/archive/{research,plan,make,result}` — `src/pages/Archive.jsx` 템플릿 하나, 데이터 `src/data/archive.js`(manifest + 헤더 카피. summary는 초안)
 - [x] 라우팅: HashRouter. `/archive/:chapter`만 라우트, 나머지 해시(#top·#service…)는 랜딩이 받아서 해당 id로 스크롤
@@ -67,5 +72,11 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 | public/screens/ai.webp | 2659:18987 | AI 챗봇 랜딩 |
 | public/screens/h4.webp | 2840:27733 | H-4 변화 리포트 · 무브바디 |
 | public/img/band.webp | 2701:56643 | LOOP band 제품 이미지 |
+| public/screens/s0.webp | 2789:19754 | S0 · 측정 모드 진입 (다크 전환) |
+| public/screens/a1.webp | 2786:18937 | A1 v2 · NFC 태그 대기 |
+| public/screens/a2.webp | 2786:18954 | A2 v2 · 태그 인식 · 측정 준비 |
+| public/screens/a3.webp | 2786:18978 | A3 v2 · 측정 중 (실시간) |
+| public/screens/a4.webp | 2786:19005 | A4 v2 · 종목 완료 · 자동 기록 |
+| public/screens/s9.webp | 2786:19127 | S9 v2 · 측정 완료 (라이트 복귀) |
 
 지시 이력은 `docs/claude-code-prompts.md`.

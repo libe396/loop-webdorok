@@ -6,3 +6,6 @@ dist
 
 # 장표 원본 JPG(42MB) — 사이트는 public/archive의 WebP만 씀. manifest.json은 빌드에 필요해서 올림
 docs/archive/**/*.jpg
+
+# 작업용 임시 파일
+.band_preview.png
