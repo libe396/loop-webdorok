@@ -9,6 +9,7 @@ npm install
 npm run dev      # http://localhost:5173
 npm run build    # dist/ → GitHub Pages (vite base './')
 ```
+- 배포: https://libe396.github.io/loop-webdorok/ (저장소 libe396/loop-webdorok) — main에 push하면 자동 배포 (.github/workflows/deploy.yml)
 
 ## 디자인 기준 (Figma가 원본)
 - Figma 파일 `9wJzEafnp4YRzPSR6oswWX` (디자인씽킹스튜디오)
