@@ -15,9 +15,9 @@
   --grad-intelligence: linear-gradient(135deg, #333DED, #DBDEFF);
   --grad-clarity: linear-gradient(135deg, #D2F964, #ADE3EE);
   --grad-linear-blue: linear-gradient(135deg, #495AEE, #DBDEFF);
-  /* Key visual · Radial_blue (Figma Gradient System 2673:35906) — 큰 카드용, --shadow-kv와 같이 */
+  /* Key visual · Radial_blue (Figma Gradient System 2673:35906) — 섹션 배경용 */
   --grad-kv: radial-gradient(ellipse 296% 55% at 50% 45%, #495AEE 17.8%, #6E7CF0 44.5%, #929DF1 71.2%, #B7BFF3 89.9%, #DCE1F4 100%);
-  --shadow-kv: inset 0 0 20px var(--violet-100); /* blue_L inner shadow */
+  --shadow-kv: 0 0 20px var(--violet-100); /* 카드 바깥 그림자 */
   /* radius */
   --r-sm: 8px; --r-md: 16px; --r-lg: 28px; --r-card: 32px; --r-full: 999px;
 

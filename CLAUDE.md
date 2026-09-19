@@ -46,7 +46,7 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 - [x] 앱 화면 이미지: `public/screens/{h0,m0,r00,ai,h4}.webp` (750×1624, 위쪽 크롭), `public/img/band.webp` — Figma MCP export → sharp WebP q82
 - [x] S05 Focus(Focus.jsx) — 배경 다크 스크럽 + 무인 측정 다크 v2 화면 6장 — `public/screens/{s0,a1,a2,a3,a4,s9}.webp` export 완료 (#09)
 - [x] S06 LOOP band(Band.jsx) — 기울기 회전 + 핫스팟 글라스 카드, band-cut.webp
-- [x] S08 Behind(Behind.jsx) — 카운트업 숫자 · 장표 썸네일 마퀴 2줄(호버 정지·확대, 클릭→챕터) · 결정 카드 3장 sticky 스택 + 챕터 링크
+- [x] S08 Behind(Behind.jsx) — 카운트업 숫자 · 장표 썸네일 마퀴 2줄(호버 정지·확대, 클릭→챕터) · 결정 카드 3장 sticky 스택 + 챕터 링크 · 결정 카드 = 흰 글래스, KV는 배경만
 - [x] S09 Brand(Brand.jsx) — 핀 220vh, 워드마크 Violet→Intelligence→Delight→Clarity 전환, → #/archive/make
 - [x] S10 Outro(Outro.jsx) — 커서 스포트라이트로 차오르는 워드마크 · 마그네틱 CTA · D-90 ↺ 맨 위로
 - [ ] 프로토타입 체험 링크 (Button href="#" 자리 — 프로토타입 URL 받으면 교체: Hero · GNB · Outro)
