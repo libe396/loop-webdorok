@@ -40,7 +40,7 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 - [x] S00 Intro — 도트 100 → l o o → +p → 워드마크 → GNB 로고로 비행. 세션당 1회, 건너뛰기·ESC, 끝나면 `loop:intro-done` 이벤트
 - [x] S01 Hero — 리본 배경(정지 WebP) + GSAP 등장(헤드라인 줄 마스크 → 폰 → 글래스 카드)
 - [x] S02 Problem — 단어 스크럽, 끊기는 선, 카운트업, 인용
-- [x] S03 Loop — ∞ 위 러너, 4정거장마다 폰·카피 교체, 한 바퀴 뒤 MEASURE로. 하단 프로그레스바 없음(삭제 확정). 폰 2대(이전=뒤·흐림, 현재=앞), 목업 왼쪽 이동 · GROW는 첨부 AI 챗봇 화면 전체 표시 + 카드는 `.glass-frost`(프로스티드 글라스, loop.css)
+- [x] S03 Loop — ∞ 위 러너, 4정거장마다 폰·카피 교체, 한 바퀴 뒤 MEASURE로. 하단 프로그레스바 없음(삭제 확정). 폰 2대(이전=뒤·흐림, 현재=앞), 목업 왼쪽 이동 · GROW는 첨부 AI 챗봇 화면 전체 표시(`src/assets/screens/ai.webp`, 빌드 해시 URL로 캐시 갱신) + 카드는 `.glass-frost`(프로스티드 글라스, loop.css)
 - [x] S04 Play — 글라스 카드 + violet 블롭 배경. 유형 카드·코스·무브바디는 DS 원본 에셋(public/img/play/, #05) 사용, 수면 슬라이더는 DS Slider 스펙 CSS
 - [x] S04 DS 에셋 5개 export (#05) — public/img/play/. route.svg 배경은 Mesh gradient 셰이더라 SVG export에서 빠져서 같은 식으로 렌더한 래스터를 SVG 안에 넣음
 - [x] 앱 화면 이미지: `public/screens/{h0,m0,r00,ai,h4}.webp` (750×1624, 위쪽 크롭), `public/img/band.webp` — Figma MCP export → sharp WebP q82
