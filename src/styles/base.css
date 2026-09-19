@@ -1,0 +1,73 @@
+@import 'wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.css';
+@import './tokens.css';
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--gray-50); color: var(--ink);
+  font-family: var(--font); font-size: var(--fs-16); line-height: 1.5; letter-spacing: -0.02em;
+  word-break: keep-all; -webkit-font-smoothing: antialiased; overflow-x: clip;
+}
+img { max-width: 100%; display: block; }
+h1, h2, h3, p { margin: 0; }
+button { font: inherit; letter-spacing: inherit; }
+:focus-visible { outline: 2px solid var(--violet-500); outline-offset: 3px; }
+
+/* 타이포 유틸 — Figma web/{size}/{weight} 스타일과 1:1 */
+.t12 { font-size: var(--fs-12); line-height: 1.5; }
+.t14 { font-size: var(--fs-14); line-height: 1.5; }
+.t16 { font-size: var(--fs-16); line-height: 1.5; }
+.t18 { font-size: var(--fs-18); line-height: 1.5; }
+.t20 { font-size: var(--fs-20); line-height: 1.5; }
+.t24 { font-size: var(--fs-24); line-height: 1.5; }
+.t36 { font-size: var(--fs-36); line-height: 1.5; }
+.t48 { font-size: var(--fs-48); line-height: 1.3; }
+.t56 { font-size: var(--fs-56); line-height: 1.3; }
+.medium { font-weight: var(--w-medium); }
+.semibold { font-weight: var(--w-semibold); }
+.muted { color: var(--gray-500); }
+.accent { color: var(--violet-500); }
+.label { color: var(--gray-400); }
+
+/* 섹션 공통: 좌우 121 · 상하 110 */
+.section { position: relative; padding: var(--my) var(--mx); }
+.inner { width: 100%; max-width: var(--content); margin: 0 auto; }
+.head { display: flex; flex-direction: column; gap: 20px; }
+.head .eyebrow { font-size: var(--fs-24); font-weight: var(--w-medium); color: var(--violet-500); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* 글래스 카드 */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 40px rgba(41, 51, 128, 0.10);
+  border-radius: var(--r-lg);
+}
+.chip { display: inline-flex; align-items: center; height: 36px; padding: 0 14px; border-radius: var(--r-full); font-size: var(--fs-14); font-weight: var(--w-medium); background: var(--white); color: var(--ink); white-space: nowrap; }
+.chip.is-lime { background: var(--lime); }
+.chip.is-violet { background: var(--violet-500); color: var(--white); }
+.chip.is-soft { background: var(--violet-100); color: var(--violet-500); }
+.chip.is-dark { background: var(--ink); color: var(--white); }
+
+/* 프로스티드 글라스 — 뒤에 색·이미지가 있을 때만 쓸 것 (회색 배경 위에선 흰 카드와 같음)
+   좌→우로 점점 불투명 · blur 28 + 채도 160 · 안쪽 흰 하이라이트 */
+.glass-frost {
+  background: linear-gradient(100deg, rgba(255, 255, 255, var(--gf-a, 0.38)) 0%, rgba(255, 255, 255, var(--gf-b, 0.72)) 38%, rgba(255, 255, 255, var(--gf-c, 0.86)) 100%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  backdrop-filter: blur(28px) saturate(160%);
+  border: 0;
+  border-radius: var(--r-card);
+  box-shadow:
+    inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.95),
+    inset -1px -1px 0 rgba(255, 255, 255, 0.5),
+    inset 18px 0 32px -24px rgba(255, 255, 255, 0.9),
+    0 30px 80px rgba(41, 51, 128, 0.10);
+}
+.chip.glass-frost { border-radius: 999px; --gf-a: .7; --gf-b: .8; --gf-c: .85; box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .95), 0 4px 12px rgba(41, 51, 128, .08); }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-frost { background: rgba(255, 255, 255, 0.94); }
+}

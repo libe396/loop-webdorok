@@ -1,0 +1,20 @@
+.intro { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; pointer-events: auto; }
+.intro-bg { position: absolute; inset: 0; background: var(--gray-50); }
+.intro-num {
+  position: relative; display: flex; align-items: baseline; font-weight: 700; line-height: 1;
+  font-size: clamp(120px, 17vw, 320px); letter-spacing: -0.04em;
+  /* 도트 숫자 — H-0 홈의 도트 표현과 같은 언어 */
+}
+/* background-clip:text는 transform 걸린 자식에 안 먹어서 글자 span마다 적용 */
+.intro-num .g-a, .intro-num .g-b, .intro-num .g-p {
+  color: transparent; background-image: radial-gradient(circle, var(--ink) 40%, transparent 44%);
+  background-size: clamp(8px, 0.75vw, 14px) clamp(8px, 0.75vw, 14px);
+  -webkit-background-clip: text; background-clip: text;
+}
+.intro-num .g-a, .intro-num .g-b { display: inline-block; }
+.intro-num .g { position: relative; display: inline-block; }
+.intro-num .g-b { position: absolute; left: 0; top: 0; opacity: 0; }
+.intro-num .g-p { width: 0; opacity: 0; overflow: hidden; }
+.intro-wm { position: absolute; height: clamp(90px, 11vw, 200px); aspect-ratio: 271 / 142; color: var(--violet-500); opacity: 0; will-change: transform; }
+.intro-skip { position: absolute; right: var(--mx); bottom: var(--my); border: 0; background: none; color: var(--gray-400); cursor: pointer; }
+.intro-skip:hover { color: var(--ink); }

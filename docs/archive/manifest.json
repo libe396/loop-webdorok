@@ -1,0 +1,367 @@
+{
+ "note": "슬라이드는 1920px JPG. research·plan은 Figma PPT 페이지(38:23) export, make는 loop 디자인시스템 PDF. 웹에서는 WebP로 변환 권장.",
+ "chapters": [
+  {
+   "id": "research",
+   "title": "리서치 과정",
+   "sections": [
+    {
+     "id": "overview",
+     "title": "개요",
+     "slides": [
+      "research/r001.jpg",
+      "research/r002.jpg"
+     ]
+    },
+    {
+     "id": "desk",
+     "title": "데스크 리서치",
+     "slides": [
+      "research/r003.jpg",
+      "research/r004.jpg",
+      "research/r005.jpg",
+      "research/r006.jpg",
+      "research/r007.jpg",
+      "research/r008.jpg",
+      "research/r009.jpg",
+      "research/r010.jpg",
+      "research/r011.jpg",
+      "research/r012.jpg",
+      "research/r013.jpg",
+      "research/r014.jpg",
+      "research/r015.jpg",
+      "research/r016.jpg",
+      "research/r017.jpg",
+      "research/r018.jpg",
+      "research/r019.jpg"
+     ]
+    },
+    {
+     "id": "video",
+     "title": "영상 리서치",
+     "slides": [
+      "research/r020.jpg",
+      "research/r021.jpg",
+      "research/r022.jpg",
+      "research/r023.jpg"
+     ]
+    },
+    {
+     "id": "safari-9988",
+     "title": "서비스 사파리 · 서울체력9988",
+     "slides": [
+      "research/r024.jpg",
+      "research/r025.jpg",
+      "research/r026.jpg",
+      "research/r027.jpg",
+      "research/r028.jpg",
+      "research/r029.jpg",
+      "research/r030.jpg"
+     ]
+    },
+    {
+     "id": "survey",
+     "title": "설문조사 · 70명",
+     "slides": [
+      "research/r031.jpg",
+      "research/r032.jpg",
+      "research/r033.jpg",
+      "research/r034.jpg",
+      "research/r035.jpg",
+      "research/r036.jpg",
+      "research/r037.jpg",
+      "research/r038.jpg",
+      "research/r039.jpg",
+      "research/r040.jpg",
+      "research/r041.jpg",
+      "research/r042.jpg",
+      "research/r043.jpg",
+      "research/r044.jpg",
+      "research/r045.jpg",
+      "research/r046.jpg",
+      "research/r047.jpg",
+      "research/r048.jpg",
+      "research/r049.jpg"
+     ]
+    },
+    {
+     "id": "safari-web",
+     "title": "서비스 사파리 · 홈페이지·온라인 코칭",
+     "slides": [
+      "research/r050.jpg",
+      "research/r051.jpg",
+      "research/r052.jpg",
+      "research/r053.jpg",
+      "research/r054.jpg",
+      "research/r055.jpg",
+      "research/r056.jpg",
+      "research/r057.jpg",
+      "research/r058.jpg",
+      "research/r059.jpg",
+      "research/r060.jpg",
+      "research/r061.jpg"
+     ]
+    },
+    {
+     "id": "interview",
+     "title": "방문자 인터뷰",
+     "slides": [
+      "research/r062.jpg",
+      "research/r063.jpg",
+      "research/r064.jpg",
+      "research/r065.jpg",
+      "research/r066.jpg",
+      "research/r067.jpg",
+      "research/r068.jpg",
+      "research/r069.jpg",
+      "research/r070.jpg",
+      "research/r071.jpg"
+     ]
+    },
+    {
+     "id": "netnography",
+     "title": "넷노그라피 · 6개 센터",
+     "slides": [
+      "research/r072.jpg",
+      "research/r073.jpg",
+      "research/r074.jpg",
+      "research/r075.jpg",
+      "research/r076.jpg",
+      "research/r077.jpg",
+      "research/r078.jpg",
+      "research/r079.jpg",
+      "research/r080.jpg",
+      "research/r081.jpg",
+      "research/r082.jpg",
+      "research/r083.jpg",
+      "research/r084.jpg",
+      "research/r085.jpg",
+      "research/r086.jpg",
+      "research/r087.jpg",
+      "research/r088.jpg",
+      "research/r089.jpg",
+      "research/r090.jpg",
+      "research/r091.jpg"
+     ]
+    },
+    {
+     "id": "affinity",
+     "title": "어피니티 다이어그램",
+     "slides": [
+      "research/r092.jpg",
+      "research/r093.jpg",
+      "research/r094.jpg",
+      "research/r095.jpg",
+      "research/r096.jpg",
+      "research/r097.jpg",
+      "research/r098.jpg",
+      "research/r099.jpg",
+      "research/r100.jpg",
+      "research/r101.jpg"
+     ]
+    },
+    {
+     "id": "expert",
+     "title": "전문가 인터뷰",
+     "slides": [
+      "research/r102.jpg",
+      "research/r103.jpg",
+      "research/r104.jpg",
+      "research/r105.jpg",
+      "research/r106.jpg",
+      "research/r107.jpg",
+      "research/r108.jpg"
+     ]
+    },
+    {
+     "id": "competitive",
+     "title": "사례 · 경쟁 분석",
+     "slides": [
+      "research/r109.jpg",
+      "research/r110.jpg",
+      "research/r111.jpg",
+      "research/r112.jpg",
+      "research/r113.jpg",
+      "research/r114.jpg",
+      "research/r115.jpg",
+      "research/r116.jpg",
+      "research/r117.jpg",
+      "research/r118.jpg",
+      "research/r119.jpg",
+      "research/r120.jpg",
+      "research/r121.jpg",
+      "research/r122.jpg",
+      "research/r123.jpg"
+     ]
+    },
+    {
+     "id": "persona",
+     "title": "행동 매핑 · 퍼소나 · 여정 지도",
+     "slides": [
+      "research/r124.jpg",
+      "research/r125.jpg",
+      "research/r126.jpg",
+      "research/r127.jpg",
+      "research/r128.jpg",
+      "research/r129.jpg",
+      "research/r130.jpg",
+      "research/r131.jpg",
+      "research/r132.jpg",
+      "research/r133.jpg",
+      "research/r134.jpg"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "plan",
+   "title": "기획 과정",
+   "sections": [
+    {
+     "id": "problem",
+     "title": "핵심 문제 선정",
+     "slides": [
+      "plan/p001.jpg"
+     ]
+    },
+    {
+     "id": "ideation",
+     "title": "아이디어 발산 · MVP 선정",
+     "slides": [
+      "plan/p002.jpg",
+      "plan/p003.jpg",
+      "plan/p004.jpg",
+      "plan/p005.jpg",
+      "plan/p006.jpg",
+      "plan/p007.jpg",
+      "plan/p008.jpg",
+      "plan/p009.jpg",
+      "plan/p010.jpg",
+      "plan/p011.jpg",
+      "plan/p012.jpg",
+      "plan/p013.jpg",
+      "plan/p014.jpg"
+     ]
+    },
+    {
+     "id": "features",
+     "title": "기능 구체화",
+     "slides": [
+      "plan/p015.jpg",
+      "plan/p016.jpg",
+      "plan/p017.jpg",
+      "plan/p018.jpg",
+      "plan/p019.jpg",
+      "plan/p020.jpg",
+      "plan/p021.jpg",
+      "plan/p022.jpg",
+      "plan/p028.jpg"
+     ]
+    },
+    {
+     "id": "blueprint",
+     "title": "서비스 블루프린트",
+     "slides": [
+      "plan/p023.jpg",
+      "plan/p024.jpg",
+      "plan/p025.jpg",
+      "plan/p026.jpg",
+      "plan/p027.jpg"
+     ]
+    },
+    {
+     "id": "fsd",
+     "title": "기능 명세서",
+     "slides": [
+      "plan/p029.jpg",
+      "plan/p030.jpg"
+     ]
+    },
+    {
+     "id": "timeline",
+     "title": "일정",
+     "slides": [
+      "plan/p031.jpg"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "make",
+   "title": "제작 과정",
+   "sections": [
+    {
+     "id": "brand",
+     "title": "브랜드 · 로고",
+     "slides": [
+      "make/m001.jpg",
+      "make/m002.jpg",
+      "make/m003.jpg"
+     ]
+    },
+    {
+     "id": "foundation",
+     "title": "파운데이션",
+     "slides": [
+      "make/m004.jpg",
+      "make/m005.jpg",
+      "make/m006.jpg",
+      "make/m007.jpg",
+      "make/m008.jpg",
+      "make/m009.jpg",
+      "make/m010.jpg",
+      "make/m011.jpg",
+      "make/m012.jpg",
+      "make/m013.jpg",
+      "make/m014.jpg",
+      "make/m015.jpg"
+     ]
+    },
+    {
+     "id": "components",
+     "title": "컴포넌트",
+     "slides": [
+      "make/m016.jpg",
+      "make/m017.jpg",
+      "make/m018.jpg",
+      "make/m019.jpg",
+      "make/m020.jpg"
+     ]
+    },
+    {
+     "id": "dark",
+     "title": "다크 모드",
+     "slides": [
+      "make/m021.jpg"
+     ]
+    },
+    {
+     "id": "ia",
+     "title": "IA 개편 (추가 예정)",
+     "slides": []
+    },
+    {
+     "id": "wireframe",
+     "title": "와이어프레임 (추가 예정)",
+     "slides": []
+    },
+    {
+     "id": "hifi",
+     "title": "Hi-Fi 1차 → 2차 (추가 예정)",
+     "slides": []
+    }
+   ]
+  },
+  {
+   "id": "result",
+   "title": "결과물",
+   "sections": [
+    {
+     "id": "screens",
+     "title": "최종 화면 (Hi-Fi 확정 후)",
+     "slides": []
+    }
+   ]
+  }
+ ]
+}

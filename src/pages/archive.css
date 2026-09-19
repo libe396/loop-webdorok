@@ -1,0 +1,77 @@
+/* ───────── 아카이브 챕터 템플릿 ───────── */
+.ar { padding: 0 var(--mx) var(--my); }
+
+/* 헤더: eyebrow · 제목 · 한 줄 요약 · 메타 칩 */
+.ar-head { padding: calc(var(--gnb-h) + var(--my)) 0 var(--my); display: flex; flex-direction: column; gap: 16px; }
+.ar-eyebrow { color: var(--violet-500); }
+.ar-summary { color: var(--gray-500); max-width: 40em; }
+.ar-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+
+/* 본문: 좌 목차 sticky + 우 장표 스택 */
+.ar-body { display: grid; grid-template-columns: minmax(240px, 320px) 1fr; gap: 56px; align-items: start; }
+
+.ar-toc { position: sticky; top: calc(var(--gnb-h) + 24px); max-height: calc(100vh - var(--gnb-h) - 48px); overflow-y: auto; transition: top .35s ease; }
+[data-gnb="hidden"] .ar-toc { top: 24px; max-height: calc(100vh - 48px); }
+.ar-toc ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
+.ar-toc button {
+  width: 100%; display: grid; grid-template-columns: 28px 1fr auto; align-items: baseline; gap: 8px;
+  padding: 10px 12px; border: 0; border-radius: var(--r-md); background: none; text-align: left; cursor: pointer;
+  color: var(--gray-400); transition: color .2s, background-color .2s;
+}
+.ar-toc button:hover { color: var(--ink); }
+.ar-toc button.is-active { color: var(--ink); background: var(--white); }
+.ar-toc .ar-i { font-variant-numeric: tabular-nums; }
+.ar-toc button.is-active .ar-i { color: var(--violet-500); }
+.ar-toc .ar-n { color: var(--gray-400); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* 장표 스택: 간격 0, 캡션 없음. 폭에 맞추고 비율은 원본 그대로(로딩 전엔 width/height 속성의 16:9로 자리 잡음) */
+.ar-stack { min-width: 0; border-radius: var(--r-lg); overflow: clip; background: var(--white); }
+.ar-img { display: block; width: 100%; height: auto; }
+.ar-ph { width: 100%; aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; background: var(--gray-100); color: var(--gray-400); border-bottom: 1px solid var(--gray-200); }
+.ar-soon { display: flex; align-items: center; justify-content: center; min-height: 160px; padding: 24px; color: var(--gray-400); border: 2px dashed var(--gray-200); border-radius: var(--r-lg); margin: 16px; text-align: center; }
+
+/* 빈 챕터 */
+.ar-empty { border: 2px dashed var(--gray-200); border-radius: var(--r-card); min-height: 420px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 40px 24px; text-align: center; }
+
+/* 다음 챕터 */
+.ar-next {
+  display: flex; flex-direction: column; gap: 8px; margin-top: var(--my); padding: 48px;
+  border-radius: var(--r-card); background: var(--white); color: var(--ink); text-decoration: none; transition: background-color .25s, color .25s;
+}
+.ar-next-t span { display: inline-block; transition: transform .25s; }
+.ar-next:hover { background: var(--violet-500); color: var(--white); }
+.ar-next:hover .muted { color: var(--violet-100); }
+.ar-next:hover .ar-next-t span { transform: translateX(8px); }
+
+/* 맨 위로 */
+.ar-top {
+  position: fixed; right: var(--mx); bottom: 32px; z-index: 40; width: 56px; height: 56px; border-radius: var(--r-full); border: 0;
+  display: flex; align-items: center; justify-content: center; background: var(--ink); color: var(--white); cursor: pointer;
+  opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .25s, transform .25s;
+}
+.ar-top.is-on { opacity: 1; transform: none; pointer-events: auto; }
+
+/* 가로 칩 목차 — Medium 이하에서만 */
+.ar-chips { display: none; }
+
+@media (max-width: 1024px) {
+  .ar-body { display: block; }
+  .ar-toc { display: none; }
+  .ar-chips {
+    position: sticky; top: var(--gnb-h); z-index: 30; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
+    margin: 0 calc(var(--mx) * -1) 16px; padding: 12px var(--mx);
+    background: color-mix(in srgb, var(--gray-50) 90%, transparent); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    transition: top .35s ease;
+  }
+  .ar-chips::-webkit-scrollbar { display: none; }
+  [data-gnb="hidden"] .ar-chips { top: 0; }
+  .ar-chips .chip { border: 0; cursor: pointer; flex: none; gap: 6px; }
+  .ar-chips .ar-n { color: var(--gray-400); font-variant-numeric: tabular-nums; }
+  .ar-chips .is-dark .ar-n { color: var(--gray-300); }
+  .ar-stack { border-radius: var(--r-md); }
+  .ar-next { padding: 32px 24px; }
+}
+@media (max-width: 480px) {
+  .ar-top { bottom: 20px; width: 48px; height: 48px; }
+  .ar-soon { min-height: 120px; }
+}

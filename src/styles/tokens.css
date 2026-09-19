@@ -1,0 +1,41 @@
+/* ───────── LOOP Design Tokens (loop 디자인시스템 기준) ───────── */
+:root {
+  /* violet */
+  --violet-100: #DCE1F4; --violet-300: #92A9EC; --violet-500: #495AEE;
+  --violet-700: #1F0280; --violet-900: #0A0227;
+  /* expressive */
+  --paper: #F7F3EB; --lime: #D2F964; --aqua: #ADE3EE; --peach: #FEB28E; --pink: #EFB9EE;
+  /* grayscale */
+  --white: #FFFFFF; --gray-50: #F4F4F5; --gray-100: #E9E9EA; --gray-200: #D2D3D6;
+  --gray-300: #BCBDC1; --gray-400: #8F9198; --gray-500: #62666F; --gray-600: #434752;
+  --gray-700: #353A46; --gray-800: #2F333F; --gray-900: #1F232B; --black: #1A1A1A;
+  --ink: #1E1E1E;
+  /* gradients */
+  --grad-delight: linear-gradient(135deg, #FEB28E, #EFB9EE);
+  --grad-intelligence: linear-gradient(135deg, #333DED, #DBDEFF);
+  --grad-clarity: linear-gradient(135deg, #D2F964, #ADE3EE);
+  --grad-linear-blue: linear-gradient(135deg, #495AEE, #DBDEFF);
+  /* radius */
+  --r-sm: 8px; --r-md: 16px; --r-lg: 28px; --r-card: 32px; --r-full: 999px;
+
+  /* web layout — Hi-Fi 1920 기준: 좌우 121 / 상하 110 */
+  --mx: clamp(20px, 6.3vw, 121px);
+  --my: clamp(72px, 5.73vw, 110px);
+  --content: 1678px;
+  --gnb-h: 96px;
+
+  /* type — Wanted Sans, 4px 단위. 36 이하 150%, 48부터 130%, 자간 -2% */
+  --font: "Wanted Sans Variable", "Wanted Sans", -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --fs-12: 12px; --fs-14: 14px; --fs-16: 16px; --fs-18: 18px; --fs-20: 20px;
+  --fs-24: 24px; --fs-36: 36px; --fs-48: 48px; --fs-56: 56px;
+  --w-medium: 500; --w-semibold: 600;
+}
+
+/* Medium (481–1024): 큰 사이즈만 한 단계씩 축소 */
+@media (max-width: 1024px) {
+  :root { --fs-56: 44px; --fs-48: 36px; --fs-36: 28px; --fs-24: 20px; --gnb-h: 72px; }
+}
+/* Small (≤480) */
+@media (max-width: 480px) {
+  :root { --fs-56: 32px; --fs-48: 28px; --fs-36: 24px; --fs-24: 18px; --fs-20: 18px; }
+}

@@ -1,0 +1,8 @@
+node_modules
+dist
+.DS_Store
+*.log
+.env*
+
+# 장표 원본 JPG(42MB) — 사이트는 public/archive의 WebP만 씀. manifest.json은 빌드에 필요해서 올림
+docs/archive/**/*.jpg
