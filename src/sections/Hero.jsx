@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import Phone from '../components/Phone'
 import Glass from '../components/Glass'
 import Button from '../components/Button'
+import { scrollToTarget } from '../lib/scroll'
 import { PROTOTYPE_URL } from '../data/links'
 import { screen, img } from '../data/screens'
 import { prefersReducedMotion } from '../lib/useScrollProgress'
@@ -54,8 +55,9 @@ export default function Hero() {
             5분 첫 행동부터 12주 실천, 변화 확인까지 이어줍니다.
           </p>
           <div className="hero-btns">
+            <Button href="#service" onClick={e => { e.preventDefault(); scrollToTarget(document.getElementById('service')) }}>LOOP가 이어주는 과정 보기</Button>
             {PROTOTYPE_URL && <Button href={PROTOTYPE_URL} target="_blank" rel="noopener">프로토타입 체험</Button>}
-            <Button variant="line" href="#/archive/research">리서치 과정 보기</Button>
+            <a className="hero-research t16 medium" href="#/archive/research">리서치 과정 보기 →</a>
           </div>
         </div>
 

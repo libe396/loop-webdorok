@@ -77,10 +77,11 @@ function Route() {
   }, [])
   return (
     <div className="toy glass-frost toy-route" ref={ref}>
-      <ToyHead n="03" title="측정 결과가 지도 필터가 된다" hint="화면에 들어오면 경로가 그려져요" />
+      <ToyHead n="03" title="측정 결과에 맞춘 운동 코스" hint="화면에 들어오면 추천 경로가 그려져요" />
       <div className={`route-art ${on ? 'is-on' : ''}`}>
         <img src={A.route} alt="코스 경로 — 1 입구, 2 야외기구, 3 계단, 4 스트레칭" draggable="false" onError={hide} />
       </div>
+      <span className="t14 medium label">예시</span>
     </div>
   )
 }

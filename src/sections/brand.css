@@ -1,5 +1,5 @@
-/* S09 Brand — 핀 200vh, 워드마크 4벌이 겹쳐 있다가 스크롤 구간마다 하나만 켜짐 */
-.brand-s { height: 150vh; position: relative; background: var(--white); }
+/* S09 Brand — 100vh 진입 전환, 워드마크 4벌이 겹쳐 있다가 스크롤 구간마다 하나만 켜짐 */
+.brand-s { height: 100vh; position: relative; background: var(--white); }
 .brand-pin { position: sticky; top: 0; height: 100svh; min-height: 720px; display: flex; }
 .brand-in { display: grid; grid-template-columns: 40fr 60fr; gap: 48px; align-items: center; height: 100%; }
 .brand-copy { gap: 16px; }

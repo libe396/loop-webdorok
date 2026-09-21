@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import useScrollProgress from '../lib/useScrollProgress'
 import Phone from '../components/Phone'
 import Glass from '../components/Glass'
@@ -29,6 +29,17 @@ const START = 10, END = 240 + 10 // 한 바퀴 + Measure 직전까지
 
 export default function Loop() {
   const ref = useRef(null)
+  const pinRef = useRef(null)
+  useEffect(() => {
+    const pin = pinRef.current
+    // A tall mobile panel must scroll far enough to reveal the card below the phone.
+    const update = () => pin.style.setProperty('--loop-pin-top', `${Math.min(0, window.innerHeight - pin.offsetHeight)}px`)
+    const observer = new ResizeObserver(update)
+    observer.observe(pin)
+    window.addEventListener('resize', update)
+    update()
+    return () => { observer.disconnect(); window.removeEventListener('resize', update) }
+  }, [])
   const p = useScrollProgress(ref)
   const head = START + p * (END - START) // 0..250 (240 넘으면 다시 처음 = loop)
   const idx = Math.floor(head) % 240
@@ -43,13 +54,17 @@ export default function Loop() {
 
   return (
     <section className="loop" ref={ref} id="service">
-      <div className="loop-pin section">
+      <div className="loop-pin section" ref={pinRef}>
         <div className="inner loop-in">
           <div className="loop-left">
             <div className="head">
               <p className="eyebrow">HOW LOOP WORKS</p>
               <h2 className="t48 semibold">한 번 측정하면,<br />루틴은 계속됩니다.</h2>
               <p className="t20 medium muted loop-sub">측정 → 실천 → 성장 → 리포트. 스크롤을 내리면 점이 한 바퀴를 돕니다.</p>
+            </div>
+            <div className="loop-mobile-progress" aria-label={`현재 단계 ${active + 1} / 4`}>
+              <div className="loop-progress-dots" aria-hidden="true">{STATIONS.map((s, k) => <i key={s.en} className={k === active ? 'is-on' : ''} />)}</div>
+              <p className="t16 medium accent">{st.when} · {st.en} · {st.ko}</p>
             </div>
             <svg className="inf" viewBox={`-20 -40 ${W + 40} ${H + 90}`} aria-hidden="true">
               <defs>

@@ -1,5 +1,5 @@
-.problem { height: 240vh; position: relative; background: var(--white); }
-.problem-pin { position: sticky; top: 0; min-height: 100svh; display: flex; align-items: center; }
+.problem { height: auto; position: relative; background: var(--white); }
+.problem-pin { position: relative; display: flex; align-items: center; }
 .problem-in { display: flex; flex-direction: column; gap: 40px; }
 .problem-sent { max-width: 18em; }
 .problem-sent span { transition: opacity .2s; }
@@ -16,7 +16,11 @@
 .problem-quote { margin: 0; display: grid; grid-template-columns: 64px 1fr; gap: 4px 20px; align-items: center; background: var(--gray-50); border-radius: var(--r-lg); padding: 28px 32px; transition: opacity .3s; }
 .pq-av { grid-row: span 2; width: 64px; height: 64px; border-radius: 50%; background: var(--violet-100); }
 .problem-quote blockquote { margin: 0; }
-@media (max-width: 1024px) { .problem { height: 200vh; } .problem-stats { grid-template-columns: 1fr; gap: 12px; } .problem-in { gap: 28px; } }
+@media (max-width: 1024px) { .problem-stats { grid-template-columns: 1fr; gap: 12px; } .problem-in { gap: 28px; } }
 @media (max-width: 480px) { .problem-quote { grid-template-columns: 1fr; padding: 20px; } .pq-av { display: none; } }
 
 .problem-source { display: block; margin-top: 12px; text-underline-offset: 4px; }
+
+.problem-stats { opacity: 0; transform: translateY(20px); transition: opacity .5s, transform .5s; }
+.problem.is-entered .problem-stats { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .problem-stats { opacity: 1; transform: none; transition: none; } }

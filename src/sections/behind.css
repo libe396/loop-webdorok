@@ -31,7 +31,7 @@
 
 /* 카드에는 흰 frost, KV는 스택 뒤의 단일 블롭으로만 사용 */
 .dec-stack { position: relative; isolation: isolate; list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; }
-.dec-stack::before { content: ''; position: absolute; inset: 5% -4%; z-index: -1; border-radius: var(--r-full); background: var(--grad-kv); filter: blur(60px); pointer-events: none; }
+.dec-stack::before { content: ''; position: absolute; inset: 5% -4%; z-index: -1; border-radius: var(--r-full); background: var(--grad-kv); opacity: .6; filter: blur(60px); pointer-events: none; }
 .dec-card { display: flex; flex-direction: column; gap: 20px; padding: 32px; color: var(--ink); --gf-a: .82; --gf-b: .9; --gf-c: .96; }
 .dec-card.glass-frost { box-shadow: var(--shadow-kv); }
 .dec-card > .t20 { max-width: 40em; color: var(--ink); }

@@ -6,7 +6,7 @@
 .hero-copy h1 { display: flex; flex-direction: column; }
 .hero-line { display: block; overflow: hidden; padding-bottom: .06em; }
 .hero-line > span { display: block; }
-.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.hero-btns { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
 
 /* 비주얼: 1920 Hi-Fi 좌표를 컨테이너 폭(cqw) 기준으로 */
 .hero-visual { position: relative; container-type: inline-size; width: 100%; aspect-ratio: 940 / 900; }
@@ -38,3 +38,6 @@
   .hero-card .t20 { font-size: 15px; } .hero-card .t14 { font-size: 12px; }
   .card-cond { left: 0; } .card-remeasure { left: auto; right: 0; }
 }
+
+.hero-research { color: var(--violet-500); text-decoration: none; padding: 12px 0; }
+.hero-research:hover { text-decoration: underline; text-underline-offset: 4px; }

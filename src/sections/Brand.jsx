@@ -15,7 +15,7 @@ const LOOKS = [
 export default function Brand() {
   const ref = useRef(null)
   const reduced = prefersReducedMotion()
-  const p = useScrollProgress(ref)
+  const p = useScrollProgress(ref, 'entry')
   const i = reduced ? 0 : Math.min(3, Math.floor(p * 4.4))
   return (
     <section className="brand-s" id="brand" ref={ref}>
