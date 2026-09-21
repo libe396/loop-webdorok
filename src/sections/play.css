@@ -74,3 +74,7 @@
   .sleep-tag { position: static; align-self: flex-start; }
   .play-blob { filter: blur(40px); }
 }
+
+.play-caption { margin-top: 24px; }
+.cmp-current { display: flex; align-items: center; gap: 8px; }
+.cmp-example { color: var(--ink); background: var(--white); border-radius: var(--r-full); padding: 4px 8px; }

@@ -29,27 +29,31 @@
 .ch-link:hover i { transform: translateX(4px); color: var(--violet-500); }
 .ch-link.is-empty b { color: var(--gray-400); }
 
-/* 배경 블롭·그림자 없이 내용의 위계와 구분선으로 결정 세 가지를 연결 */
-.dec-stack { list-style: none; margin: 0; padding: 0 40px; background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--r-card); }
-.dec-card { display: flex; flex-direction: column; gap: 20px; padding: 32px 0; color: var(--ink); }
-.dec-card + .dec-card { border-top: 1px solid var(--gray-200); }
-.dec-card > .t20 { max-width: 40em; color: var(--gray-600); }
+/* 카드에는 흰 frost, KV는 스택 뒤의 단일 블롭으로만 사용 */
+.dec-stack { position: relative; isolation: isolate; list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; }
+.dec-stack::before { content: ''; position: absolute; inset: 5% -4%; z-index: -1; border-radius: var(--r-full); background: var(--grad-kv); filter: blur(60px); pointer-events: none; }
+.dec-card { display: flex; flex-direction: column; gap: 20px; padding: 32px; color: var(--ink); --gf-a: .82; --gf-b: .9; --gf-c: .96; }
+.dec-card.glass-frost { box-shadow: var(--shadow-kv); }
+.dec-card > .t20 { max-width: 40em; color: var(--ink); }
 .dec-no { color: var(--violet-500); letter-spacing: .04em; }
 .dec-ft { display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; }
 .dec-ft s { color: var(--gray-400); text-decoration-thickness: 3px; }
-.dec-ft span { color: var(--lime); -webkit-text-stroke: 1px var(--ink); }
+.dec-ft span { color: var(--ink); }
+.ch-link.is-empty { color: var(--gray-400); cursor: default; }
+.ch-link.is-empty:hover { padding-left: 4px; }
+.ch-link.is-empty i { visibility: hidden; }
 
 @media (max-width: 1024px) {
   .nums { grid-template-columns: 1fr 1fr; margin-top: 32px; }
   .dec-in { grid-template-columns: 1fr; gap: 32px; }
   .dec-head { position: static; }
-  .dec-stack { padding: 0 28px; }
+  .dec-stack { padding: 0; }
   .behind-dec { padding-top: 64px; }
 }
 @media (max-width: 480px) {
   .mq-item { width: 200px; border-radius: 10px; }
-  .dec-stack { padding: 0 24px; border-radius: 24px; }
-  .dec-card { padding: 28px 0; gap: 16px; }
+  .dec-stack { padding: 0; }
+  .dec-card { padding: 24px; gap: 16px; }
   .dec-ft { gap: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {

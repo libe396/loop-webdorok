@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { WORDMARK_PATH } from '../data/logo'
 import Button from '../components/Button'
+import { PROTOTYPE_URL } from '../data/links'
 import { scrollToTarget } from '../lib/scroll'
 import './outro.css'
 
@@ -17,6 +18,7 @@ export default function Outro() {
   }
   // 마그네틱 CTA: 버튼 반경 120px 안에서 커서 쪽으로 살짝 끌려옴
   const onCta = (e) => {
+    if (!ctaRef.current) return
     const r = ctaRef.current.getBoundingClientRect()
     const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2)
     setMag(Math.hypot(dx, dy) < 120 ? { x: dx * 0.25, y: dy * 0.35 } : { x: 0, y: 0 })
@@ -28,11 +30,11 @@ export default function Outro() {
       <div className="inner">
         <div className="outro-top">
           <h2 className="t48 semibold">직접 loop의 서비스를<br />체험해보세요.</h2>
-          <div className="outro-cta">
+          {PROTOTYPE_URL && <div className="outro-cta">
             <span ref={ctaRef} className="magnet" style={{ transform: `translate(${mag.x}px, ${mag.y}px)` }}>
-              <Button href="#">프로토타입 체험</Button>
+              <Button href={PROTOTYPE_URL} target="_blank" rel="noopener">프로토타입 체험</Button>
             </span>
-          </div>
+          </div>}
         </div>
 
         <svg ref={svgRef} className={`outro-word ${pt ? 'is-live' : ''}`} viewBox="0 0 271 142" role="img" aria-label="loop"

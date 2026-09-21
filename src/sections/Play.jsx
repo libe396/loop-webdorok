@@ -21,11 +21,11 @@ function TypeCard() {
   const shuffle = () => setSpin((s) => s + 1)
   return (
     <div className="toy glass-frost toy-type">
-      <ToyHead n="01" title="나의 체력 유형 뽑기" hint="카드에 커서를 올리면 기울어지고, 누르면 섞여요" />
+      <ToyHead n="01" title="측정하면 나오는 체력 유형 카드" hint="커서를 올리면 기울어져요 · 누르면 한 바퀴 돌아요" />
       <div className="type-stage">
         <span className={`type-back is-peach ${spin % 2 ? 'is-swap' : ''}`} />
         <span className={`type-back is-aqua ${spin % 2 ? 'is-swap' : ''}`} />
-        <button className="type-card" aria-label="체력 유형 카드 섞기" onClick={shuffle}
+        <button className="type-card" aria-label="체력 유형 카드 한 바퀴 돌리기" onClick={shuffle}
           onPointerMove={(e) => { const r = e.currentTarget.getBoundingClientRect(); setTilt({ x: (e.clientX - r.left) / r.width - 0.5, y: (e.clientY - r.top) / r.height - 0.5 }) }}
           onPointerLeave={() => setTilt({ x: 0, y: 0 })}
           style={{ transform: `rotate(-3deg) rotateY(${tilt.x * 22 + spin * 360}deg) rotateX(${-tilt.y * 22}deg)` }}>
@@ -33,8 +33,7 @@ function TypeCard() {
         </button>
       </div>
       <div className="toy-foot">
-        <button className="chip is-dark" onClick={shuffle}>↻&nbsp; 다시 뽑기</button>
-        <span className="chip is-lime">12가지 유형</span>
+        <span className="chip is-lime">12가지 중 하나 · 예시</span>
       </div>
     </div>
   )
@@ -96,7 +95,7 @@ function MoveBody() {
         <img className="cmp-pose" src={A.before} alt="" draggable="false" onError={hide} />
         <div className="cmp-after"><img className="cmp-pose" src={A.current} alt="" draggable="false" onError={hide} /></div>
         <span className="cmp-bar"><i>↔</i></span>
-        <span className="chip glass-frost cmp-l">3개월 전</span><span className="chip is-violet cmp-r">현재 · +12°</span>
+        <span className="chip glass-frost cmp-l">3개월 전</span><span className="cmp-r cmp-current"><span className="chip is-violet">현재 · +12°</span><span className="t12 medium cmp-example">예시</span></span>
         <input type="range" min="0" max="100" value={x} onChange={(e) => setX(+e.target.value)} aria-label="전후 비교 슬라이더" />
       </div>
     </div>
@@ -131,6 +130,7 @@ export default function Play() {
           <div className="bento-mid"><Sleep /><Route /></div>
           <MoveBody />
         </div>
+        <p className="play-caption t14 medium label">화면과 수치는 프로토타입 예시예요.</p>
       </div>
     </section>
   )

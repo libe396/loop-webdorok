@@ -1,8 +1,9 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useLocation, useParams } from 'react-router-dom'
 import { getChapter, nextChapter } from '../data/archive'
 import { introDone } from '../sections/Intro'
 import { scrollToTarget } from '../lib/scroll'
+import ArchiveLightbox from '../components/ArchiveLightbox'
 import './archive.css'
 
 /** #/archive/:chapter — 챕터 4개가 이 템플릿 하나를 씀 */
@@ -16,6 +17,9 @@ export default function Archive() {
 const isNarrow = () => window.matchMedia('(max-width: 1024px)').matches
 
 function ChapterPage({ ch }) {
+  const { search } = useLocation()
+  const [lightbox, setLightbox] = useState(null)
+  const slides = ch.sections.flatMap(s => s.slides.map((slide, i) => ({ ...slide, alt: `${s.title} ${i + 1}` })))
   const filled = ch.sections.filter((s) => s.slides.length)
   const [active, setActive] = useState(ch.sections[0]?.id)
   const secRefs = useRef({})
@@ -28,6 +32,20 @@ function ChapterPage({ ch }) {
     document.title = `${ch.title} · 국민체력 loop`
     scrollToTarget(0, { immediate: true })
   }, [ch])
+
+  // 근거 링크는 HashRouter 안의 검색 파라미터로 섹션/장표를 지정합니다.
+  useEffect(() => {
+    const params = new URLSearchParams(search)
+    const slide = params.get('slide')
+    const section = params.get('section')
+    let frame = requestAnimationFrame(() => {
+      frame = requestAnimationFrame(() => {
+        const target = (slide && document.getElementById(`slide-${slide}`)) || secRefs.current[section]
+        if (target) scrollToTarget(target, { offset: (isNarrow() ? chipsRef.current?.offsetHeight ?? 0 : 0) + 120, immediate: true })
+      })
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [search, ch])
 
   // 스크롤 위치 하이라이트: 화면 30% 선을 넘은 마지막 섹션
   useEffect(() => {
@@ -70,6 +88,7 @@ function ChapterPage({ ch }) {
   return (
     <main className="ar">
       <header className="ar-head inner">
+        <Link className="ar-back t16 semibold" to="/">← 서비스 소개로</Link>
         <p className="ar-eyebrow t16 semibold">{ch.eyebrow}</p>
         <h1 className="t56 semibold">{ch.title}</h1>
         <p className="ar-summary t20 medium">{ch.summary}</p>
@@ -117,8 +136,9 @@ function ChapterPage({ ch }) {
             <div className="ar-stack">
               {ch.sections.map((s, si) => (
                 <section key={s.id} className="ar-sec" ref={(el) => { secRefs.current[s.id] = el }} aria-label={s.title}>
+                  <header className="ar-section-head"><h2 className="t24 semibold">{s.title}</h2>{s.summary && <p className="t18 medium">{s.summary}</p>}</header>
                   {s.slides.length
-                    ? s.slides.map((sl, i) => <Slide key={sl.id} slide={sl} eager={si === 0 && i === 0} alt={`${s.title} ${i + 1}`} />)
+                    ? s.slides.map((sl, i) => <Slide key={sl.id} slide={sl} eager={si === 0 && i === 0} alt={`${s.title} ${i + 1}`} onOpen={() => setLightbox(slides.findIndex(item => item.id === sl.id))} />)
                     : <div className="ar-soon t16 medium">{s.title}</div>}
                 </section>
               ))}
@@ -128,6 +148,7 @@ function ChapterPage({ ch }) {
       )}
 
       <div className="inner">
+        <Link className="ar-back ar-back-bottom t16 semibold" to="/">← 서비스 소개로</Link>
         <Link className="ar-next" to={`/archive/${next.id}`}>
           <span className="t16 medium muted">{next.id === 'research' ? '처음으로' : '다음 챕터'}</span>
           <span className="ar-next-t t48 semibold">{next.title} <span aria-hidden="true">→</span></span>
@@ -135,21 +156,24 @@ function ChapterPage({ ch }) {
       </div>
 
       <TopButton />
+      {lightbox !== null && <ArchiveLightbox slides={slides} index={lightbox} onIndex={setLightbox} onClose={() => setLightbox(null)} />}
     </main>
   )
 }
 
 /** 장표 한 장: 16:9 자리를 먼저 잡고, 이미지가 없으면(아직 export 전) 플레이스홀더 */
-function Slide({ slide, eager, alt }) {
+function Slide({ slide, eager, alt, onOpen }) {
   const [failed, setFailed] = useState(false)
   if (failed) return <div className="ar-ph t14 medium" role="img" aria-label={alt}>{slide.id}</div>
   return (
+    <button type="button" className="ar-slide-button" id={`slide-${slide.id}`} onClick={onOpen} aria-label={`${alt} 크게 보기`}>
     <img
       className="ar-img" src={slide.src} srcSet={slide.srcSet}
       sizes="(max-width: 1024px) 100vw, 75vw" width="1920" height="1080" alt={alt}
       loading={eager ? 'eager' : 'lazy'} fetchPriority={eager ? 'high' : undefined} decoding="async"
       onError={() => setFailed(true)}
     />
+    </button>
   )
 }
 

@@ -1,5 +1,5 @@
-import { useRef } from 'react'
-import useScrollProgress, { prefersReducedMotion } from '../lib/useScrollProgress'
+import { useEffect, useRef, useState } from 'react'
+import { prefersReducedMotion } from '../lib/useScrollProgress'
 import { img } from '../data/screens'
 import './band.css'
 
@@ -15,9 +15,18 @@ const SPOTS = [
 export default function Band() {
   const ref = useRef(null)
   const reduced = prefersReducedMotion()
-  const raw = useScrollProgress(ref)
-  const p = reduced ? 1 : raw
-  const e = 1 - Math.pow(1 - Math.min(1, p / 0.7), 3) // 0→.7 동안 제자리로
+  const [entered, setEntered] = useState(reduced)
+  useEffect(() => {
+    if (reduced) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      setEntered(true)
+      observer.disconnect()
+    }, { threshold: 0.15 })
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [reduced])
+  const e = entered ? 1 : 0
   const style = {
     '--rx': `${(1 - e) * 38}deg`,
     '--rz': `${(1 - e) * -14}deg`,
@@ -39,8 +48,8 @@ export default function Band() {
           <div className="band-stage" style={style}>
             <div className="band-obj">
               <img src={img('band-cut.webp')} alt="LOOP band — 로고가 새겨진 보라색 실리콘 밴드" draggable="false" />
-              {SPOTS.map((s) => (
-                <div key={s.k} className={`spot is-${s.side} ${p >= s.at ? 'is-on' : ''}`} style={{ left: `${s.x}%`, top: `${s.y}%` }}>
+              {SPOTS.map((s, i) => (
+                <div key={s.k} className={`spot is-${s.side} ${entered ? 'is-on' : ''}`} style={{ left: `${s.x}%`, top: `${s.y}%`, '--spot-delay': reduced ? '0s' : `${i * 0.4}s` }}>
                   <i className="spot-dot" />
                   <span className="spot-line" />
                   <div className="spot-card glass-frost">
@@ -53,8 +62,8 @@ export default function Band() {
           </div>
 
           <ul className="band-list">
-            {SPOTS.map((s) => (
-              <li key={s.k} className={`glass-frost ${p >= s.at ? 'is-on' : ''}`}><b className="t16 semibold">{s.k}</b><span className="t14 medium">{s.v}</span></li>
+            {SPOTS.map((s, i) => (
+              <li key={s.k} style={{ '--spot-delay': reduced ? '0s' : `${i * 0.4}s` }} className={`glass-frost ${entered ? 'is-on' : ''}`}><b className="t16 semibold">{s.k}</b><span className="t14 medium">{s.v}</span></li>
             ))}
           </ul>
         </div>

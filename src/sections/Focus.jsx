@@ -21,11 +21,11 @@ export default function Focus() {
   const p = useScrollProgress(ref)
   // 0→.12 어두워짐 · .12→.86 다크 화면 5장 · .86→.94 다시 밝아짐(S9)
   const d = reduced ? 0 : p < 0.12 ? p / 0.12 : p < 0.86 ? 1 : Math.max(0, 1 - (p - 0.86) / 0.08)
-  const i = p >= 0.86 ? 5 : Math.min(4, Math.floor(Math.max(0, p - 0.06) / 0.16))
+  const i = p >= 0.86 ? 5 : Math.min(4, Math.floor(Math.max(0, p - 0.08) / 0.156))
 
   // GNB도 같이 어두워지게
   useEffect(() => {
-    document.documentElement.classList.toggle('is-focus-dark', d > 0.5)
+    document.documentElement.classList.toggle('is-focus-dark', d > 0.5 && window.innerWidth > 1024)
     return () => document.documentElement.classList.remove('is-focus-dark')
   }, [d])
 
@@ -54,10 +54,12 @@ export default function Focus() {
 
           <div className="focus-visual">
             <span className="focus-glow" aria-hidden="true" />
-            <div className="focus-phones">
+            <div className="focus-phones" tabIndex={0} role="region" aria-label="측정 과정 6장 · 좌우로 스와이프하거나 화살표 키로 이동">
               {STEPS.map((s, k) => (
-                <Phone key={s.code} src={screen(s.code)} code={s.label} width="100cqw"
-                  className={`focus-phone ${k === i ? 'is-on' : ''}`} />
+                <figure key={s.code} className={`focus-slide ${k === i ? 'is-on' : ''}`}>
+                  <Phone src={screen(s.code)} code={s.label} width="100cqw" className="focus-phone" />
+                  <figcaption className="focus-slide-caption"><b className="t18 semibold">{String(k + 1).padStart(2, '0')} · {s.title}</b><span className="t16 medium">{s.body}</span></figcaption>
+                </figure>
               ))}
             </div>
             <p className="focus-count t14 medium" aria-hidden="true">{String(i + 1).padStart(2, '0')} / {String(STEPS.length).padStart(2, '0')}</p>

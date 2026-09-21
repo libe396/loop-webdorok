@@ -1,6 +1,6 @@
 /* S06 LOOP band — 핀 240vh. 밴드는 누워 있다가 스크롤하면 돌아 서고, 핫스팟 3개가 차례로 켜짐 */
-.band { height: 240vh; position: relative; background: var(--gray-50); }
-.band-pin { position: sticky; top: 0; height: 100svh; min-height: 720px; display: flex; overflow: hidden; isolation: isolate; }
+.band { height: auto; position: relative; background: var(--gray-50); }
+.band-pin { position: relative; min-height: 720px; display: flex; overflow: hidden; isolation: isolate; }
 /* 섹션당 그라디언트 하나 — 밴드 뒤 violet 빛 (글라스 카드가 비칠 색) */
 .band-blob { position: absolute; z-index: -1; right: -6vw; top: 50%; width: 64vw; aspect-ratio: 1; transform: translateY(-50%); border-radius: 50%; filter: blur(50px);
   background: radial-gradient(circle, rgba(146, 169, 236, .85), rgba(220, 225, 244, .6) 40%, rgba(220, 225, 244, 0) 68%); }
@@ -38,7 +38,7 @@
 .band-list { display: none; }
 
 @media (max-width: 1024px) {
-  .band { height: 200vh; }
+  .band { height: auto; }
   .band-pin { min-height: 0; }
   .band-in { grid-template-columns: 1fr; grid-template-rows: auto auto auto; align-content: center; gap: 16px; }
   .band-blob { width: 110vw; right: -30vw; top: 55%; }
@@ -51,4 +51,12 @@
 @media (prefers-reduced-motion: reduce) {
   .band { height: auto; }
   .band-pin { position: relative; height: auto; }
+}
+
+/* 일반 흐름 안에서 진입 한 번만 재생 */
+.band-obj { transition: transform .8s cubic-bezier(.2, .7, 0, 1); }
+.spot-dot, .spot-line, .spot-card, .band-list li { transition-delay: var(--spot-delay, 0s); }
+@media (prefers-reduced-motion: reduce) {
+  .band-obj, .spot-dot, .spot-line, .spot-card, .band-list li { transition: none; }
+  .spot.is-on .spot-dot::after { animation: none; }
 }

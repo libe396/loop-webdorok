@@ -1,12 +1,13 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import useScrollProgress from '../lib/useScrollProgress'
 import './problem.css'
 
 const SENT = '측정은 AI로 고도화됐는데, 일상은 왜 그대로일까요?'.split(' ')
 const STATS = [
-  { to: 32, fmt: v => `${Math.round(v)}만 명`, label: '매년 국민체력100에서 체력을 인증합니다' },
-  { to: 4.6, fmt: v => `${v.toFixed(1)}%`, label: '과학적 체력관리를 실천하는 국민' },
-  { to: 1, fmt: v => (v >= 0.95 ? '3일~1주' : '3일~'), label: '처방을 받아도 대부분 이때 멈춥니다' },
+  { to: 32, fmt: v => `${Math.round(v)}만 명`, label: '매년 국민체력100에서 체력을 인증합니다', source: '출처 · 데스크 리서치 r008', section: 'desk', slide: 'r008' },
+  { to: 4.6, fmt: v => `${v.toFixed(1)}%`, label: '과학적 체력관리를 실천하는 국민', source: '출처 · 데스크 리서치 r009', section: 'desk', slide: 'r009' },
+  { to: 1, fmt: v => (v >= 0.95 ? '3일~1주' : '3일~'), label: '방문자 인터뷰에서 나타난 처방 중단 시점', source: '출처 · 방문자 인터뷰 6명(2026) · r062·r071', section: 'interview', slide: 'r071' },
 ]
 const clamp = (v) => Math.min(1, Math.max(0, v))
 
@@ -36,6 +37,7 @@ export default function Problem() {
               <div key={s.label}>
                 <b className="t56 semibold">{s.fmt(s.to * sp)}</b>
                 <span className="t16 medium muted">{s.label}</span>
+                <Link className="problem-source t14 medium label" to={`/archive/research?section=${s.section}&slide=${s.slide}`}>{s.source} →</Link>
               </div>
             ))}
           </div>
@@ -44,7 +46,6 @@ export default function Problem() {
             <blockquote className="t24 semibold">“건강은 신경 쓰이는데, 운동을 어떻게 시작하고 꾸준히 해야 할지는 항상 막막해요.”</blockquote>
             <figcaption className="t14 medium muted">김지연, 27세 마케터 · 메인 퍼소나</figcaption>
           </figure>
-          <p className="t12 medium label">출처: 국민체육진흥공단 국민체력100 공식 자료 · 국민체력100 방문자 인터뷰(자체 조사)</p>
         </div>
       </div>
     </section>

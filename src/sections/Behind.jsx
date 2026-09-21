@@ -7,9 +7,9 @@ import './behind.css'
 const NUMS = [[12, '주', '리서치 기간'], [70, '명', '설문 응답'], [2562, '개', '경쟁 앱 리뷰 분석'], [6, '곳', '체력인증센터 넷노그라피']]
 
 const DECISIONS = [
-  { from: '탭 5개', to: '4개', why: '코스 탭을 없애고 루틴 안에서 실내·실외를 함께. 차별점은 측정 → 처방.' },
-  { from: '코스 = 장소', to: '미션', why: '코스 자체를 처방되는 운동 세션으로. ‘10분 미션에 32분 코스’가 사라짐.' },
-  { from: '8블록', to: '4블록', why: '구려 보이는 원인은 장식 부족이 아니라 정보 과다.' },
+  { from: '탭 5개', to: '4개', why: '코스 탭을 없애고 루틴 안에서 실내·실외를 함께 보여줘요. LOOP의 차별점은 측정 → 처방이니까요.' },
+  { from: '코스 = 장소', to: '미션', why: '코스를 장소 목록이 아니라 처방되는 운동 세션으로 바꿨어요. \'10분 미션에 32분 코스\'가 사라졌어요.' },
+  { from: '8블록', to: '4블록', why: '화면당 정보 블록을 절반으로. 문제는 장식이 부족한 게 아니라 정보가 너무 많은 거였어요.' },
 ]
 
 /* 챕터별 장표를 고르게 뽑아 썸네일(960) 목록으로 */
@@ -87,19 +87,21 @@ export default function Behind() {
             <h3 className="t36 semibold">리서치가 바꾼 것들</h3>
             <p className="t18 medium muted">장표는 결과가 아니라 결정의 근거입니다.</p>
             <div className="ch-links">
-              {CHAPTERS.map((c, i) => (
-                <Link key={c.id} to={`/archive/${c.id}`} className={`ch-link ${c.count ? '' : 'is-empty'}`}>
+              {CHAPTERS.map((c, i) => {
+                const Tag = c.id === 'result' ? 'span' : Link
+                return (
+                <Tag key={c.id} {...(c.id === 'result' ? { 'aria-disabled': true } : { to: `/archive/${c.id}` })} className={`ch-link ${c.count ? '' : 'is-empty'}`}>
                   <span className="t14 medium label">{String(i + 1).padStart(2, '0')}</span>
                   <b className="t18 semibold">{c.title}</b>
                   <span className="t14 medium muted">{c.count ? `${c.count}장` : '공개 예정'}</span>
                   <i aria-hidden="true">→</i>
-                </Link>
-              ))}
+                </Tag>
+              )})}
             </div>
           </div>
           <ol className="dec-stack">
             {DECISIONS.map((d, i) => (
-              <li key={d.from} className="dec-card">
+              <li key={d.from} className="dec-card glass-frost">
                 <span className="t14 medium dec-no">DECISION {String(i + 1).padStart(2, '0')}</span>
                 <p className="t48 semibold dec-ft"><s>{d.from}</s><span aria-hidden="true">→</span>{d.to}</p>
                 <p className="t20 medium">{d.why}</p>

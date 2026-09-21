@@ -11,7 +11,8 @@
      "slides": [
       "research/r001.jpg",
       "research/r002.jpg"
-     ]
+     ],
+     "summary": "측정 이후의 공백을 설계해 체력 데이터를 일상 속 행동으로 연결합니다."
     },
     {
      "id": "desk",
@@ -34,7 +35,8 @@
       "research/r017.jpg",
       "research/r018.jpg",
       "research/r019.jpg"
-     ]
+     ],
+     "summary": "측정 수치가 오늘의 행동으로 이어지려면 생활 언어 해석과 개선 우선순위가 필요합니다."
     },
     {
      "id": "video",
@@ -44,7 +46,8 @@
       "research/r021.jpg",
       "research/r022.jpg",
       "research/r023.jpg"
-     ]
+     ],
+     "summary": "측정 결과가 목표와 운동 계획으로 연결될 때 측정 경험은 루틴 형성의 계기가 됩니다."
     },
     {
      "id": "safari-9988",
@@ -57,7 +60,8 @@
       "research/r028.jpg",
       "research/r029.jpg",
       "research/r030.jpg"
-     ]
+     ],
+     "summary": "측정 현장의 만족도와 별개로 결과 비교 기준과 이후 행동을 돕는 안내가 필요합니다."
     },
     {
      "id": "survey",
@@ -82,7 +86,8 @@
       "research/r047.jpg",
       "research/r048.jpg",
       "research/r049.jpg"
-     ]
+     ],
+     "summary": "건강 관심만으로 실천이 시작되지는 않아 결과 해석과 구체적인 첫 행동 안내가 필요합니다."
     },
     {
      "id": "safari-web",
@@ -100,7 +105,8 @@
       "research/r059.jpg",
       "research/r060.jpg",
       "research/r061.jpg"
-     ]
+     ],
+     "summary": "홈페이지에 머무는 운동 처방을 일상에서 쉽게 다시 확인하고 실천할 수 있어야 합니다."
     },
     {
      "id": "interview",
@@ -116,7 +122,8 @@
       "research/r069.jpg",
       "research/r070.jpg",
       "research/r071.jpg"
-     ]
+     ],
+     "summary": "측정 결과를 이해한 뒤에도 운동을 시작하고 유지할 장치가 부족합니다."
     },
     {
      "id": "netnography",
@@ -142,7 +149,8 @@
       "research/r089.jpg",
       "research/r090.jpg",
       "research/r091.jpg"
-     ]
+     ],
+     "summary": "센터 안에서 끝나는 경험을 일상과 재방문으로 이어줄 연결이 필요합니다."
     },
     {
      "id": "affinity",
@@ -158,7 +166,8 @@
       "research/r099.jpg",
       "research/r100.jpg",
       "research/r101.jpg"
-     ]
+     ],
+     "summary": "무엇을 먼저 할지 제시하고 작은 변화를 확인하게 하는 구조로 측정 이후의 행동을 돕습니다."
     },
     {
      "id": "expert",
@@ -171,7 +180,8 @@
       "research/r106.jpg",
       "research/r107.jpg",
       "research/r108.jpg"
-     ]
+     ],
+     "summary": "운동 처방은 등급 설명을 넘어 개인의 생활에 맞는 행동과 개선 우선순위를 제시해야 합니다."
     },
     {
      "id": "competitive",
@@ -192,7 +202,8 @@
       "research/r121.jpg",
       "research/r122.jpg",
       "research/r123.jpg"
-     ]
+     ],
+     "summary": "개인화·기록·변화 시각화·리마인드가 운동과 헬스케어 앱의 반복 사용을 돕는 공통 설계 요소입니다."
     },
     {
      "id": "persona",
@@ -209,7 +220,8 @@
       "research/r132.jpg",
       "research/r133.jpg",
       "research/r134.jpg"
-     ]
+     ],
+     "summary": "필요성은 느끼지만 실천을 지속하기 어려운 사용자를 주요 대상으로 설정했습니다."
     }
    ]
   },
@@ -222,7 +234,8 @@
      "title": "핵심 문제 선정",
      "slides": [
       "plan/p001.jpg"
-     ]
+     ],
+     "summary": "결과 이해부터 재측정까지 단절된 흐름을 잇는 행동 전환을 최우선 문제로 선정했습니다."
     },
     {
      "id": "ideation",
@@ -241,7 +254,8 @@
       "plan/p012.jpg",
       "plan/p013.jpg",
       "plan/p014.jpg"
-     ]
+     ],
+     "summary": "결과 이해·작은 첫 실천·재측정과 변화 확인을 하나의 서비스 방향으로 묶었습니다."
     },
     {
      "id": "features",
@@ -256,7 +270,8 @@
       "plan/p021.jpg",
       "plan/p022.jpg",
       "plan/p028.jpg"
-     ]
+     ],
+     "summary": "MVP 기능을 결과 해석부터 12주 실천과 재측정까지 이어지는 하나의 행동 전환 루프로 연결했습니다."
     },
     {
      "id": "blueprint",
@@ -267,7 +282,8 @@
       "plan/p025.jpg",
       "plan/p026.jpg",
       "plan/p027.jpg"
-     ]
+     ],
+     "summary": "센터의 측정과 상담에서 일상 실천·변화 확인·재측정까지 사용자와 운영의 접점을 연결했습니다."
     },
     {
      "id": "fsd",
@@ -275,14 +291,16 @@
      "slides": [
       "plan/p029.jpg",
       "plan/p030.jpg"
-     ]
+     ],
+     "summary": "핵심 루프와 확장 기능의 우선순위·출시 단계를 나눠 구현 기준을 정리했습니다."
     },
     {
      "id": "timeline",
      "title": "일정",
      "slides": [
       "plan/p031.jpg"
-     ]
+     ],
+     "summary": "서비스 디자인 이후 사용자 테스트와 개선, 전시 체험 제작으로 이어지는 일정을 계획했습니다."
     }
    ]
   },
@@ -297,7 +315,8 @@
       "make/m001.jpg",
       "make/m002.jpg",
       "make/m003.jpg"
-     ]
+     ],
+     "summary": ""
     },
     {
      "id": "foundation",
@@ -315,7 +334,8 @@
       "make/m013.jpg",
       "make/m014.jpg",
       "make/m015.jpg"
-     ]
+     ],
+     "summary": "색·타이포그래피·간격과 반경의 공통 규칙으로 화면 구성의 일관성을 만듭니다."
     },
     {
      "id": "components",
@@ -326,29 +346,34 @@
       "make/m018.jpg",
       "make/m019.jpg",
       "make/m020.jpg"
-     ]
+     ],
+     "summary": "주요 행동의 중요도와 상태를 공통 컴포넌트의 변형으로 구분합니다."
     },
     {
      "id": "dark",
      "title": "다크 모드",
      "slides": [
       "make/m021.jpg"
-     ]
+     ],
+     "summary": "기존 컴포넌트 연결을 유지하면서 다크 화면 전용 표현을 구성했습니다."
     },
     {
      "id": "ia",
      "title": "IA 개편 (추가 예정)",
-     "slides": []
+     "slides": [],
+     "summary": ""
     },
     {
      "id": "wireframe",
      "title": "와이어프레임 (추가 예정)",
-     "slides": []
+     "slides": [],
+     "summary": ""
     },
     {
      "id": "hifi",
      "title": "Hi-Fi 1차 → 2차 (추가 예정)",
-     "slides": []
+     "slides": [],
+     "summary": ""
     }
    ]
   },
@@ -359,7 +384,8 @@
     {
      "id": "screens",
      "title": "최종 화면 (Hi-Fi 확정 후)",
-     "slides": []
+     "slides": [],
+     "summary": ""
     }
    ]
   }

@@ -1,0 +1,191 @@
+[
+  {
+    "chapter": "research",
+    "section": "overview",
+    "title": "개요",
+    "summary": "측정 이후의 공백을 설계해 체력 데이터를 일상 속 행동으로 연결합니다.",
+    "source": "r002",
+    "nodeId": "520:3",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "research",
+    "section": "desk",
+    "title": "데스크 리서치",
+    "summary": "측정 수치가 오늘의 행동으로 이어지려면 생활 언어 해석과 개선 우선순위가 필요합니다.",
+    "source": "r019",
+    "nodeId": "520:1504",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "research",
+    "section": "video",
+    "title": "영상 리서치",
+    "summary": "측정 결과가 목표와 운동 계획으로 연결될 때 측정 경험은 루틴 형성의 계기가 됩니다.",
+    "source": "r023",
+    "nodeId": "520:1661",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "research",
+    "section": "safari-9988",
+    "title": "서비스 사파리 · 서울체력9988",
+    "summary": "측정 현장의 만족도와 별개로 결과 비교 기준과 이후 행동을 돕는 안내가 필요합니다.",
+    "source": "r030",
+    "nodeId": "520:1837",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "research",
+    "section": "survey",
+    "title": "설문조사 · 70명",
+    "summary": "건강 관심만으로 실천이 시작되지는 않아 결과 해석과 구체적인 첫 행동 안내가 필요합니다.",
+    "source": "r049",
+    "nodeId": "520:4063",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "research",
+    "section": "safari-web",
+    "title": "서비스 사파리 · 홈페이지·온라인 코칭",
+    "summary": "홈페이지에 머무는 운동 처방을 일상에서 쉽게 다시 확인하고 실천할 수 있어야 합니다.",
+    "source": "r061",
+    "nodeId": "520:4109",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "research",
+    "section": "interview",
+    "title": "방문자 인터뷰",
+    "summary": "측정 결과를 이해한 뒤에도 운동을 시작하고 유지할 장치가 부족합니다.",
+    "source": "r062·r071",
+    "nodeId": "520:4702",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "research",
+    "section": "netnography",
+    "title": "넷노그라피 · 6개 센터",
+    "summary": "센터 안에서 끝나는 경험을 일상과 재방문으로 이어줄 연결이 필요합니다.",
+    "source": "r091",
+    "nodeId": "519:118",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "research",
+    "section": "affinity",
+    "title": "어피니티 다이어그램",
+    "summary": "무엇을 먼저 할지 제시하고 작은 변화를 확인하게 하는 구조로 측정 이후의 행동을 돕습니다.",
+    "source": "r101",
+    "nodeId": "990:15181",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "research",
+    "section": "expert",
+    "title": "전문가 인터뷰",
+    "summary": "운동 처방은 등급 설명을 넘어 개인의 생활에 맞는 행동과 개선 우선순위를 제시해야 합니다.",
+    "source": "r108",
+    "nodeId": "990:15410",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "research",
+    "section": "competitive",
+    "title": "사례 · 경쟁 분석",
+    "summary": "개인화·기록·변화 시각화·리마인드가 운동과 헬스케어 앱의 반복 사용을 돕는 공통 설계 요소입니다.",
+    "source": "r123",
+    "nodeId": "990:15567",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "research",
+    "section": "persona",
+    "title": "행동 매핑 · 퍼소나 · 여정 지도",
+    "summary": "필요성은 느끼지만 실천을 지속하기 어려운 사용자를 주요 대상으로 설정했습니다.",
+    "source": "r128",
+    "nodeId": "990:16262",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "plan",
+    "section": "problem",
+    "title": "핵심 문제 선정",
+    "summary": "결과 이해부터 재측정까지 단절된 흐름을 잇는 행동 전환을 최우선 문제로 선정했습니다.",
+    "source": "p001",
+    "nodeId": "1043:8427",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "plan",
+    "section": "ideation",
+    "title": "아이디어 발산 · MVP 선정",
+    "summary": "결과 이해·작은 첫 실천·재측정과 변화 확인을 하나의 서비스 방향으로 묶었습니다.",
+    "source": "p014",
+    "nodeId": "990:18205",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "plan",
+    "section": "features",
+    "title": "기능 구체화",
+    "summary": "MVP 기능을 결과 해석부터 12주 실천과 재측정까지 이어지는 하나의 행동 전환 루프로 연결했습니다.",
+    "source": "p028",
+    "nodeId": "1065:7885",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "plan",
+    "section": "blueprint",
+    "title": "서비스 블루프린트",
+    "summary": "센터의 측정과 상담에서 일상 실천·변화 확인·재측정까지 사용자와 운영의 접점을 연결했습니다.",
+    "source": "p023",
+    "nodeId": "1045:9084",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "plan",
+    "section": "fsd",
+    "title": "기능 명세서",
+    "summary": "핵심 루프와 확장 기능의 우선순위·출시 단계를 나눠 구현 기준을 정리했습니다.",
+    "source": "p029·p030",
+    "nodeId": "990:18940",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "plan",
+    "section": "timeline",
+    "title": "일정",
+    "summary": "서비스 디자인 이후 사용자 테스트와 개선, 전시 체험 제작으로 이어지는 일정을 계획했습니다.",
+    "source": "p031",
+    "nodeId": "1094:16254",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "make",
+    "section": "foundation",
+    "title": "파운데이션",
+    "summary": "색·타이포그래피·간격과 반경의 공통 규칙으로 화면 구성의 일관성을 만듭니다.",
+    "source": "Design System · color tokens / Typography / Spacing and radius",
+    "nodeId": "1425:19701",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "make",
+    "section": "components",
+    "title": "컴포넌트",
+    "summary": "주요 행동의 중요도와 상태를 공통 컴포넌트의 변형으로 구분합니다.",
+    "source": "Design System · Button",
+    "nodeId": "1304:17348",
+    "status": "서연 승인 완료"
+  },
+  {
+    "chapter": "make",
+    "section": "dark",
+    "title": "다크 모드",
+    "summary": "기존 컴포넌트 연결을 유지하면서 다크 화면 전용 표현을 구성했습니다.",
+    "source": "Design System · Dark Components",
+    "nodeId": "2183:11009",
+    "status": "서연 승인 완료"
+  }
+]

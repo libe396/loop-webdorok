@@ -80,3 +80,18 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 | public/screens/s9.webp | 2786:19127 | S9 v2 · 측정 완료 (라이트 복귀) |
 
 지시 이력은 `docs/claude-code-prompts.md`.
+
+
+## #14 · 공개 완성도 개선
+
+- 공유: 전체 서비스명 title, Hero 서브카피 description, OG/Twitter 메타·theme-color·DS 심볼 favicon 추가. `scripts/generate-social.mjs`로 Wanted Sans + 리본 + 워드마크를 1200×630 OG 이미지로 합성.
+- 공개 상태: S07은 코드 유지·렌더 제외, GNB 결과물 숨김, S08 결과물은 비활성 span. result 라우트 유지.
+- `src/data/links.js`의 PROTOTYPE_URL은 서연 확인으로 빈 값 유지. Hero/GNB/Outro CTA 모두 숨김. URL 설정 시 새 탭으로 열림.
+- S04 유형 카드는 무작위 뽑기가 아닌 측정 결과 예시로 안내. 카드 회전 유지, 다시 뽑기 삭제, 무브바디와 벤토에 예시 표시.
+- S02: r008/r009의 32만·4.6%는 PPT 출처로 유지(서연 승인, 원출처 문서·기준연도 미확인). 3일~1주는 r062/r071의 방문자 6명 인터뷰(2026) 범위로 문구 한정.
+- S08: 지정 결정 문구 반영. 직접 근거 매칭 미확인으로 세 카드 모두 링크 없이 유지(서연 승인). 흰 glass-frost 카드·진한 본문, 단일 KV 블롭 배경·외부 KV 그림자.
+- S06: 240vh 핀 제거, 진입 한 번 기울기 전환·핫스팟 0.4초 간격 등장. S05 240vh, S09 150vh. 1024 이하 및 reduced-motion에서는 S05 6장 가로 스크롤, S09 2×2 워드마크.
+- S03 시점: D-0 / D-1 / 6주차 / 12주차.
+- 아카이브: 21개 요약 서연 승인 후 manifest 반영. make 브랜드·로고 및 자료 없는 4개 섹션은 빈 summary 유지. 원본 라이트박스(ESC·배경 클릭·좌우 키), 서비스 소개 복귀, 근거 딥링크 추가.
+- 검증: A~E 빌드 통과. 1920×1080 / 390×844 Chromium 캡처·조작 검증. Landing 높이 21,918→17,818px / 17,220→13,425px. 자세한 근거·승인은 `docs/review-14.md`.
+- 배포: 모든 승인 완료. 단일 커밋 `공개 완성도 개선 #14`를 main에 push하는 기존 GitHub Pages 워크플로 사용.

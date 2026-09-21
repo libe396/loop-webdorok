@@ -18,3 +18,5 @@
 .problem-quote blockquote { margin: 0; }
 @media (max-width: 1024px) { .problem { height: 200vh; } .problem-stats { grid-template-columns: 1fr; gap: 12px; } .problem-in { gap: 28px; } }
 @media (max-width: 480px) { .problem-quote { grid-template-columns: 1fr; padding: 20px; } .pq-av { display: none; } }
+
+.problem-source { display: block; margin-top: 12px; text-underline-offset: 4px; }

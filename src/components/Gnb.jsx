@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Wordmark } from './Wordmark'
 import Button from './Button'
+import { PROTOTYPE_URL } from '../data/links'
 import './gnb.css'
 
 const NAV = [
   ['서비스', '#service'], ['리서치 과정', '#/archive/research'], ['기획 과정', '#/archive/plan'],
-  ['제작 과정', '#/archive/make'], ['결과물', '#/archive/result'],
+  ['제작 과정', '#/archive/make'], // 결과물은 완성 후 메뉴에 복구
 ]
 
 export default function Gnb() {
@@ -38,7 +39,7 @@ export default function Gnb() {
           ))}
         </nav>
         <div className="gnb-right">
-          <Button size="s" href="#prototype">프로토타입 체험</Button>
+          {PROTOTYPE_URL && <Button size="s" href={PROTOTYPE_URL} target="_blank" rel="noopener">프로토타입 체험</Button>}
           <button className="gnb-burger" aria-expanded={open} aria-label="메뉴" onClick={() => setOpen(v => !v)}>
             <span /><span />
           </button>

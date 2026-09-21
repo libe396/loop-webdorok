@@ -75,3 +75,20 @@
   .ar-top { bottom: 20px; width: 48px; height: 48px; }
   .ar-soon { min-height: 120px; }
 }
+
+.ar-back { color: var(--violet-500); text-underline-offset: 4px; }
+.ar-back-bottom { display: inline-block; margin-top: 48px; }
+.ar-section-head { padding: 32px 24px; display: grid; gap: 12px; }
+.ar-section-head p { color: var(--gray-600); }
+.ar-slide-button { display: block; width: 100%; border: 0; padding: 0; background: var(--white); cursor: zoom-in; }
+.ar-slide-button:focus-visible { outline-offset: -4px; }
+.ar-lightbox { position: fixed; inset: 0; width: 100%; max-width: none; height: 100dvh; max-height: none; margin: 0; border: 0; padding: 24px; background: var(--gray-900); color: var(--white); overflow: auto; touch-action: auto; overscroll-behavior: contain; }
+.ar-lightbox[open] { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.ar-lightbox::backdrop { background: var(--gray-900); }
+.ar-lightbox-toolbar { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.ar-lightbox-actions { display: flex; gap: 8px; }
+.ar-lightbox-actions button { min-width: 44px; min-height: 44px; padding: 8px 16px; border: 0; border-radius: var(--r-full); color: var(--ink); background: var(--white); cursor: pointer; }
+.ar-lightbox-actions button:disabled { opacity: .35; cursor: default; }
+.ar-lightbox-image { width: auto; height: auto; max-width: 100%; max-height: calc(100dvh - 180px); object-fit: contain; margin: auto 0; flex-shrink: 0; }
+.ar-lightbox-hint { color: var(--gray-300); text-align: center; }
+@media (max-width: 480px) { .ar-lightbox { padding: 16px; } .ar-lightbox-toolbar { gap: 12px; } }

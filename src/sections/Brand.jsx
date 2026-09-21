@@ -41,6 +41,7 @@ export default function Brand() {
               {LOOKS.map((l, k) => (
                 <span key={l.k} className={`brand-mark ${k === i ? 'is-on' : ''}`} style={{ color: 'var(--violet-500)' }}>
                   <Wordmark height="100%" gradient={l.g} />
+                  <span className="brand-tile-caption t14 medium">{l.k} · {l.when}</span>
                 </span>
               ))}
             </div>

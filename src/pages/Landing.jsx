@@ -7,7 +7,7 @@ import Loop from '../sections/Loop'
 import Play from '../sections/Play'
 import Focus from '../sections/Focus'
 import Band from '../sections/Band'
-import { Prescriber } from '../sections/Rest'
+// import { Prescriber } from '../sections/Rest' // 대시보드 완성 후 복구
 import Behind from '../sections/Behind'
 import Brand from '../sections/Brand'
 import Outro from '../sections/Outro'
@@ -18,7 +18,7 @@ export default function Landing() {
 
   // 아카이브에서 #service 같은 랜딩 앵커로 넘어온 경우: 마운트 뒤 해당 섹션으로
   useEffect(() => {
-    document.title = '국민체력 loop'
+    document.title = '국민체력 loop — 측정에서 끝나지 않는 건강의 선순환'
     const el = document.getElementById(pathname.replace(/^\//, ''))
     if (el) scrollToTarget(el, { immediate: true })
     else if (pathname === '/') scrollToTarget(0, { immediate: true })
@@ -34,7 +34,7 @@ export default function Landing() {
         <Play />      {/* S04 */}
         <Focus />     {/* S05 */}
         <Band />      {/* S06 */}
-        <Prescriber />{/* S07 */}
+        {/* S07 대시보드 완성 후 복구: <Prescriber /> */}
         <Behind />    {/* S08 */}
         <Brand />     {/* S09 */}
         <Outro />     {/* S10 */}
