@@ -7,12 +7,12 @@ import './focus.css'
 /* S05 Focus — 측정·운동 중엔 앱이 다크로 바뀌는 규칙을 사이트가 그대로 따라 한다.
    Hi-Fi 페이지 "무인 측정 진행 — 다크 v2" 섹션 화면 순서 그대로 (카피 = 화면 제목) */
 const STEPS = [
-  { code: 's0', label: 'S0', title: '측정 모드로 전환되었어요', body: '측정이 시작되면 화면부터 어두워져요.' },
-  { code: 'a1', label: 'A1', title: '기기에 태그를 대주세요', body: '폰을 대면 기기와 종목이 바로 잡혀요.' },
-  { code: 'a2', label: 'A2', title: '3초 후 측정을 시작해요', body: '자세 안내를 보고, 카운트다운 뒤 시작.' },
-  { code: 'a3', label: 'A3', title: '천천히 앞으로 숙여요', body: '측정 중엔 지금 값 하나만 크게.' },
-  { code: 'a4', label: 'A4', title: '12.4cm 기록했어요', body: '끝나면 자동 기록, 다음 종목으로.' },
-  { code: 's9', label: 'S9', title: '6종목 측정을 모두 마쳤어요', body: '측정이 끝나면 다시 밝아져요.' },
+  { code: 's0', label: 'M-07', title: '측정 모드로 전환되었어요', body: '측정이 시작되면 화면부터 어두워져요.' },
+  { code: 'a1', label: 'M-08', title: '기기에 태그를 대주세요', body: '폰을 대면 기기와 종목이 바로 잡혀요.' },
+  { code: 'a2', label: 'M-09', title: '3초 후 측정을 시작해요', body: '자세 안내를 보고, 카운트다운 뒤 시작.' },
+  { code: 'a3', label: 'M-10', title: '천천히 앞으로 숙여요', body: '측정 중엔 지금 값 하나만 크게.' },
+  { code: 'a4', label: 'M-11', title: '12.4cm 기록했어요', body: '끝나면 자동 기록, 다음 종목으로.' },
+  { code: 's9', label: 'M-16', title: '6종목 측정을 모두 마쳤어요', body: '측정이 끝나면 다시 밝아져요.' },
 ]
 
 export default function Focus() {

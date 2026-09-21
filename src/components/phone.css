@@ -1,11 +1,16 @@
 .phone {
-  width: var(--pw); aspect-ratio: 340 / 723; padding: calc(var(--pw) * 0.03);
-  border-radius: calc(var(--pw) * 0.155); background: var(--ink);
-  box-shadow: 0 calc(var(--pw) * 0.12) calc(var(--pw) * 0.25) rgba(30, 36, 100, 0.22);
+  position: relative; width: var(--pw); aspect-ratio: var(--phone-ratio);
+  border-radius: calc(var(--pw) * .15);
+  filter: drop-shadow(0 calc(var(--pw) * .06) calc(var(--pw) * .08) rgba(30, 36, 100, .16));
 }
 .phone-screen {
-  width: 100%; height: 100%; border-radius: calc(var(--pw) * 0.13); overflow: hidden;
-  background: var(--gray-50); display: flex; align-items: center; justify-content: center;
+  position: absolute; left: var(--phone-screen-left); top: var(--phone-screen-top);
+  width: var(--phone-screen-width); height: var(--phone-screen-height);
+  border-radius: calc(var(--pw) * .13); overflow: auto; scrollbar-width: none;
+  background: var(--gray-50); overscroll-behavior: contain;
 }
-.phone-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-.phone-ph { font-size: 14px; font-weight: 500; color: var(--gray-400); letter-spacing: 0.04em; }
+.phone-screen::-webkit-scrollbar { display: none; }
+.phone-screen:focus-visible { outline: 2px solid var(--violet-500); outline-offset: -3px; }
+.phone-screen img { display: block; width: 100%; height: auto; }
+.phone-mockup { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.phone-ph { font-size: var(--fs-14); font-weight: var(--w-medium); color: var(--gray-400); }

@@ -21,6 +21,11 @@
   /* radius */
   --r-sm: 8px; --r-md: 16px; --r-lg: 28px; --r-card: 32px; --r-full: 999px;
 
+  /* Figma iPhone 17 instance: outer 450×920, viewport (24,23) 402×874 */
+  --phone-ratio: 450 / 920;
+  --phone-screen-left: 5.333333%; --phone-screen-top: 2.5%;
+  --phone-screen-width: 89.333333%; --phone-screen-height: 95%;
+
   /* web layout — Hi-Fi 1920 기준: 좌우 121 / 상하 110 */
   --mx: clamp(20px, 6.3vw, 121px);
   --my: clamp(72px, 5.73vw, 110px);

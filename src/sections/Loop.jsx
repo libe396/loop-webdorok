@@ -16,13 +16,13 @@ const pathOf = (pts) => pts.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)} ${
 const FULL = pathOf(PTS)
 
 const STATIONS = [
-  { i: 30, n: '01', when: 'D-0', en: 'MEASURE', ko: '측정', code: 'm0', label: 'M-0 측정',
+  { i: 30, n: '01', when: 'D-0', en: 'MEASURE', ko: '측정', code: 'm0', label: 'M-01 측정 홈',
     title: '태그만 찍으면,\n언제든 측정', body: '무인 스테이션에서 혼자 측정하고, 결과는 생활 언어로 풀어줍니다.', chips: ['무인 측정', '일상 언어 해석', '체력 유형'] },
-  { i: 90, n: '02', when: 'D-1', en: 'MOVE', ko: '실천', code: 'r00', label: 'R-00 루틴',
+  { i: 90, n: '02', when: 'D-1', en: 'MOVE', ko: '실천', code: 'r00', label: 'R-01 루틴 홈',
     title: '부족한 것부터,\n5분 첫 행동', body: '측정 결과로 우선순위를 정하고, 오늘 할 수 있는 한 가지부터 12주 미션으로 이어갑니다.', chips: ['5분 첫 행동', '12주 미션', '공공 운동 코스'] },
-  { i: 150, n: '03', when: '6주차', en: 'GROW', ko: '성장', code: 'ai', label: 'AI 코치',
+  { i: 150, n: '03', when: '6주차', en: 'GROW', ko: '성장', code: 'ai', label: 'AI-01 AI 코치',
     title: '오늘 컨디션에 맞춰\n강도 조절', body: 'LOOP band가 수면과 심박을 읽고 강도를 바꿉니다. 궁금한 건 AI 코치에게 물어보세요.', chips: ['강도 사다리', 'LOOP band', 'AI 코치'] },
-  { i: 210, n: '04', when: '12주차', en: 'REPORT', ko: '리포트', code: 'h4', label: 'H-4 무브바디',
+  { i: 210, n: '04', when: '12주차', en: 'REPORT', ko: '리포트', code: 'h4', label: 'HR-06 무브바디',
     title: '눈바디 말고,\n무브바디', body: '움직임이 어떻게 달라졌는지 보여주고, 다음 측정으로 다시 이어집니다.', chips: ['무브바디', '변화 리포트', '재측정 D-90'] },
 ]
 const START = 10, END = 240 + 10 // 한 바퀴 + Measure 직전까지
@@ -103,7 +103,7 @@ export default function Loop() {
           <div className="loop-right">
             <div className="loop-phones">
               {STATIONS.map((s, k) => (
-                <Phone key={s.code} src={screen(s.code)} code={s.label} width="100cqw"
+                <Phone key={s.code} src={screen(s.code)} code={s.label} width="100cqw" interactive={k === active}
                   className={`loop-phone ${s.code === 'ai' ? 'loop-phone--grow' : ''} ${k === active ? 'is-on' : k === (active + 3) % 4 ? 'is-prev' : ''}`} />
               ))}
             </div>

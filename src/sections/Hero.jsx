@@ -62,7 +62,7 @@ export default function Hero() {
         </div>
 
         <div className="hero-visual">
-          <Phone className="hero-phone" src={screen('h0')} code="H-0 홈" width="36.2cqw" />
+          <Phone className="hero-phone" src={screen('h0')} code="H-01 홈 · 측정 후" width="36.2cqw" />
           <Glass className="glass-frost hero-card card-cond">
             <span className="cond-ic">zZ</span>
             <span><span className="t14 medium muted">오늘 컨디션 · 회복 지연</span><b className="t20 semibold">20분 → 10분 걷기</b></span>

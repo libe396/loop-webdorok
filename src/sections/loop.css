@@ -18,12 +18,9 @@
 .inf-runner { fill: var(--lime); stroke: var(--ink); stroke-width: 3.5; }
 
 .loop-right { position: relative; min-height: 0; }
-.loop-phones { position: absolute; left: 0; top: 50%; width: 44%; transform: translateY(-50%); aspect-ratio: 340 / 723; container-type: inline-size; }
+.loop-phones { position: absolute; left: 0; top: 50%; width: 44%; transform: translateY(-50%); aspect-ratio: var(--phone-ratio); container-type: inline-size; }
 .loop-phone { position: absolute; inset: 0; opacity: 0; transform: translate(40%, 8%) scale(.96); transition: opacity .6s, transform .8s cubic-bezier(.2, .7, 0, 1), filter .6s; }
 .loop-phone.is-on { opacity: 1; transform: translate(24%, 8%); z-index: 2; }
-.loop-phone--grow { aspect-ratio: 340 / 766; }
-.loop-phone--grow .phone-screen img { object-fit: contain; }
-.loop-phone--grow .phone-screen { background: var(--white); }
 .loop-phone.is-prev { opacity: .35; transform: none; filter: grayscale(.7) contrast(.8) brightness(1.15); z-index: 1; }
 .loop-card { position: absolute; right: -3%; top: 50%; transform: translateY(-28%); width: min(416px, 50%); padding: 40px 36px; display: flex; flex-direction: column; gap: 16px; z-index: 3;
   animation: cardIn .6s cubic-bezier(.2, .7, 0, 1); }
@@ -66,7 +63,7 @@
   .loop-progress-dots i { width: 8px; height: 8px; border-radius: var(--r-full); background: var(--gray-200); }
   .loop-progress-dots i.is-on { background: var(--violet-500); }
   .loop-right { display: flex; flex-direction: column; align-items: center; gap: 24px; min-height: 0; }
-  .loop-phones { position: relative; left: auto; top: auto; width: 60vw; aspect-ratio: 340 / 766; transform: none; flex: none; }
+  .loop-phones { position: relative; left: auto; top: auto; width: 60vw; aspect-ratio: var(--phone-ratio); transform: none; flex: none; }
   .loop-phone, .loop-phone.is-on { transform: none; }
   .loop-phone.is-prev { opacity: 0; }
   .loop-card { position: relative; right: auto; top: auto; bottom: auto; transform: none; width: 100%; animation: none; }
