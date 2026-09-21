@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { prefersReducedMotion } from '../lib/useScrollProgress'
 import { img } from '../data/screens'
 import './band.css'
@@ -14,6 +14,10 @@ const SPOTS = [
 
 export default function Band() {
   const ref = useRef(null)
+  const stageRef = useRef(null)
+  const objectRef = useRef(null)
+  const cardsRef = useRef([])
+  const [placements, setPlacements] = useState([])
   const reduced = prefersReducedMotion()
   const [entered, setEntered] = useState(reduced)
   useEffect(() => {
@@ -26,6 +30,64 @@ export default function Band() {
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
   }, [reduced])
+  useLayoutEffect(() => {
+    const stage = stageRef.current
+    const object = objectRef.current
+    let raf = 0
+    const measure = () => {
+      if (window.innerWidth <= 1024) {
+        setPlacements(previous => previous.length ? [] : previous)
+        return
+      }
+      const bounds = stage.getBoundingClientRect()
+      const product = object.getBoundingClientRect()
+      const gap = parseFloat(getComputedStyle(stage).getPropertyValue('--spot-gap'))
+      const inset = gap / 2
+      const placed = []
+      const intersects = (a, b) => a.left < b.left + b.width + gap && a.left + a.width + gap > b.left && a.top < b.top + b.height + gap && a.top + a.height + gap > b.top
+      SPOTS.forEach((spot, i) => {
+        const card = cardsRef.current[i].getBoundingClientRect()
+        const x = product.left - bounds.left + product.width * spot.x / 100
+        const y = product.top - bounds.top + product.height * spot.y / 100
+        const preferred = window.innerWidth <= 1600 ? ['b', 'l', 'b'][i] : spot.side
+        const sides = [...new Set([preferred, preferred === 'l' ? 'r' : 'l', 'b', 'r'])]
+        const candidate = (side) => ({
+          side, x, y, width: card.width, height: card.height,
+          left: side === 'l' ? x - gap - card.width : side === 'r' ? x + gap : x - card.width / 2,
+          top: side === 'b' ? y + gap : y - card.height / 2,
+        })
+        const fits = c => c.left >= inset && c.left + c.width <= bounds.width - inset && c.top >= inset && c.top + c.height <= bounds.height - inset && !placed.some(p => p && intersects(c, p))
+        let chosen
+        for (const side of sides) {
+          const c = candidate(side)
+          // Below cards can shift along the stage edge; keep their connector attached.
+          if (side === 'b') c.left = Math.max(inset, Math.min(c.left, bounds.width - c.width - inset))
+          if (fits(c)) { chosen = c; break }
+        }
+        if (!chosen) {
+          // Resolve card-to-card collisions without escaping the stage.
+          for (const top of [y + gap, ...placed.filter(Boolean).map(p => p.top + p.height + gap)]) {
+            for (const left of [inset, bounds.width - card.width - inset]) {
+              const c = { ...candidate('b'), top, left }
+              if (fits(c)) { chosen = c; break }
+            }
+            if (chosen) break
+          }
+        }
+        placed[i] = chosen ?? null
+      })
+      setPlacements(previous => JSON.stringify(previous) === JSON.stringify(placed) ? previous : placed)
+    }
+    const schedule = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(measure) }
+    const observer = new ResizeObserver(schedule)
+    observer.observe(stage)
+    observer.observe(object)
+    cardsRef.current.forEach(card => { if (card) observer.observe(card) })
+    window.addEventListener('resize', schedule)
+    measure()
+    return () => { observer.disconnect(); cancelAnimationFrame(raf); window.removeEventListener('resize', schedule) }
+  }, [])
+
   const e = entered ? 1 : 0
   const style = {
     '--rx': `${(1 - e) * 38}deg`,
@@ -45,20 +107,26 @@ export default function Band() {
             <span className="chip is-lime band-chip">Coming next</span>
           </div>
 
-          <div className="band-stage" style={style}>
-            <div className="band-obj">
-              <img src={img('band-cut.webp')} alt="LOOP band — 로고가 새겨진 보라색 실리콘 밴드" draggable="false" />
-              {SPOTS.map((s, i) => (
-                <div key={s.k} className={`spot is-${s.side} ${entered ? 'is-on' : ''}`} style={{ left: `${s.x}%`, top: `${s.y}%`, '--spot-delay': reduced ? '0s' : `${i * 0.4}s` }}>
-                  <i className="spot-dot" />
-                  <span className="spot-line" />
-                  <div className="spot-card glass-frost">
+          <div className="band-stage" ref={stageRef} style={style}>
+            <div className="band-obj" ref={objectRef}>
+              <img className="band-product" src={img('band-cut.webp')} alt="LOOP band — 로고가 새겨진 보라색 실리콘 밴드" draggable="false" />
+            </div>
+            {SPOTS.map((s, i) => {
+              const p = placements[i]
+              const delay = reduced ? '0s' : `${i * 0.4}s`
+              const endX = p ? p.side === 'l' ? p.left + p.width : p.side === 'r' ? p.left : Math.max(p.left + 16, Math.min(p.x, p.left + p.width - 16)) : 0
+              const endY = p ? p.side === 'b' ? p.top : p.top + p.height / 2 : 0
+              return (
+                <div key={s.k} className={`spot ${entered ? 'is-on' : ''}`} data-side={p?.side} style={{ '--spot-delay': delay }}>
+                  {p && <svg className="spot-connector" aria-hidden="true"><path d={`M ${p.x} ${p.y} L ${endX} ${endY}`} /></svg>}
+                  <i className="spot-dot" style={{ left: p?.x ?? `${s.x}%`, top: p?.y ?? `${s.y}%` }} />
+                  <div ref={el => { cardsRef.current[i] = el }} className="spot-card glass-frost" style={{ left: p?.left ?? 0, top: p?.top ?? 0, visibility: p ? 'visible' : 'hidden' }}>
                     <b className="t16 semibold">{s.k}</b>
                     <span className="t14 medium">{s.v}</span>
                   </div>
                 </div>
-              ))}
-            </div>
+              )
+            })}
           </div>
 
           <ul className="band-list">

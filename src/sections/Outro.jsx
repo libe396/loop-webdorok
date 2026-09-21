@@ -29,7 +29,7 @@ export default function Outro() {
     <section className="section outro" id="prototype" onPointerMove={onCta} onPointerLeave={() => setMag({ x: 0, y: 0 })}>
       <div className="inner">
         <div className="outro-top">
-          <h2 className="t48 semibold">직접 loop의 서비스를<br />체험해보세요.</h2>
+          <h2 className="t48 semibold">{PROTOTYPE_URL ? <>직접 loop의 서비스를<br />체험해보세요.</> : <>측정에서 끝나지 않는<br />건강의 선순환.</>}</h2>
           {PROTOTYPE_URL && <div className="outro-cta">
             <span ref={ctaRef} className="magnet" style={{ transform: `translate(${mag.x}px, ${mag.y}px)` }}>
               <Button href={PROTOTYPE_URL} target="_blank" rel="noopener">프로토타입 체험</Button>
