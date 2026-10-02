@@ -7,8 +7,8 @@ const SENT = '측정은 고도화됐지만, 변화로 이어지지는 않았습�
 // 인쇄도록 포스터 3492:18147 PROBLEM 설문 수치 · 근거 장표는 리서치 survey r037·r038·r039
 const STATS = [
   { value: '44%', label: '운동 루틴이 없는 응답자', source: '출처 · 설문조사 70명 · Q7', section: 'survey', slide: 'r037' },
-  { value: '64%', label: '시간 부족 · 동기 부족 59%', source: '출처 · 설문조사 70명 · Q9', section: 'survey', slide: 'r038' },
-  { value: '60%', label: '반드시 + 필요하다 응답', source: '출처 · 설문조사 70명 · Q14', section: 'survey', slide: 'r039' },
+  { value: '64%', label: '꾸준히 못 하는 이유 1위, 시간 부족', source: '출처 · 설문조사 70명 · Q9', section: 'survey', slide: 'r038' },
+  { value: '60%', label: '전문가 대면 서비스가 필요하다는 응답', source: '출처 · 설문조사 70명 · Q14', section: 'survey', slide: 'r039' },
 ]
 const clamp = (v) => Math.min(1, Math.max(0, v))
 

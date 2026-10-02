@@ -4,7 +4,7 @@ import './about.css'
 
 /* S01b 서비스 소개 — 인쇄도록 작품 설명(3352:34063 · 텍스트 3426:8786)을 합니다체로. 'lOOP' 소문자 l은 의도된 표기 */
 const PARTS = [
-  { name: '모바일 앱', desc: '측정 결과를 쉬운 말로 풀고 12주 루틴으로 잇는 앱', href: '#screens' },
+  { name: '모바일 앱', desc: '측정 결과를 쉬운 말로 풀고 12주 루틴으로 잇는 앱', href: '#service' },
   { name: 'AIoT 디바이스', desc: '개인이 집에서도 운동을 이어갈 수 있도록 돕는 가정용 AIoT 코칭 기기', href: '#aiot' },
   { name: '처방사 대시보드', desc: '국민체력100 처방사를 위한 회원 운동 관리 대시보드', href: '#prescriber' },
 ]

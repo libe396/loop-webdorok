@@ -60,7 +60,7 @@ export default function Loop() {
         <div className="inner loop-in">
           <div className="loop-left">
             <div className="head">
-              <p className="eyebrow">loop가 이어주는 과정</p>
+              <p className="eyebrow">lOOP가 이어주는 과정</p>
               <h2 className="t48 semibold">한 번 측정하면,<br />루틴은 계속됩니다.</h2>
               <p className="t20 medium muted loop-sub">측정 → 실천 → 성장 → 리포트. 스크롤을 내리면 점이 한 바퀴를 돕니다.</p>
             </div>

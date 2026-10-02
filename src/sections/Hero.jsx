@@ -45,17 +45,17 @@ export default function Hero() {
       <div className="hero-fade" aria-hidden="true" />
       <div className="hero-in">
         <div className="hero-copy">
-          <p className="hero-eyebrow t24 medium accent">국민체력 LOOP</p>
+          <p className="hero-eyebrow t24 medium accent">국민체력 lOOP</p>
           <h1 className="t56 semibold">
             <span className="hero-line"><span>측정에서 끝나지 않는</span></span>
             <span className="hero-line"><span>건강의 선순환</span></span>
           </h1>
           <p className="hero-sub t20 medium muted">
-            국민체력100 측정 결과를 AI가 생활 언어로 풀고,<br className="br-l" />
+            국민체력100 측정 결과를 AI가 생활 언어로 풀고, <br className="br-l" />
             5분 첫 행동부터 12주 실천, 변화 확인까지 이어줍니다.
           </p>
           <div className="hero-btns">
-            <Button href="#service" onClick={e => { e.preventDefault(); scrollToTarget(document.getElementById('service')) }}>LOOP가 이어주는 과정 보기</Button>
+            <Button href="#service" onClick={e => { e.preventDefault(); scrollToTarget(document.getElementById('service')) }}>lOOP가 이어주는 과정 보기</Button>
             {PROTOTYPE_URL && <Button href={PROTOTYPE_URL} target="_blank" rel="noopener">프로토타입 체험</Button>}
             <a className="hero-research t16 medium" href="#/archive/research">리서치 과정 보기 →</a>
           </div>

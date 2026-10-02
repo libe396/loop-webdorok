@@ -11,7 +11,11 @@
 .dash-img { width: 100%; height: auto; aspect-ratio: var(--dash-ratio); border-radius: var(--r-card); background: var(--white);
   border: 1px solid var(--gray-100); user-select: none; }
 .dash-sub .dash-img { border-radius: var(--r-lg); }
+.dash-open { display: block; width: 100%; padding: 0; border: 0; background: none; border-radius: var(--r-card); cursor: pointer; }
+.dash-sub .dash-open { border-radius: var(--r-lg); }
+.dash-open:focus-visible { outline: 2px solid var(--violet-500); outline-offset: 4px; }
 .dash-cap { display: flex; flex-direction: column; gap: 4px; }
+.dash-hint { margin-left: 8px; color: var(--gray-400); font-weight: var(--w-medium); }
 .dash-cap b { color: var(--ink); }
 .dash-cap span { color: var(--gray-500); }
 .dash-main .dash-cap { flex-direction: row; gap: 12px; align-items: baseline; flex-wrap: wrap; }

@@ -15,12 +15,17 @@
 .aiot-roles b { color: var(--white); }
 .aiot-roles span { color: var(--gray-300); }
 
-/* 원형 화면 6개 한 줄 */
-.aiot-screens { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; }
+/* 원형 화면 6개 — 1025 이상 3열 2줄(지름 최대 --aiot-screen-max, 가운데 정렬) */
+.aiot-screens { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 64px 24px; }
 .aiot-screen { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .aiot-screen img { width: 100%; height: auto; aspect-ratio: 1; border-radius: var(--r-full); margin-bottom: 14px; user-select: none; }
 .aiot-screen b { color: var(--white); }
 .aiot-screen span { color: var(--gray-300); }
+@media (min-width: 1025px) {
+  .aiot-screen { align-items: center; text-align: center; }
+  .aiot-screen img { max-width: var(--aiot-screen-max); }
+  .aiot-screen b, .aiot-screen span { max-width: var(--aiot-screen-max); }
+}
 
 .aiot .more-link { align-self: flex-start; color: var(--violet-300); text-decoration: none; }
 .aiot .more-link:hover { text-decoration: underline; }

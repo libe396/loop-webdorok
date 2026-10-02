@@ -1,0 +1,11 @@
+/* 장표·화면 크게 보기 — 아카이브와 S07 처방사 대시보드가 같이 씀. 핀치 줌 위해 touch-action 유지 */
+.ar-lightbox { position: fixed; inset: 0; width: 100%; max-width: none; height: 100dvh; max-height: none; margin: 0; border: 0; padding: 24px; background: var(--gray-900); color: var(--white); overflow: auto; touch-action: auto; overscroll-behavior: contain; }
+.ar-lightbox[open] { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.ar-lightbox::backdrop { background: var(--gray-900); }
+.ar-lightbox-toolbar { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.ar-lightbox-actions { display: flex; gap: 8px; }
+.ar-lightbox-actions button { min-width: 44px; min-height: 44px; padding: 8px 16px; border: 0; border-radius: var(--r-full); color: var(--ink); background: var(--white); cursor: pointer; }
+.ar-lightbox-actions button:disabled { opacity: .35; cursor: default; }
+.ar-lightbox-image { width: auto; height: auto; max-width: 100%; max-height: calc(100dvh - 180px); object-fit: contain; margin: auto 0; flex-shrink: 0; }
+.ar-lightbox-hint { color: var(--gray-300); text-align: center; }
+@media (max-width: 480px) { .ar-lightbox { padding: 16px; } .ar-lightbox-toolbar { gap: 12px; } }

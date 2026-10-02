@@ -1,8 +1,10 @@
 import { useLayoutEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { pauseScroll } from '../lib/scroll'
+import './lightbox.css'
 
-export default function ArchiveLightbox({ slides, index, onIndex, onClose }) {
+/** loop: 끝에서 처음으로 순환(S07 4장). noun·label은 aria 문구용 */
+export default function ArchiveLightbox({ slides, index, onIndex, onClose, loop = false, noun = '장표', label = '아카이브 장표 크게 보기' }) {
   const dialog = useRef(null)
   const slide = slides[index]
   useLayoutEffect(() => {
@@ -19,19 +21,21 @@ export default function ArchiveLightbox({ slides, index, onIndex, onClose }) {
       if (opener instanceof HTMLElement && opener.isConnected) opener.focus({ preventScroll: true })
     }
   }, [])
+  const n = slides.length
+  const go = (step) => onIndex(loop ? (index + step + n) % n : Math.min(n - 1, Math.max(0, index + step)))
   const onKeyDown = (event) => {
-    if (event.key === 'ArrowLeft') { event.preventDefault(); onIndex(Math.max(0, index - 1)) }
-    if (event.key === 'ArrowRight') { event.preventDefault(); onIndex(Math.min(slides.length - 1, index + 1)) }
+    if (event.key === 'ArrowLeft') { event.preventDefault(); go(-1) }
+    if (event.key === 'ArrowRight') { event.preventDefault(); go(1) }
   }
   return createPortal(
-    <dialog ref={dialog} className="ar-lightbox" aria-label="아카이브 장표 크게 보기" data-lenis-prevent
+    <dialog ref={dialog} className="ar-lightbox" aria-label={label} data-lenis-prevent
       onCancel={(event) => { event.preventDefault(); onClose() }} onKeyDown={onKeyDown}
       onClick={(event) => { if (event.target === event.currentTarget) onClose() }}>
       <div className="ar-lightbox-toolbar">
-        <p className="t14 medium" aria-live="polite">{slide.alt} · {index + 1} / {slides.length}</p>
+        <p className="t14 medium" aria-live="polite">{slide.alt} · {index + 1} / {n}</p>
         <div className="ar-lightbox-actions">
-          <button type="button" aria-label="이전 장표" disabled={index === 0} onClick={() => onIndex(index - 1)}>←</button>
-          <button type="button" aria-label="다음 장표" disabled={index === slides.length - 1} onClick={() => onIndex(index + 1)}>→</button>
+          <button type="button" aria-label={`이전 ${noun}`} disabled={!loop && index === 0} onClick={() => go(-1)}>←</button>
+          <button type="button" aria-label={`다음 ${noun}`} disabled={!loop && index === n - 1} onClick={() => go(1)}>→</button>
           <button type="button" onClick={onClose} autoFocus>닫기</button>
         </div>
       </div>

@@ -290,3 +290,16 @@ A→E 순서로 구현하고 각 단계 `npm run build` 확인.
 - 핵심 화면: m0·r00 재사용, m05·hr01·c13·hr04 2배수 export. 포스터 「재측정으로 변화 확인」엔 앱 화면이 없어 표의 HR-04 사용. 1025~1300px은 3열이 최소 360px을 못 지켜 2열.
 - 검증: build 성공, lint 기존 경고 3개. 1920/1440/1024/390 가로 넘침·겹침 없음, 이미지 6/6, 딥링크 3개 r037·r038·r039 도착, About → #screens, 전체 화면 보기 → 모바일 앱 섹션.
 - scrollHeight: 1920 20,179→23,150 · 1440 18,160→20,469 · 1024 17,800→19,696 · 390 16,354→17,322.
+
+## #21 · 점검 수정 (핵심 화면 삭제 · 라벨 · 확대 보기 · 표기 통일)
+
+요청(중간 승인 없이 push까지): S04b 핵심 화면 삭제·About 링크 복구, S02 라벨 교체, Hero 모바일 「풀고,5분」 붙음 수정, S07 4장 확대 보기(ArchiveLightbox 재사용, 순환), AIoT 원형 화면 3열 2줄(최대 360), 화면 표기 lOOP 통일.
+
+반영:
+
+- br-l 공백 누락은 Hero만(About엔 br-l 없음, Prescriber·Home·Band는 공백 있음).
+- ArchiveLightbox에 loop·noun·label 옵션 추가(아카이브 동작은 그대로), CSS를 components/lightbox.css로 이동. touch-action auto 유지.
+- lOOP 변경 6곳: Hero eyebrow 「국민체력 lOOP」, Hero 버튼 「lOOP가 이어주는 과정 보기」, Loop eyebrow 「lOOP가 이어주는 과정」, Behind 결정 「lOOP의 차별점은」, Brand 「100이 lOOP가 되기까지.」, Outro 「직접 lOOP의 서비스를」(URL 있을 때만 보임).
+- 유지: LOOP band(Hero 카드·Band 제목·Loop 카드 본문·칩), 워드마크 SVG aria 「loop」, document.title 「국민체력 loop」, GNB 로고 aria, Phone alt·aria 「LOOP 앱 화면」, AIoT 제품 alt 「loop AIoT 디바이스」, 주석·이벤트명(loop:intro-done)·클래스, AIoT 캡션 「루프 AI」.
+- 검증: build 성공, lint 기존 경고 3개. #screens·Screens·삭제 에셋 참조 0. 4폭 가로 넘침 없음, 라이트박스 1→2→3→4→1, ←로 4→3, ESC·배경 클릭 닫힘 후 연 버튼으로 포커스 복귀(390 터치 포함).
+- scrollHeight: 1920 23,150→20,753 · 1440 20,469→18,805 · 1024 19,696→17,744 · 390 17,322→16,340.

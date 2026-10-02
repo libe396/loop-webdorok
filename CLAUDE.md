@@ -29,7 +29,7 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 - 규칙: 한 화면(섹션)에 그라디언트 하나. 실외=peach·pink, 실내·기본=violet
 
 ## 구조
-- `src/sections/` Intro(S00) · Hero(S01) · About(S01b 서비스 소개, #about) · Problem(S02) · Loop(S03) · Play(S04) · Screens(S04b 핵심 화면, #screens) · Focus(S05) · Band(S06) · Home(S06b AIoT, #aiot) · Prescriber(S07, #prescriber) · Behind(S08) · Brand(S09) · Outro(S10)
+- `src/sections/` Intro(S00) · Hero(S01) · About(S01b 서비스 소개, #about) · Problem(S02) · Loop(S03) · Play(S04) · Focus(S05) · Band(S06) · Home(S06b AIoT, #aiot) · Prescriber(S07, #prescriber) · Behind(S08) · Brand(S09) · Outro(S10)
 - `src/components/` Gnb, Wordmark(DS 로고 벡터), Phone(화면 목업), Button, Glass
 - `src/pages/` Landing(S00~S10) · Archive(챕터 템플릿)
 - `src/lib/useScrollProgress.js` sticky 핀 섹션 진행률(0→1) · `src/lib/scroll.js` 전역 Lenis + `scrollToTarget`
@@ -163,3 +163,12 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 - S02: 인쇄도록 포스터(3492:18147) PROBLEM 그대로 — 헤드라인 「측정은 고도화됐지만, 변화로 이어지지는 않았습니다」, 44%(Q7) · 64%(Q9) · 60%(Q14). 출처 「설문조사 70명」 → research survey r037·r038·r039 딥링크. 32만 명 · 4.6% · 3일~1주 삭제.
 - S04b Screens(Screens.jsx, #screens): Play 다음·Focus 앞. 포스터 SOLUTION 설명 + 평면 화면 6장(M-01 · M-05 · HR-01 · R-01 · C-13 · HR-04), 첫 화면(402:874)만 보이게 위쪽 크롭. 3열(1025~1300은 2열, 최소 360px) · 1024 이하 70vw 가로 스크롤. 전체 화면 보기 → result mobile.
 - About 「모바일 앱」 → #screens.
+
+## #21 · 점검 수정
+
+- S04b 핵심 화면 삭제(Screens.jsx·css, m05·hr01·c13·hr04 에셋, --screens-* 토큰). About 「모바일 앱」 → #service 복구.
+- S02 라벨: 「꾸준히 못 하는 이유 1위, 시간 부족」「전문가 대면 서비스가 필요하다는 응답」. 수치·출처 유지.
+- Hero 서브카피 br-l 앞 공백(1024 이하 「풀고, 5분」).
+- S07: 메인+보조 4장 버튼 → ArchiveLightbox(loop 순환 · ESC · 배경 클릭 · 포커스 복귀). 보조 첫 캡션 옆 「눌러서 크게 보기」. 라이트박스 CSS는 src/components/lightbox.css로 이동.
+- S06b AIoT 원형 화면 1025 이상 3열 2줄, 지름 최대 --aiot-screen-max(360), 캡션 가운데.
+- 서비스명 화면 표기 lOOP 통일(Hero eyebrow·버튼, Loop eyebrow, 결정 문구, Brand 제목, Outro 체험 문구). LOOP band·워드마크·title·meta·alt·aria·코드 식별자는 유지.
