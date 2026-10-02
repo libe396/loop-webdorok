@@ -29,7 +29,7 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 - 규칙: 한 화면(섹션)에 그라디언트 하나. 실외=peach·pink, 실내·기본=violet
 
 ## 구조
-- `src/sections/` Intro(S00) · Hero(S01) · Problem(S02) · Loop(S03) · Play(S04) · Focus(S05) · Band(S06) · Rest.jsx(S07 자리만) · Behind(S08) · Brand(S09) · Outro(S10)
+- `src/sections/` Intro(S00) · Hero(S01) · Problem(S02) · Loop(S03) · Play(S04) · Focus(S05) · Band(S06) · Home(S06b AIoT, #aiot) · Prescriber(S07, #prescriber) · Behind(S08) · Brand(S09) · Outro(S10)
 - `src/components/` Gnb, Wordmark(DS 로고 벡터), Phone(화면 목업), Button, Glass
 - `src/pages/` Landing(S00~S10) · Archive(챕터 템플릿)
 - `src/lib/useScrollProgress.js` sticky 핀 섹션 진행률(0→1) · `src/lib/scroll.js` 전역 Lenis + `scrollToTarget`
@@ -50,7 +50,8 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 - [x] S09 Brand(Brand.jsx) — 핀 220vh, 워드마크 Violet→Intelligence→Delight→Clarity 전환, → #/archive/make
 - [x] S10 Outro(Outro.jsx) — 커서 스포트라이트로 차오르는 워드마크 · 마그네틱 CTA · 문구 “직접 loop의 서비스를 체험해보세요.” · 로고 가운데 정렬 · D-90 ↺ 맨 위로
 - [ ] 프로토타입 체험 링크 (Button href="#" 자리 — 프로토타입 URL 받으면 교체: Hero · GNB · Outro)
-- [ ] S07 처방사 — 대시보드 작업 후
+- [x] S06b AIoT(Home.jsx, #aiot) — 다크(gray-900), 「AIoT 디바이스」, 인쇄도록 제품 컷 한 장(카드) + 기능 4개(IOT-01 ROLE) + 원형 화면 6개(A-00·02·05·06·08·09, IOT-02~04 캡션). GNB 다크는 `is-aiot-dark`
+- [x] S07 처방사(Prescriber.jsx, #prescriber) — 메인 대시보드 평면 화면 + 보조 3장, 캡션은 발표 PPT 「추출」 DH-01·02·07·09. 'lOOP' 소문자 l 의도된 표기
 - [x] 아카이브 페이지 `#/archive/{research,plan,make,result}` — `src/pages/Archive.jsx` 템플릿 하나, 데이터 `src/data/archive.js`(manifest + 헤더 카피. summary는 초안)
 - [x] 라우팅: HashRouter. `/archive/:chapter`만 라우트, 나머지 해시(#top·#service…)는 랜딩이 받아서 해당 id로 스크롤
 - [x] 장표 165+21장 WebP 변환 완료 (`public/archive/`, 약 19MB)
@@ -78,6 +79,17 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 | public/screens/a3.webp | 2786:18978 | A3 v2 · 측정 중 (실시간) |
 | public/screens/a4.webp | 2786:19005 | A4 v2 · 종목 완료 · 자동 기록 |
 | public/screens/s9.webp | 2786:19127 | S9 v2 · 측정 완료 (라이트 복귀) |
+| src/assets/screens/final/dash-home.webp | 3224:46487 | 01 · 대시보드 (v7 · 밸런스) |
+| src/assets/screens/final/dash-queue.webp | 3224:44504 | M1 · 측정 대기 목록 |
+| src/assets/screens/final/dash-ai.webp | 3224:43207 | 04 · AI 처방 검토 |
+| src/assets/screens/final/dash-member.webp | 3224:45115 | 02 · 회원 상세 |
+| public/img/aiot-front.webp | 3490:33243 (「Iot목업 1」 3472:41263 자리) | AIoT 디바이스 인쇄도록 컷 — 프레임 이미지 채우기 원본을 프레임 크롭대로 |
+| src/assets/screens/final/aiot-a00.webp | 3059:24260 | A-00 · 홈 (기본 화면) |
+| src/assets/screens/final/aiot-a02.webp | 3054:26720 | A-02 · 리마인드 알림 |
+| src/assets/screens/final/aiot-a05.webp | 3054:26732 | A-05 · 운동 진행 |
+| src/assets/screens/final/aiot-a06.webp | 3054:26736 | A-06 · 실시간 자세 코칭 |
+| src/assets/screens/final/aiot-a08.webp | 3054:26744 | A-08 · 루틴 완료 |
+| src/assets/screens/final/aiot-a09.webp | 3054:26748 | A-09 · AI 음성 질문 |
 
 지시 이력은 `docs/claude-code-prompts.md`.
 
@@ -123,3 +135,10 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 - 긴 화면은 비율을 유지하며 폰 내부 스크롤. Loop AI 예외 비율 제거, Focus·Loop 목업 비율 통일. Vite 해시 에셋으로 캐시 갱신.
 - 1440×1000/1920×1080/390×844에서 Hero·여정 4단계·Focus 6단계 캡처, 이미지 11개 및 목업 로딩·가로 넘침 검사 완료. 빌드 통과.
 - 원본 노드·해상도·추출 방식: `docs/final-screen-sources.md`. 무브바디만 Figma screenshot 1배수, 나머지 앱 화면 2배수. 연구·제작 아카이브의 역사적 장표는 유지.
+
+## #17 · S07 처방사 대시보드 복구 · AIoT 기기 섹션 신설
+
+- 순서: S06 Band → S06b AIoT(#aiot) → S07 처방사(#prescriber) → S08. Rest.jsx·rest.css 삭제.
+- 카피: 인쇄도록 3490:33242(처방사)·3490:33243(AIoT 제목 「AIoT 디바이스」 3492:18132·설명). S07은 인쇄도록 iPad 목업(3456:38851) 대신 평면 화면 유지(교수님 피드백). 캡션·기능은 발표 PPT(jm83f0M7tlSafawIkAZ6b5) 「추출」 DH-01·02·07·09, IOT-01~04 장표 문장 그대로. 영어 eyebrow 없음.
+- 모션: 진입 한 번(메인→보조 순차 / 제품 페이드→원형 화면 0.1초 간격). 핀·스크럽 없음, reduced-motion 끔.
+- 원본·해상도: `docs/final-screen-sources.md`.

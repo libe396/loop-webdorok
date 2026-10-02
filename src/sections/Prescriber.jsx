@@ -1,0 +1,57 @@
+import { useEffect, useRef, useState } from 'react'
+import { prefersReducedMotion } from '../lib/useScrollProgress'
+import { screen } from '../data/screens'
+import './prescriber.css'
+
+/* S07 처방사 대시보드 — 카피는 인쇄도록 3490:33242, 캡션은 발표 PPT 「추출」 DH-01·02·07·09 장표 문장 그대로.
+   화면은 Figma 9wJzEafnp4YRzPSR6oswWX 섹션 3224:43093 (1440×1000, 2배수). 'lOOP' 소문자 l은 의도된 표기 */
+const MAIN = { code: 'dash-home', name: '대시보드', caption: '상담 대기·AI 처방 검토·측정 기기 현황을 한 화면에서 확인합니다.' }
+const SUBS = [
+  { code: 'dash-queue', name: '측정 대기 목록', caption: '사전 문진·준비물 상태를 목록에서 바로 확인합니다.' },
+  { code: 'dash-ai', name: 'AI 처방 검토', caption: 'AI 초안과 판단 근거를 보고, 처방사가 강도·구성을 수정해 확정합니다.' },
+  { code: 'dash-member', name: '회원 상세', caption: '신체 정보·체력 유형·리포트 요약을 한 화면에서 확인합니다.' },
+]
+
+function Shot({ code, name, caption, className = '', style }) {
+  return (
+    <figure className={`dash-shot ${className}`} style={style}>
+      <img className="dash-img" src={screen(code)} alt={`처방사 대시보드 · ${name} 화면`} width="2880" height="2000" loading="lazy" draggable="false" />
+      <figcaption className="dash-cap">
+        <b className="t16 semibold">{name}</b>
+        {caption && <span className="t16 medium">{caption}</span>}
+      </figcaption>
+    </figure>
+  )
+}
+
+export default function Prescriber() {
+  const ref = useRef(null)
+  const reduced = prefersReducedMotion()
+  const [entered, setEntered] = useState(reduced)
+  useEffect(() => {
+    if (reduced) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      setEntered(true)
+      observer.disconnect()
+    }, { threshold: 0.12 })
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [reduced])
+
+  return (
+    <section className={`section dash ${entered ? 'is-on' : ''}`} id="prescriber" ref={ref}>
+      <span className="dash-blob" aria-hidden="true" />
+      <div className="inner dash-in">
+        <div className="head">
+          <h2 className="t56 semibold">처방사 대시보드</h2>
+          <p className="t24 semibold dash-desc">국민체력100 처방사를 위한 <br className="br-l" />lOOP의 회원 운동 관리 대시보드</p>
+        </div>
+        <Shot {...MAIN} className="dash-main" />
+        <div className="dash-subs">
+          {SUBS.map((s, i) => <Shot key={s.code} {...s} className="dash-sub" style={{ '--d': `${0.3 + i * 0.12}s` }} />)}
+        </div>
+      </div>
+    </section>
+  )
+}

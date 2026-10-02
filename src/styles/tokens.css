@@ -26,6 +26,14 @@
   --phone-screen-left: 5.333333%; --phone-screen-top: 2.5%;
   --phone-screen-width: 89.333333%; --phone-screen-height: 95%;
 
+  /* S07 처방사 대시보드 — Figma 화면 1440×1000 */
+  --dash-ratio: 1440 / 1000;
+  --dash-sub-min: 300px;              /* 1024 이하 가로 스크롤 카드 폭 */
+  /* S06b AIoT — 1024 이하 가로 스크롤 원형 화면 지름 · 제품 컷(인쇄도록 크롭 1186×1495) */
+  --aiot-screen-scroll: 220px;
+  --aiot-product-ratio: 1186 / 1495;
+  --aiot-product-max: 640px;
+
   /* web layout — Hi-Fi 1920 기준: 좌우 121 / 상하 110 */
   --mx: clamp(20px, 6.3vw, 121px);
   --my: clamp(72px, 5.73vw, 110px);

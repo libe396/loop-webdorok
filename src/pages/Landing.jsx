@@ -7,7 +7,8 @@ import Loop from '../sections/Loop'
 import Play from '../sections/Play'
 import Focus from '../sections/Focus'
 import Band from '../sections/Band'
-// import { Prescriber } from '../sections/Rest' // 대시보드 완성 후 복구
+import Home from '../sections/Home'
+import Prescriber from '../sections/Prescriber'
 import Behind from '../sections/Behind'
 import Brand from '../sections/Brand'
 import Outro from '../sections/Outro'
@@ -34,7 +35,8 @@ export default function Landing() {
         <Play />      {/* S04 */}
         <Focus />     {/* S05 */}
         <Band />      {/* S06 */}
-        {/* S07 대시보드 완성 후 복구: <Prescriber /> */}
+        <Home />      {/* S06b AIoT */}
+        <Prescriber /> {/* S07 */}
         <Behind />    {/* S08 */}
         <Brand />     {/* S09 */}
         <Outro />     {/* S10 */}

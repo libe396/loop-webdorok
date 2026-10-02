@@ -1,0 +1,44 @@
+/* S06b AIoT 기기 — 기기 화면에 맞춘 다크. 섹션 경계에서 바로 전환(스크럽 없음) */
+.aiot { background: var(--gray-900); color: var(--white); }
+.aiot-in { display: flex; flex-direction: column; gap: 80px; }
+.aiot-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+
+/* 제품 컷 한 장 — 밝은 회색 배경 그대로 카드(반경 토큰)로 올려 다크 배경과의 경계를 카드 모양으로 */
+.aiot-product { margin: 0; max-width: var(--aiot-product-max); width: 100%; justify-self: center; border-radius: var(--r-card); overflow: hidden; background: var(--gray-100); }
+.aiot-product img { width: 100%; height: auto; aspect-ratio: var(--aiot-product-ratio); user-select: none; }
+
+.aiot-copy { display: flex; flex-direction: column; gap: 48px; }
+.aiot-desc { color: var(--gray-200); }
+.aiot-roles { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.aiot-roles li { display: flex; flex-direction: column; gap: 4px; padding: 20px 0; border-top: 1px solid var(--gray-700); }
+.aiot-roles li:last-child { border-bottom: 1px solid var(--gray-700); }
+.aiot-roles b { color: var(--white); }
+.aiot-roles span { color: var(--gray-300); }
+
+/* 원형 화면 6개 한 줄 */
+.aiot-screens { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; }
+.aiot-screen { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.aiot-screen img { width: 100%; height: auto; aspect-ratio: 1; border-radius: var(--r-full); margin-bottom: 14px; user-select: none; }
+.aiot-screen b { color: var(--white); }
+.aiot-screen span { color: var(--gray-300); }
+
+/* 진입 모션 — 한 번만: 제품 페이드, 원형 화면 0.1초 간격 */
+.aiot-product { opacity: 0; transition: opacity .8s; }
+.aiot-screen { opacity: 0; transform: translateY(24px); transition: opacity .5s, transform .6s cubic-bezier(.2, .7, 0, 1); transition-delay: var(--d, 0s); }
+.aiot.is-on .aiot-product, .aiot.is-on .aiot-screen { opacity: 1; transform: none; }
+
+/* GNB 다크 (focus.css와 같은 값) */
+html.is-aiot-dark .gnb.is-solid { background: rgba(31, 35, 43, .55); box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .08); }
+html.is-aiot-dark .gnb-nav a { color: var(--gray-400); }
+html.is-aiot-dark .gnb-nav a:hover { color: var(--white); }
+
+@media (max-width: 1024px) {
+  .aiot-in { gap: 48px; }
+  .aiot-top { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .aiot-copy { gap: 32px; }
+  .aiot-screens { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 calc(var(--mx) * -1); padding: 0 var(--mx) 8px; scroll-padding: 0 var(--mx); }
+  .aiot-screen { flex: 0 0 var(--aiot-screen-scroll); scroll-snap-align: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aiot-product, .aiot-screen { opacity: 1; transform: none; transition: none; }
+}
