@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { prefersReducedMotion } from '../lib/useScrollProgress'
 import { screen } from '../data/screens'
 import './prescriber.css'
@@ -51,6 +52,7 @@ export default function Prescriber() {
         <div className="dash-subs">
           {SUBS.map((s, i) => <Shot key={s.code} {...s} className="dash-sub" style={{ '--d': `${0.3 + i * 0.12}s` }} />)}
         </div>
+        <Link className="more-link t16 semibold" to="/archive/result?section=dashboard">전체 화면 보기 <span aria-hidden="true">→</span></Link>
       </div>
     </section>
   )

@@ -7,7 +7,7 @@ import './gnb.css'
 
 const NAV = [
   ['서비스', '#service'], ['리서치 과정', '#/archive/research'], ['기획 과정', '#/archive/plan'],
-  ['제작 과정', '#/archive/make'], // 결과물은 완성 후 메뉴에 복구
+  ['제작 과정', '#/archive/make'], ['결과물', '#/archive/result'],
 ]
 
 export default function Gnb() {

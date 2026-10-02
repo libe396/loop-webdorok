@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { prefersReducedMotion } from '../lib/useScrollProgress'
 import { img, screen } from '../data/screens'
 import './home.css'
@@ -82,6 +83,7 @@ export default function Home() {
             </li>
           ))}
         </ol>
+        <Link className="more-link t16 semibold" to="/archive/result?section=aiot">전체 화면 보기 <span aria-hidden="true">→</span></Link>
       </div>
     </section>
   )

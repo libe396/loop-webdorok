@@ -87,16 +87,14 @@ export default function Behind() {
             <h3 className="t36 semibold">리서치가 바꾼 것들</h3>
             <p className="t18 medium muted">장표는 결과가 아니라 결정의 근거입니다.</p>
             <div className="ch-links">
-              {CHAPTERS.map((c, i) => {
-                const Tag = c.id === 'result' ? 'span' : Link
-                return (
-                <Tag key={c.id} {...(c.id === 'result' ? { 'aria-disabled': true } : { to: `/archive/${c.id}` })} className={`ch-link ${c.count ? '' : 'is-empty'}`}>
+              {CHAPTERS.map((c, i) => (
+                <Link key={c.id} to={`/archive/${c.id}`} className={`ch-link ${c.count ? '' : 'is-empty'}`}>
                   <span className="t14 medium label">{String(i + 1).padStart(2, '0')}</span>
                   <b className="t18 semibold">{c.title}</b>
                   <span className="t14 medium muted">{c.count ? `${c.count}장` : '공개 예정'}</span>
                   <i aria-hidden="true">→</i>
-                </Tag>
-              )})}
+                </Link>
+              ))}
             </div>
           </div>
           <ol className="dec-stack">

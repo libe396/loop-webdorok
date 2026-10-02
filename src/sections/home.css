@@ -22,6 +22,9 @@
 .aiot-screen b { color: var(--white); }
 .aiot-screen span { color: var(--gray-300); }
 
+.aiot .more-link { align-self: flex-start; color: var(--violet-300); text-decoration: none; }
+.aiot .more-link:hover { text-decoration: underline; }
+
 /* 진입 모션 — 한 번만: 제품 페이드, 원형 화면 0.1초 간격 */
 .aiot-product { opacity: 0; transition: opacity .8s; }
 .aiot-screen { opacity: 0; transform: translateY(24px); transition: opacity .5s, transform .6s cubic-bezier(.2, .7, 0, 1); transition-delay: var(--d, 0s); }

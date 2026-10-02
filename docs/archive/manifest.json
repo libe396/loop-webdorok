@@ -1,5 +1,5 @@
 {
- "note": "슬라이드는 1920px JPG. research·plan은 Figma PPT 페이지(38:23) export, make는 loop 디자인시스템 PDF. 웹에서는 WebP로 변환 권장.",
+ "note": "슬라이드는 1920px JPG. research·plan은 Figma PPT 페이지(38:23) export, make·result는 발표 장표 파일 jm83f0M7tlSafawIkAZ6b5 「추출」 페이지(와이어프레임은 「Week 2-1 PPT」 섹션) export — 원본 노드는 docs/archive-sources.md. 웹에서는 WebP로 변환.",
  "chapters": [
   {
    "id": "research",
@@ -316,7 +316,7 @@
       "make/m002.jpg",
       "make/m003.jpg"
      ],
-     "summary": ""
+     "summary": "숫자 100과 이어지는 고리를 결합한 로고와 브랜드 방향."
     },
     {
      "id": "foundation",
@@ -333,7 +333,8 @@
       "make/m012.jpg",
       "make/m013.jpg",
       "make/m014.jpg",
-      "make/m015.jpg"
+      "make/m015.jpg",
+      "make/m016.jpg"
      ],
      "summary": "색·타이포그래피·간격과 반경의 공통 규칙으로 화면 구성의 일관성을 만듭니다."
     },
@@ -341,39 +342,55 @@
      "id": "components",
      "title": "컴포넌트",
      "slides": [
-      "make/m016.jpg",
       "make/m017.jpg",
       "make/m018.jpg",
       "make/m019.jpg",
-      "make/m020.jpg"
+      "make/m020.jpg",
+      "make/m021.jpg"
      ],
      "summary": "주요 행동의 중요도와 상태를 공통 컴포넌트의 변형으로 구분합니다."
     },
     {
-     "id": "dark",
-     "title": "다크 모드",
-     "slides": [
-      "make/m021.jpg"
-     ],
-     "summary": "기존 컴포넌트 연결을 유지하면서 다크 화면 전용 표현을 구성했습니다."
-    },
-    {
      "id": "ia",
-     "title": "IA 개편 (추가 예정)",
-     "slides": [],
-     "summary": ""
+     "title": "IA 개편",
+     "slides": [
+      "make/m022.jpg",
+      "make/m023.jpg",
+      "make/m024.jpg",
+      "make/m025.jpg"
+     ],
+     "summary": "모바일 앱과 처방사 대시보드의 정보 구조."
     },
     {
      "id": "wireframe",
-     "title": "와이어프레임 (추가 예정)",
-     "slides": [],
-     "summary": ""
-    },
-    {
-     "id": "hifi",
-     "title": "Hi-Fi 1차 → 2차 (추가 예정)",
-     "slides": [],
-     "summary": ""
+     "title": "와이어프레임",
+     "slides": [
+      "make/m026.jpg",
+      "make/m027.jpg",
+      "make/m028.jpg",
+      "make/m029.jpg",
+      "make/m030.jpg",
+      "make/m031.jpg",
+      "make/m032.jpg",
+      "make/m033.jpg",
+      "make/m034.jpg",
+      "make/m035.jpg",
+      "make/m036.jpg",
+      "make/m037.jpg",
+      "make/m038.jpg",
+      "make/m039.jpg",
+      "make/m040.jpg",
+      "make/m041.jpg",
+      "make/m042.jpg",
+      "make/m043.jpg",
+      "make/m044.jpg",
+      "make/m045.jpg",
+      "make/m046.jpg",
+      "make/m047.jpg",
+      "make/m048.jpg",
+      "make/m049.jpg"
+     ],
+     "summary": "모바일 앱 14장, 처방사 대시보드 10장의 화면 설계."
     }
    ]
   },
@@ -382,9 +399,82 @@
    "title": "결과물",
    "sections": [
     {
-     "id": "screens",
-     "title": "최종 화면 (Hi-Fi 확정 후)",
-     "slides": [],
+     "id": "flow",
+     "title": "메인 플로우",
+     "slides": [
+      "result/x001.jpg",
+      "result/x002.jpg",
+      "result/x003.jpg",
+      "result/x004.jpg",
+      "result/x005.jpg",
+      "result/x006.jpg",
+      "result/x007.jpg",
+      "result/x008.jpg",
+      "result/x009.jpg"
+     ],
+     "summary": "온보딩부터 변화 확인까지, 핵심 여정 8단계."
+    },
+    {
+     "id": "mobile",
+     "title": "모바일 앱",
+     "slides": [
+      "result/x010.jpg",
+      "result/x011.jpg",
+      "result/x012.jpg",
+      "result/x013.jpg",
+      "result/x014.jpg",
+      "result/x015.jpg",
+      "result/x016.jpg",
+      "result/x017.jpg",
+      "result/x018.jpg",
+      "result/x019.jpg",
+      "result/x020.jpg",
+      "result/x021.jpg",
+      "result/x022.jpg",
+      "result/x023.jpg",
+      "result/x024.jpg",
+      "result/x025.jpg",
+      "result/x026.jpg",
+      "result/x027.jpg"
+     ],
+     "summary": "온보딩 · 홈 · 측정 · 루틴 · 코스 · 리포트 · 마이페이지 전체 화면."
+    },
+    {
+     "id": "dashboard",
+     "title": "처방사 대시보드",
+     "slides": [
+      "result/x028.jpg",
+      "result/x029.jpg",
+      "result/x030.jpg",
+      "result/x031.jpg",
+      "result/x032.jpg",
+      "result/x033.jpg",
+      "result/x034.jpg",
+      "result/x035.jpg",
+      "result/x036.jpg",
+      "result/x037.jpg",
+      "result/x038.jpg",
+      "result/x039.jpg"
+     ],
+     "summary": "국민체력100 처방사를 위한 회원 운동 관리 대시보드."
+    },
+    {
+     "id": "aiot",
+     "title": "AIoT 디바이스",
+     "slides": [
+      "result/x040.jpg",
+      "result/x041.jpg",
+      "result/x042.jpg",
+      "result/x043.jpg"
+     ],
+     "summary": "개인이 집에서도 운동을 이어갈 수 있도록 돕는 가정용 AIoT 코칭 기기."
+    },
+    {
+     "id": "exhibition",
+     "title": "실물 전시 구성",
+     "slides": [
+      "result/x044.jpg"
+     ],
      "summary": ""
     }
    ]

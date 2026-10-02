@@ -1,6 +1,6 @@
 """장표 JPG → WebP(1920 · q78) + @960 변환.
 
-소스: docs/archive/{research,plan,make}/*.jpg (Figma PPT export · DS PDF)
+소스: docs/archive/{research,plan,make,result}/*.jpg (발표 장표 Figma export · 원본 노드는 docs/archive-sources.md)
 출력: public/archive/{chapter}/{id}.webp, {id}@960.webp
 사용: python3 scripts/archive-webp.py [chapter ...]   (인자 없으면 전부, 이미 있는 건 건너뜀. -f 로 덮어쓰기)
 """
@@ -15,7 +15,7 @@ QUALITY = 78
 
 args = [a for a in sys.argv[1:] if a != '-f']
 force = '-f' in sys.argv
-chapters = args or ['research', 'plan', 'make']
+chapters = args or ['research', 'plan', 'make', 'result']
 
 for ch in chapters:
     files = sorted((SRC / ch).glob('*.jpg'))

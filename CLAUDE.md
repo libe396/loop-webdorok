@@ -52,11 +52,11 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 - [ ] 프로토타입 체험 링크 (Button href="#" 자리 — 프로토타입 URL 받으면 교체: Hero · GNB · Outro)
 - [x] S06b AIoT(Home.jsx, #aiot) — 다크(gray-900), 「AIoT 디바이스」, 인쇄도록 제품 컷 한 장(카드) + 기능 4개(IOT-01 ROLE) + 원형 화면 6개(A-00·02·05·06·08·09, IOT-02~04 캡션). GNB 다크는 `is-aiot-dark`
 - [x] S07 처방사(Prescriber.jsx, #prescriber) — 메인 대시보드 평면 화면 + 보조 3장, 캡션은 발표 PPT 「추출」 DH-01·02·07·09. 'lOOP' 소문자 l 의도된 표기
-- [x] 아카이브 페이지 `#/archive/{research,plan,make,result}` — `src/pages/Archive.jsx` 템플릿 하나, 데이터 `src/data/archive.js`(manifest + 헤더 카피. summary는 초안)
+- [x] 아카이브 페이지 `#/archive/{research,plan,make,result}` — `src/pages/Archive.jsx` 템플릿 하나, 데이터 `src/data/archive.js`(manifest + 헤더 카피). 결과물 챕터 공개(#18): GNB·S08·S07/S06b 딥링크
 - [x] 라우팅: HashRouter. `/archive/:chapter`만 라우트, 나머지 해시(#top·#service…)는 랜딩이 받아서 해당 id로 스크롤
-- [x] 장표 165+21장 WebP 변환 완료 (`public/archive/`, 약 19MB)
+- [x] 장표 WebP: research 134 · plan 31 · make 49 · result 44 = 258장 (`public/archive/`, 약 24MB). 장 수는 manifest에서 계산
   - research·plan 원본: `~/Desktop/Loop_Research.pdf`(167p: 1 표지 · 2–135 r001–r134 · 136–166 p001–p031 · 167 끝) → `scripts/archive-from-pdf.py`(pymupdf 필요) → `docs/archive/{research,plan}/*.jpg`
-  - make 원본: `designthinking/webdorok-archive/make` → `docs/archive/make/`
+  - make·result 원본: 발표 장표 Figma `jm83f0M7tlSafawIkAZ6b5` 「추출」 페이지(+와이어프레임은 Week 2-1 섹션) → `docs/archive/{make,result}/`. 노드 표 `docs/archive-sources.md`
   - 변환: `python3 scripts/archive-webp.py [-f]`. p023(블루프린트)만 16:9 아님 → 이미지는 원본 비율로 표시
 
 ## 작업 규칙
@@ -142,3 +142,10 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 - 카피: 인쇄도록 3490:33242(처방사)·3490:33243(AIoT 제목 「AIoT 디바이스」 3492:18132·설명). S07은 인쇄도록 iPad 목업(3456:38851) 대신 평면 화면 유지(교수님 피드백). 캡션·기능은 발표 PPT(jm83f0M7tlSafawIkAZ6b5) 「추출」 DH-01·02·07·09, IOT-01~04 장표 문장 그대로. 영어 eyebrow 없음.
 - 모션: 진입 한 번(메인→보조 순차 / 제품 페이드→원형 화면 0.1초 간격). 핀·스크럽 없음, reduced-motion 끔.
 - 원본·해상도: `docs/final-screen-sources.md`.
+
+## #18 · 결과물 아카이브 공개 · 제작 과정 최신본 교체
+
+- result 5섹션 44장(메인 플로우 9 · 모바일 앱 18 · 처방사 대시보드 12 · AIoT 디바이스 4 · 실물 전시 구성 1), make 5섹션 49장(브랜드·로고 3 · 파운데이션 13 · 컴포넌트 5 · IA 개편 4 · 와이어프레임 24). 추출 페이지 73장 중 간지 4장 제외. 옛 DS PDF 장표·dark·hifi 섹션 삭제.
+- 출처 칩은 전 챕터 「발표 장표」. 섹션 summary는 서연 문구(실물 전시 구성만 빈 값).
+- 공개 복구: GNB 「결과물」, S08 결과물 링크, S07·S06b 「전체 화면 보기」 → `#/archive/result?section={dashboard,aiot}`.
+- 노드·제외 장표: `docs/archive-sources.md`.

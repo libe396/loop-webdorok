@@ -16,6 +16,9 @@
 .dash-cap span { color: var(--gray-500); }
 .dash-main .dash-cap { flex-direction: row; gap: 12px; align-items: baseline; flex-wrap: wrap; }
 
+.dash .more-link { align-self: flex-start; color: var(--violet-500); text-decoration: none; }
+.dash .more-link:hover { text-decoration: underline; }
+
 .dash-subs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 
 /* 진입 모션 — 한 번만 */

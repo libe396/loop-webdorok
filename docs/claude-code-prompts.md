@@ -252,3 +252,16 @@ A→E 순서로 구현하고 각 단계 `npm run build` 확인.
 - AIoT 기능 4개는 IOT-01 ROLE(코칭 노트 동기화 · 관절 17점 모션트래킹 · 음성 코칭 · 컨디션 리마인드) 문장 사용.
 - 검사: 4개 폭 모두 가로 넘침 0, 섹션 이미지 12장 로딩, 캡션 겹침 0, 14px 미만 텍스트 0. build 성공, lint 기존 경고 3개.
 - scrollHeight(수정 후): 1920 15,804→19,394 · 1440 14,379→17,370 · 1024 13,631→16,899 · 390 12,692→15,243.
+
+## #18 · 결과물 아카이브 공개 · 제작 과정 최신본 교체
+
+요청: 발표 장표 Figma(jm83f0M7tlSafawIkAZ6b5) 「추출」 페이지 최종 장표로 result 5섹션(flow·mobile·dashboard·aiot·exhibition, 44장) 채우고, make는 옛 DS PDF m001~m021을 지우고 brand·foundation·components·ia·wireframe(47장)으로 교체. dark·hifi 섹션과 "(추가 예정)" 삭제. 1배수 export → docs/archive → archive-webp.py. 카피: make·result summary 지정, source 전부 「발표 장표」, eyebrow 유지(#19). 새 섹션 summary는 빈 값 → 목록만 보고. GNB 결과물·S08 결과물 링크 복구, S07·S06b 「전체 화면 보기」 딥링크. 추출 페이지 나머지 6장은 간지면 제외, 내용 장표면 보고만. 캡처·빈 summary·제외 목록 승인 후 단일 커밋 `#18 결과물 공개·제작 과정 교체` push.
+
+반영:
+
+- 93장 export 실패 없음(get_screenshot contentsOnly 1920 = 1배수 프레임 단독). 노드 표·제외 장표는 docs/archive-sources.md.
+- archive-webp.py 기본 대상에 result 추가. public/archive 19,376KB → 24,344KB.
+- 추출 페이지 73장 중 간지 4장 제외. 승인 반영: Brand Introduction(16786) 브랜드 맨 앞, IA 정보 구조도 · 처방사 대시보드(15189) IA 맨 뒤 추가, Break Point(15279)는 파운데이션 그리드 시스템 뒤로 이동. make 49장으로 재번호.
+- 섹션 summary는 서연 문구 반영(실물 전시 구성만 빈 값, 파운데이션·컴포넌트 기존 유지).
+- S08 장 수·마퀴는 manifest 계산(하드코딩 없음). 다음 챕터 순환 research → plan → make → result → research 확인.
+- 검증: build 성공, lint 기존 경고 3개. 전 챕터 512개 URL(1920·@960) 404 없음. make·result 1920/390 가로 넘침 없음, 목차 장 수, 라이트박스 → ← ESC, GNB 결과물 aria-current, S08 링크 4개, 딥링크 2개 섹션 도착 확인.
