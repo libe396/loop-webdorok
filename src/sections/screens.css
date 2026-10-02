@@ -1,0 +1,31 @@
+/* S04b 핵심 화면 — 평면 화면 6장, 데스크톱 3열 2줄 · 1024 이하 가로 스크롤 스냅 */
+.scr { background: var(--gray-50); }
+.scr-in { display: flex; flex-direction: column; gap: 48px; }
+.scr-desc { color: var(--gray-600); }
+
+.scr-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(var(--screens-min), 1fr)); gap: 48px 24px; }
+.scr-item { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+/* 첫 화면 높이(402:874)까지만 보이게 위쪽 기준으로 자름 */
+.scr-frame { aspect-ratio: var(--screens-ratio); overflow: hidden; border-radius: var(--r-lg); border: 1px solid var(--gray-200); background: var(--white); }
+.scr-frame img { width: 100%; height: auto; user-select: none; }
+.scr-item p { color: var(--ink); }
+
+.scr .more-link { align-self: flex-start; color: var(--violet-500); text-decoration: none; }
+.scr .more-link:hover { text-decoration: underline; }
+
+/* 진입 모션 — 한 번만, 순차 */
+.scr-item { opacity: 0; transform: translateY(32px); transition: opacity .6s, transform .8s cubic-bezier(.2, .7, 0, 1); transition-delay: var(--d, 0s); }
+.scr.is-on .scr-item { opacity: 1; transform: none; }
+
+/* 3열이 최소 폭(360)을 못 지키는 노트북 폭에선 2열 */
+@media (max-width: 1300px) and (min-width: 1025px) {
+  .scr-grid { grid-template-columns: repeat(2, minmax(var(--screens-min), 1fr)); }
+}
+@media (max-width: 1024px) {
+  .scr-in { gap: 32px; }
+  .scr-grid { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 calc(var(--mx) * -1); padding: 0 var(--mx) 8px; scroll-padding: 0 var(--mx); }
+  .scr-item { flex: 0 0 var(--screens-scroll-w); scroll-snap-align: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scr-item { opacity: 1; transform: none; transition: none; }
+}

@@ -6,6 +6,7 @@ import About from '../sections/About'
 import Problem from '../sections/Problem'
 import Loop from '../sections/Loop'
 import Play from '../sections/Play'
+import Screens from '../sections/Screens'
 import Focus from '../sections/Focus'
 import Band from '../sections/Band'
 import Home from '../sections/Home'
@@ -35,6 +36,7 @@ export default function Landing() {
         <Problem />   {/* S02 */}
         <Loop />      {/* S03 */}
         <Play />      {/* S04 */}
+        <Screens />   {/* S04b */}
         <Focus />     {/* S05 */}
         <Band />      {/* S06 */}
         <Home />      {/* S06b AIoT */}

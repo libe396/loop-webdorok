@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom'
 import useScrollProgress, { prefersReducedMotion } from '../lib/useScrollProgress'
 import './problem.css'
 
-const SENT = '측정은 AI로 고도화됐는데, 일상은 왜 그대로일까요?'.split(' ')
+const SENT = '측정은 고도화됐지만, 변화로 이어지지는 않았습니다'.split(' ')
+// 인쇄도록 포스터 3492:18147 PROBLEM 설문 수치 · 근거 장표는 리서치 survey r037·r038·r039
 const STATS = [
-  { value: '32만 명', label: '매년 국민체력100에서 체력을 인증합니다', source: '출처 · 데스크 리서치 r008', section: 'desk', slide: 'r008' },
-  { value: '4.6%', label: '과학적 체력관리를 실천하는 국민', source: '출처 · 데스크 리서치 r009', section: 'desk', slide: 'r009' },
-  { value: '3일~1주', label: '방문자 인터뷰에서 나타난 처방 중단 시점', source: '출처 · 방문자 인터뷰 6명(2026) · r062·r071', section: 'interview', slide: 'r071' },
+  { value: '44%', label: '운동 루틴이 없는 응답자', source: '출처 · 설문조사 70명 · Q7', section: 'survey', slide: 'r037' },
+  { value: '64%', label: '시간 부족 · 동기 부족 59%', source: '출처 · 설문조사 70명 · Q9', section: 'survey', slide: 'r038' },
+  { value: '60%', label: '반드시 + 필요하다 응답', source: '출처 · 설문조사 70명 · Q14', section: 'survey', slide: 'r039' },
 ]
 const clamp = (v) => Math.min(1, Math.max(0, v))
 
