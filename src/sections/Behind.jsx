@@ -66,7 +66,7 @@ export default function Behind() {
       <div className="section behind-top">
         <div className="inner">
           <div className="head">
-            <p className="eyebrow">BEHIND LOOP</p>
+            <p className="eyebrow">만든 과정</p>
             <h2 className="t48 semibold">12주 동안,<br />측정 다음을 파고들었습니다.</h2>
           </div>
           <div className="nums">
@@ -83,7 +83,7 @@ export default function Behind() {
       <div className="section behind-dec">
         <div className="inner dec-in">
           <div className="head dec-head">
-            <p className="eyebrow">DECISIONS</p>
+            <p className="eyebrow">리서치로 바꾼 결정</p>
             <h3 className="t36 semibold">리서치가 바꾼 것들</h3>
             <p className="t18 medium muted">장표는 결과가 아니라 결정의 근거입니다.</p>
             <div className="ch-links">
@@ -100,7 +100,7 @@ export default function Behind() {
           <ol className="dec-stack">
             {DECISIONS.map((d, i) => (
               <li key={d.from} className="dec-card glass-frost">
-                <span className="t14 medium dec-no">DECISION {String(i + 1).padStart(2, '0')}</span>
+                <span className="t14 medium dec-no">결정 {String(i + 1).padStart(2, '0')}</span>
                 <p className="t48 semibold dec-ft"><s>{d.from}</s><span aria-hidden="true">→</span>{d.to}</p>
                 <p className="t20 medium">{d.why}</p>
               </li>

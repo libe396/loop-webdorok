@@ -29,7 +29,7 @@ export default function Problem() {
     <section className={`problem ${entered ? 'is-entered' : ''}`} ref={ref} id="problem">
       <div className="problem-pin section">
         <div className="inner problem-in">
-          <p className="t24 medium accent">THE GAP</p>
+          <p className="t24 medium accent">문제</p>
           <h2 className="t56 semibold problem-sent">
             {SENT.map((w, i) => (
               <span key={i}><span style={{ opacity: p > ((i + 0.5) / SENT.length) * 0.4 ? 1 : 0.14 }}>{w}</span>{w.endsWith(',') ? <br /> : ' '}</span>

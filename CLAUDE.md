@@ -29,7 +29,7 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 - 규칙: 한 화면(섹션)에 그라디언트 하나. 실외=peach·pink, 실내·기본=violet
 
 ## 구조
-- `src/sections/` Intro(S00) · Hero(S01) · Problem(S02) · Loop(S03) · Play(S04) · Focus(S05) · Band(S06) · Home(S06b AIoT, #aiot) · Prescriber(S07, #prescriber) · Behind(S08) · Brand(S09) · Outro(S10)
+- `src/sections/` Intro(S00) · Hero(S01) · About(S01b 서비스 소개, #about) · Problem(S02) · Loop(S03) · Play(S04) · Focus(S05) · Band(S06) · Home(S06b AIoT, #aiot) · Prescriber(S07, #prescriber) · Behind(S08) · Brand(S09) · Outro(S10)
 - `src/components/` Gnb, Wordmark(DS 로고 벡터), Phone(화면 목업), Button, Glass
 - `src/pages/` Landing(S00~S10) · Archive(챕터 템플릿)
 - `src/lib/useScrollProgress.js` sticky 핀 섹션 진행률(0→1) · `src/lib/scroll.js` 전역 Lenis + `scrollToTarget`
@@ -149,3 +149,11 @@ npm run build    # dist/ → GitHub Pages (vite base './')
 - 출처 칩은 전 챕터 「발표 장표」. 섹션 summary는 서연 문구(실물 전시 구성만 빈 값).
 - 공개 복구: GNB 「결과물」, S08 결과물 링크, S07·S06b 「전체 화면 보기」 → `#/archive/result?section={dashboard,aiot}`.
 - 노드·제외 장표: `docs/archive-sources.md`.
+
+## #19 · 한글 설명 패스 · 서비스 소개 문단
+
+- S01b About(About.jsx, #about): Hero 다음·Problem 앞. 인쇄도록 작품 설명(3352:34063 · 3426:8786) 합니다체 제목·문단 2개 + 구성 요소 3줄(모바일 앱 #service · AIoT 디바이스 #aiot · 처방사 대시보드 #prescriber). 이미지·그라디언트 없음, 진입 페이드 한 번.
+- 영어 장식 라벨 → 한글: Hero 「아래로 ↓」·밴드 카드 「수면 · 심박 연동」, eyebrow 문제 / loop가 이어주는 과정 / 직접 만져보기 / 무인 측정 화면 / 웨어러블 밴드 / 만든 과정 / 리서치로 바꾼 결정 / 브랜드 · 디자인 시스템, 결정 01~03, 아카이브 01 · 리서치 과정 등.
+- Loop 정거장: 한글 크게 + 영어(MEASURE·MOVE·GROW·REPORT) 작은 보조 글자. 영어는 브랜드 요소라 유지.
+- Band 칩 「Coming next」 삭제. Brand 「Violet」·Intelligence·Delight·Clarity는 그라디언트·색 이름이라 유지.
+- 화면 코드(M-01·M-07 등)는 alt·aria·로딩 실패 자리표시에만 쓰여 그대로 둠.

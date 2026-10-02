@@ -34,6 +34,10 @@
   --aiot-product-ratio: 1186 / 1495;
   --aiot-product-max: 640px;
 
+  /* S01b 서비스 소개 — 제목/본문 간격 · 구성 요소 이름 열 폭 */
+  --about-gap: clamp(32px, 5vw, 96px);
+  --about-name-w: 160px;
+
   /* web layout — Hi-Fi 1920 기준: 좌우 121 / 상하 110 */
   --mx: clamp(20px, 6.3vw, 121px);
   --my: clamp(72px, 5.73vw, 110px);

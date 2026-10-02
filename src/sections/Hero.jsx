@@ -72,7 +72,7 @@ export default function Hero() {
               {bandOk ? <img src={img('band.webp')} alt="LOOP band" onError={() => setBandOk(false)} /> : <span className="band-ph" />}
             </span>
             <b className="t16 semibold">LOOP band</b>
-            <span className="t12 medium accent">Coming next</span>
+            <span className="t12 medium accent">수면 · 심박 연동</span>
           </Glass>
           <Glass className="glass-frost hero-card card-remeasure">
             <DotRing />
@@ -81,7 +81,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="hero-foot t14 medium label">
-        <span>SCROLL ↓</span>
+        <span>아래로 ↓</span>
         <span>국민체력100 서비스 경험 리뉴얼 · 디자인씽킹스튜디오 2026</span>
       </div>
     </section>

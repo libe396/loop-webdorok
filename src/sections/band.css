@@ -6,7 +6,6 @@
   background: radial-gradient(ellipse at 75% 50%, rgba(146, 169, 236, .85), rgba(220, 225, 244, .6) 40%, rgba(220, 225, 244, 0) 68%); }
 .band-in { display: grid; grid-template-columns: 38fr 62fr; gap: 24px; align-items: center; height: 100%; }
 .band-copy { gap: 20px; }
-.band-chip { align-self: flex-start; }
 
 .band-stage { --spot-gap: 24px; position: relative; display: grid; place-items: start center; min-width: 0; padding-bottom: 180px; }
 .band-obj { position: relative; width: min(100%, 900px); aspect-ratio: 982 / 654; perspective: 1400px; }

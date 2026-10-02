@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Intro from '../sections/Intro'
 import Hero from '../sections/Hero'
+import About from '../sections/About'
 import Problem from '../sections/Problem'
 import Loop from '../sections/Loop'
 import Play from '../sections/Play'
@@ -30,6 +31,7 @@ export default function Landing() {
       <Intro />       {/* S00 */}
       <main>
         <Hero />      {/* S01 */}
+        <About />     {/* S01b */}
         <Problem />   {/* S02 */}
         <Loop />      {/* S03 */}
         <Play />      {/* S04 */}

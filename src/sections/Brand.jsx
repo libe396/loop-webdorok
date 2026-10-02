@@ -22,7 +22,7 @@ export default function Brand() {
       <div className="brand-pin section">
         <div className="inner brand-in">
           <div className="head brand-copy">
-            <p className="eyebrow">BRAND &amp; DESIGN SYSTEM</p>
+            <p className="eyebrow">브랜드 · 디자인 시스템</p>
             <h2 className="t48 semibold">100이 loop가<br />되기까지.</h2>
             <p className="t20 medium muted">숫자 100과 이어지는 고리. 측정과 실천이 반복되는 선순환을 로고로 만들고, 컴포넌트 40개와 아이콘 371개로 넓혔습니다.</p>
             <ol className="looks">

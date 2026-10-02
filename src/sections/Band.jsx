@@ -101,10 +101,9 @@ export default function Band() {
         <span className="band-blob" aria-hidden="true" />
         <div className="inner band-in">
           <div className="head band-copy">
-            <p className="eyebrow">COMING NEXT</p>
+            <p className="eyebrow">웨어러블 밴드</p>
             <h2 className="t56 semibold">LOOP band</h2>
             <p className="t24 semibold">손목의 AIoT 밴드가 오늘 컨디션을 읽고,<br className="br-l" /> 루틴 강도를 알아서 조절합니다.</p>
-            <span className="chip is-lime band-chip">Coming next</span>
           </div>
 
           <div className="band-stage" ref={stageRef} style={style}>

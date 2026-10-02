@@ -1,0 +1,29 @@
+/* S01b 서비스 소개 — 이미지·그라디언트 없이 글만. 좌 제목 / 우 문단 + 구성 요소 3줄 */
+.about { background: var(--gray-50); }
+.about-in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--about-gap); align-items: start; }
+.about-body { display: flex; flex-direction: column; gap: 24px; }
+.about-body > p { color: var(--gray-600); }
+
+.about-parts { list-style: none; margin: 16px 0 0; padding: 0; }
+.about-parts li { border-top: 1px solid var(--gray-200); }
+.about-parts li:last-child { border-bottom: 1px solid var(--gray-200); }
+.about-parts a { display: grid; grid-template-columns: var(--about-name-w) minmax(0, 1fr) auto; gap: 16px; align-items: baseline; padding: 20px 0; color: var(--ink); text-decoration: none; }
+.about-parts span { color: var(--gray-500); }
+.about-parts i { font-style: normal; color: var(--violet-500); transition: transform .3s; }
+.about-parts a:hover i { transform: translateX(4px); }
+.about-parts a:hover b { color: var(--violet-500); }
+
+/* 진입 모션 — 한 번만 */
+.about-in { opacity: 0; transform: translateY(32px); transition: opacity .6s, transform .8s cubic-bezier(.2, .7, 0, 1); }
+.about.is-on .about-in { opacity: 1; transform: none; }
+
+@media (max-width: 1024px) {
+  .about-in { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .about-parts a { grid-template-columns: minmax(0, 1fr) auto; row-gap: 4px; }
+  .about-parts b { grid-column: 1; }
+  .about-parts span { grid-column: 1; grid-row: 2; }
+  .about-parts i { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-in { opacity: 1; transform: none; transition: none; }
+}

@@ -25,6 +25,8 @@ const STATIONS = [
   { i: 210, n: '04', when: '12주차', en: 'REPORT', ko: '리포트', code: 'h4', label: 'HR-06 무브바디',
     title: '눈바디 말고,\n무브바디', body: '움직임이 어떻게 달라졌는지 보여주고, 다음 측정으로 다시 이어집니다.', chips: ['무브바디', '변화 리포트', '재측정 D-90'] },
 ]
+// 활성 정거장 알약: 번호 + 한글(크게) + 영어(작게) 폭
+const PILL_W = s => 72 + s.ko.length * 17 + s.en.length * 10
 const START = 10, END = 240 + 10 // 한 바퀴 + Measure 직전까지
 
 export default function Loop() {
@@ -58,13 +60,13 @@ export default function Loop() {
         <div className="inner loop-in">
           <div className="loop-left">
             <div className="head">
-              <p className="eyebrow">HOW LOOP WORKS</p>
+              <p className="eyebrow">loop가 이어주는 과정</p>
               <h2 className="t48 semibold">한 번 측정하면,<br />루틴은 계속됩니다.</h2>
               <p className="t20 medium muted loop-sub">측정 → 실천 → 성장 → 리포트. 스크롤을 내리면 점이 한 바퀴를 돕니다.</p>
             </div>
             <div className="loop-mobile-progress" aria-label={`현재 단계 ${active + 1} / 4`}>
               <div className="loop-progress-dots" aria-hidden="true">{STATIONS.map((s, k) => <i key={s.en} className={k === active ? 'is-on' : ''} />)}</div>
-              <p className="t16 medium accent">{st.when} · {st.en} · {st.ko}</p>
+              <p className="t16 medium accent">{st.when} · {st.ko} <span className="loop-en">{st.en}</span></p>
             </div>
             <svg className="inf" viewBox={`-20 -40 ${W + 40} ${H + 90}`} aria-hidden="true">
               <defs>
@@ -85,12 +87,12 @@ export default function Loop() {
                     <circle cx={x} cy={y} r={on ? 14 : 11} className={`inf-st ${done || on ? 'is-done' : ''} ${on ? 'is-on' : ''}`} />
                     {on ? (
                       <g transform={`translate(${x - 58} ${below ? y + 30 : y - 70})`}>
-                        <rect width={s.en.length > 5 ? 156 : 132} height="40" rx="20" className="inf-pill" />
-                        <text x="18" y="25" className="inf-pill-en">{s.n} {s.en}</text>
-                        <text x={(s.en.length > 5 ? 156 : 132) - 18} y="26" textAnchor="end" className="inf-pill-ko">{s.ko}</text>
+                        <rect width={PILL_W(s)} height="40" rx="20" className="inf-pill" />
+                        <text x="18" y="26"><tspan className="inf-pill-en">{s.n} </tspan><tspan className="inf-pill-ko">{s.ko}</tspan></text>
+                        <text x={PILL_W(s) - 18} y="25" textAnchor="end" className="inf-pill-en">{s.en}</text>
                       </g>
                     ) : (
-                      <text x={x} y={below ? y + 40 : y - 26} className={`inf-lb ${done ? 'is-done' : ''}`}>{s.n} {s.en}</text>
+                      <text x={x} y={below ? y + 40 : y - 26} className={`inf-lb ${done ? 'is-done' : ''}`}>{s.n} {s.ko} <tspan className="inf-lb-en">{s.en}</tspan></text>
                     )}
                   </g>
                 )
@@ -108,7 +110,7 @@ export default function Loop() {
               ))}
             </div>
             <Glass className="loop-card glass-frost" key={st.en}>
-              <p className="t18 semibold accent">{st.when} · {st.en}</p>
+              <p className="t18 semibold accent">{st.when} · {st.ko} <span className="loop-en t14 medium">{st.en}</span></p>
               <h3 className="t36 semibold">{st.title.split('\n').map((l, i) => <span key={i}>{l}<br /></span>)}</h3>
               <p className="t18 medium muted">{st.body}</p>
               <div className="loop-chips">
@@ -117,7 +119,7 @@ export default function Loop() {
             </Glass>
           </div>
 
-          <span className="loop-hint t14 medium label">{looped ? '↺ 다시 MEASURE로' : prev && 'SCROLL ↓'}</span>
+          <span className="loop-hint t14 medium label">{looped ? '↺ 다시 측정으로' : prev && '아래로 ↓'}</span>
         </div>
       </div>
     </section>

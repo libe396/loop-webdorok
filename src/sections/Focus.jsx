@@ -35,7 +35,7 @@ export default function Focus() {
         <div className="inner focus-in">
           <div className="focus-copy">
             <div className="head">
-              <p className="eyebrow focus-eb">FOCUS MODE</p>
+              <p className="eyebrow focus-eb">무인 측정 화면</p>
               <h2 className="t48 semibold">움직이는 동안엔,<br />화면이 어두워집니다.</h2>
               <p className="t20 medium focus-sub">측정과 운동 중엔 다크 모드로. 필요한 값 하나만 남기고 다 끕니다.</p>
             </div>

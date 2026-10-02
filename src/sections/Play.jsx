@@ -121,10 +121,10 @@ export default function Play() {
       <span className="play-blob is-c" aria-hidden="true" />
       <div className="inner">
         <div className="head play-head">
-          <p className="eyebrow">PLAY WITH LOOP</p>
+          <p className="eyebrow">직접 만져보기</p>
           <h2 className="t48 semibold">읽지 말고,<br />직접 움직여보세요.</h2>
           <p className="t24 semibold">기능 설명 대신, 네 가지를 손으로 만져봅니다.</p>
-          <span className="t14 medium label play-kbd">HOVER · DRAG · CLICK</span>
+          <span className="t14 medium label play-kbd">올려보고 · 끌어보고 · 눌러보세요</span>
         </div>
         <div className="bento">
           <TypeCard />
