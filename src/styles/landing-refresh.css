@@ -501,3 +501,5 @@ body:has(.hero-scene) .gnb.is-solid .gnb-in { background: transparent; }
 .landing #design-system > .chapter-heading { align-items: flex-start; text-align: left; }
 .landing #behind > .chapter-heading > p:last-child,
 .landing #design-system > .chapter-heading > p:last-child { align-self: flex-start; }
+.landing .sleep-experience { padding-top: 80px; }
+@media (max-width: 760px) { .landing .sleep-experience { padding-top: 56px; } }

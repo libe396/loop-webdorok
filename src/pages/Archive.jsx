@@ -30,7 +30,7 @@ function ChapterPage({ ch }) {
   useLayoutEffect(() => {
     // 아카이브로 바로 들어왔으면 랜딩 인트로는 생략
     introDone()
-    document.title = `${ch.title} · 국민체력 loop`
+    document.title = `${ch.title} · lOOP`
     scrollToTarget(0, { immediate: true })
   }, [ch])
 
