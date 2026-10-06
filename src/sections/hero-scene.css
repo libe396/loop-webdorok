@@ -251,3 +251,30 @@ body:has(.hero-scene) header.gnb.is-solid div.gnb-in { background: transparent; 
 
 .hero-question-badge { left: 4px; }
 @media (max-width: 760px) { .hero-question-badge { left: 2px; } }
+
+/* Give the question its own breathing room and a gentle conversational entrance. */
+.hero-scene { --hero-fade-height: clamp(360px, 44svh, 520px); }
+.hero-bridge { justify-content: center; padding-top: 56px; padding-bottom: 56px; }
+.hero-bridge-question { padding: 26px 42px; transform-origin: 12% 80%; }
+.hero-bridge-question.is-waiting { opacity: 0; transform: translateY(24px) scale(.94); }
+.hero-bridge-question.is-popped { animation: questionPop 650ms cubic-bezier(.22, 1, .36, 1) both; }
+.hero-bridge-question.is-popped .hero-question-badge { animation: questionBadgePop 700ms 100ms cubic-bezier(.22, 1, .36, 1) both; }
+@keyframes questionPop {
+  0% { opacity: 0; transform: translateY(24px) scale(.94); }
+  65% { opacity: 1; transform: translateY(-4px) scale(1.015); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes questionBadgePop {
+  0% { transform: rotate(-14deg) scale(.8); }
+  65% { transform: rotate(2deg) scale(1.08); }
+  100% { transform: rotate(-7deg) scale(1); }
+}
+@media (max-width: 760px) {
+  .hero-scene { --hero-fade-height: 320px; }
+  .hero-bridge-question { padding: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bridge-question.is-waiting { opacity: 1; transform: none; }
+  .hero-bridge-question.is-popped,
+  .hero-bridge-question.is-popped .hero-question-badge { animation: none; }
+}

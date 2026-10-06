@@ -20,10 +20,18 @@ export default function useSectionSnap(root) {
       if (!intent || snapping || !root.current) return
       intent = false
       const header = document.querySelector('.gnb')?.offsetHeight || 0
-      const points = [...root.current.children].filter(el => el.tagName === 'SECTION').map(el => Math.max(0, el.getBoundingClientRect().top + window.scrollY - header))
+      const viewport = window.innerHeight - header
+      const points = [...root.current.children].filter(el => el.tagName === 'SECTION').flatMap(el => {
+        const rect = el.getBoundingClientRect()
+        const start = Math.max(0, rect.top + window.scrollY - header)
+        // Long chapters can settle at either edge without jumping past their content.
+        return rect.height > viewport + 100
+          ? [start, Math.max(start, rect.bottom + window.scrollY - window.innerHeight)]
+          : [start]
+      })
       const nearest = points.reduce((best, point) => Math.abs(point - window.scrollY) < Math.abs(best - window.scrollY) ? point : best, Infinity)
       const distance = Math.abs(nearest - window.scrollY)
-      if (distance < 8 || distance > Math.min(180, window.innerHeight * .22)) return
+      if (distance < 8 || distance > (window.innerWidth >= 1200 ? Math.min(380, window.innerHeight * .36) : Math.min(240, window.innerHeight * .28))) return
       snapping = true
       scrollToTarget(nearest)
       timer = setTimeout(() => { snapping = false }, 900)
@@ -31,7 +39,7 @@ export default function useSectionSnap(root) {
     const onScroll = () => {
       if (snapping || !intent) return
       clearTimeout(timer)
-      timer = setTimeout(settle, 180)
+      timer = setTimeout(settle, 140)
     }
     window.addEventListener('wheel', onInput, { passive: true })
     window.addEventListener('touchstart', onInput, { passive: true })

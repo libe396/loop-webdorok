@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import Phone from '../components/Phone'
 import { screen, img } from '../data/screens'
 import useScrollProgress from '../lib/useScrollProgress'
@@ -6,6 +6,23 @@ import './hero-scene.css'
 
 export default function Hero() {
   const root = useRef(null)
+  const question = useRef(null)
+  useEffect(() => {
+    const bubble = question.current
+    if (!bubble || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    bubble.classList.add('is-waiting')
+    const observer = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting)) return
+      bubble.classList.remove('is-waiting')
+      bubble.classList.add('is-popped')
+      observer.disconnect()
+    }, { threshold: .7 })
+    observer.observe(bubble)
+    return () => {
+      observer.disconnect()
+      bubble.classList.remove('is-waiting', 'is-popped')
+    }
+  }, [])
   const progress = useScrollProgress(root)
   const action = progress > .42
   const travel = Math.min(1, progress / .7)
@@ -30,7 +47,7 @@ export default function Hero() {
         </footer>
       </div>
       <div className="hero-bridge">
-        <h2 className="hero-bridge-question"><span className="hero-question-badge" aria-hidden="true">Q</span>체력 측정은 완료했는데, 오늘은 무엇부터 시작해야 할까요?</h2>
+        <h2 className="hero-bridge-question" ref={question}><span className="hero-question-badge" aria-hidden="true">Q</span>체력 측정은 완료했는데, 오늘은 무엇부터 시작해야 할까요?</h2>
       </div>
     </section>
   )
