@@ -103,7 +103,7 @@ export default function Band() {
           <div className="head band-copy">
             <p className="eyebrow">웨어러블 밴드</p>
             <h2 className="t56 semibold">LOOP band</h2>
-            <p className="t24 semibold">손목의 AIoT 밴드가 오늘 컨디션을 읽고,<br className="br-l" /> 루틴 강도를 알아서 조절합니다.</p>
+            <p className="t24 semibold">매일 같은 강도 대신, 오늘의 컨디션에 맞게.<br className="br-l" /> 수면과 심박을 읽어 루틴 강도를 조절합니다.</p>
           </div>
 
           <div className="band-stage" ref={stageRef} style={style}>

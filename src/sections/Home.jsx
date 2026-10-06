@@ -25,6 +25,7 @@ export default function Home() {
   const ref = useRef(null)
   const reduced = prefersReducedMotion()
   const [entered, setEntered] = useState(reduced)
+  const [selected, setSelected] = useState(0)
   useEffect(() => {
     if (reduced) return
     const observer = new IntersectionObserver(([entry]) => {
@@ -64,25 +65,25 @@ export default function Home() {
           <div className="aiot-copy">
             <div className="head">
               <h2 className="t56 semibold">AIoT 디바이스</h2>
-              <p className="t24 semibold aiot-desc">개인이 집에서도 운동을 이어갈 수 있도록 <br className="br-l" />돕는 가정용 AIoT 코칭 기기</p>
+              <p className="t24 semibold aiot-desc">전문가의 코칭, 이제 집에서도.</p>
             </div>
             <ul className="aiot-roles">
-              {ROLES.map(r => (
+              {ROLES.slice(0, 3).map(r => (
                 <li key={r.k}><b className="t20 semibold">{r.k}</b><span className="t16 medium">{r.v}</span></li>
               ))}
             </ul>
           </div>
         </div>
 
-        <ol className="aiot-screens">
-          {SCREENS.map((s, i) => (
-            <li key={s.code} className="aiot-screen" style={{ '--d': `${0.2 + i * 0.1}s` }}>
-              <img src={screen(s.code)} alt={`AIoT 기기 원형 화면 · ${s.name}`} width="960" height="960" loading="lazy" draggable="false" />
-              <b className="t16 semibold">{s.name}</b>
-              {s.caption && <span className="t14 medium">{s.caption}</span>}
-            </li>
-          ))}
-        </ol>
+        <div className="device-explorer">
+          <div className="showcase-tabs" aria-label="AIoT 화면 선택">
+            {SCREENS.map((s, i) => <button type="button" key={s.code} aria-pressed={selected === i} onClick={() => setSelected(i)}>{s.name}</button>)}
+          </div>
+          <figure className="device-preview">
+            <img src={screen(SCREENS[selected].code)} alt={`AIoT 기기 · ${SCREENS[selected].name}`} width="960" height="960" loading="lazy" />
+            <figcaption className="t16 medium">{SCREENS[selected].caption}</figcaption>
+          </figure>
+        </div>
         <Link className="more-link t16 semibold" to="/archive/result?section=aiot">전체 화면 보기 <span aria-hidden="true">→</span></Link>
       </div>
     </section>

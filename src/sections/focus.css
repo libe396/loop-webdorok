@@ -1,5 +1,5 @@
 /* S05 Focus — --d(0→1)로 Gray50 ↔ Gray900(앱 다크 배경 #1F232B) 스크럽 */
-.focus { height: 240vh; position: relative;
+.focus { height: 180vh; position: relative;
   --bg: color-mix(in srgb, var(--gray-900) calc(var(--d) * 100%), var(--gray-50));
   --fg: color-mix(in srgb, var(--white) calc(var(--d) * 100%), var(--ink));
   --sub: color-mix(in srgb, var(--gray-400) calc(var(--d) * 100%), var(--gray-500));

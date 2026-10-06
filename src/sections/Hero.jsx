@@ -1,88 +1,40 @@
-import { useEffect, useRef, useState } from 'react'
-import gsap from 'gsap'
+import { useRef } from 'react'
 import Phone from '../components/Phone'
-import Glass from '../components/Glass'
-import Button from '../components/Button'
-import { scrollToTarget } from '../lib/scroll'
-import { PROTOTYPE_URL } from '../data/links'
 import { screen, img } from '../data/screens'
-import { prefersReducedMotion } from '../lib/useScrollProgress'
-import './hero.css'
-
-function DotRing({ done = 11, total = 16 }) {
-  const pts = Array.from({ length: total }, (_, i) => {
-    const a = (i / total) * Math.PI * 2 - Math.PI / 2
-    return [28 + 22 * Math.cos(a), 28 + 22 * Math.sin(a)]
-  })
-  return (
-    <svg viewBox="0 0 56 56" className="dotring" aria-hidden="true">
-      {pts.map(([x, y], i) => <circle key={i} cx={x} cy={y} r={2.6} fill={i < done ? 'var(--violet-500)' : 'var(--gray-200)'} />)}
-    </svg>
-  )
-}
+import useScrollProgress from '../lib/useScrollProgress'
+import './hero-scene.css'
 
 export default function Hero() {
   const root = useRef(null)
-  const [bandOk, setBandOk] = useState(true)
-  useEffect(() => {
-    if (prefersReducedMotion()) return
-    const ctx = gsap.context(() => {
-      // S00 인트로가 끝난 뒤 재생
-      const tl = gsap.timeline({ paused: true, defaults: { ease: 'expo.out' } })
-      if (window.__loopIntroDone) tl.play()
-      else window.addEventListener('loop:intro-done', () => tl.play(), { once: true })
-      tl.from('.hero-line > span', { yPercent: 110, duration: 1.1, stagger: 0.12 })
-        .from('.hero-eyebrow, .hero-sub, .hero-btns', { y: 24, opacity: 0, duration: 0.9, stagger: 0.08 }, '-=0.8')
-        .from('.hero-phone', { y: 80, opacity: 0, rotate: 2, duration: 1.3 }, '-=1.0')
-        .from('.hero-card', { y: 32, opacity: 0, duration: 0.9, stagger: 0.14 }, '-=0.8')
-    }, root)
-    return () => ctx.revert()
-  }, [])
-
+  const progress = useScrollProgress(root)
+  const action = progress > .42
+  const travel = Math.min(1, progress / .7)
   return (
-    <section className="hero" id="top" ref={root}>
-      <div className="hero-bg" style={{ backgroundImage: `url(${img('hero-ribbon.webp')})` }} aria-hidden="true" />
-      <div className="hero-fade" aria-hidden="true" />
-      <div className="hero-in">
-        <div className="hero-copy">
-          <p className="hero-eyebrow t24 medium accent">국민체력 lOOP</p>
-          <h1 className="t56 semibold">
-            <span className="hero-line"><span>측정에서 끝나지 않는</span></span>
-            <span className="hero-line"><span>건강의 선순환</span></span>
-          </h1>
-          <p className="hero-sub t20 medium muted">
-            국민체력100 측정 결과를 AI가 생활 언어로 풀고, <br className="br-l" />
-            5분 첫 행동부터 12주 실천, 변화 확인까지 이어줍니다.
-          </p>
-          <div className="hero-btns">
-            <Button href="#service" onClick={e => { e.preventDefault(); scrollToTarget(document.getElementById('service')) }}>lOOP가 이어주는 과정 보기</Button>
-            {PROTOTYPE_URL && <Button href={PROTOTYPE_URL} target="_blank" rel="noopener">프로토타입 체험</Button>}
-            <a className="hero-research t16 medium" href="#/archive/research">리서치 과정 보기 →</a>
+    <section className="hero-scene" id="top" ref={root} style={{ '--scene-progress': travel }}>
+      <div className="hero-scene-sticky" data-action={action}>
+        <img className="hero-scene-photo" src={img('landing-running-violet.png')} alt="" aria-hidden="true" fetchPriority="high" />
+        <header className="hero-scene-heading">
+          <p className="kicker">체력 측정 결과를 오늘의 운동 루틴으로</p>
+          <h1>측정의 끝에서,<br /><span>나의 lOOP가 시작됩니다.</span></h1>
+        </header>
+        <div className="hero-scene-stage">
+          <div className="hero-dot-field" aria-hidden="true">{Array.from({ length: 48 }, (_, i) => <i key={i} style={{ '--dot-angle': `${i * 7.5}deg`, '--dot-size': `${4 + (i % 4) * 2}px` }} />)}</div>
+          <div className="hero-scene-phone">
+            <Phone key={action ? 'routine' : 'result'} src={screen(action ? 'r00' : 'h0')} code={action ? '오늘의 루틴' : '측정 후 홈'} width="100cqw" />
+            <span className="hero-scene-tag">02 · 오늘의 실천</span>
+          </div>
+          <div className="hero-scene-caption" aria-live="polite">
+            <span>{action ? '02 / EVERYDAY ACTION' : '01 / UNDERSTAND YOURSELF'}</span>
+            <h2>{action ? <>알게 된 나를,<br />움직이는 나로</> : <>체력 숫자 속에서,<br />나의 강점을 발견하다.</>}</h2>
+            <p>{action ? <>5분 첫 행동부터 이어지는<br />나만의 루틴</> : <>12가지 동물 유형으로<br />이해하는 나의 체력</>}</p>
           </div>
         </div>
-
-        <div className="hero-visual">
-          <Phone className="hero-phone" src={screen('h0')} code="H-01 홈 · 측정 후" width="36.2cqw" />
-          <Glass className="glass-frost hero-card card-cond">
-            <span className="cond-ic">zZ</span>
-            <span><span className="t14 medium muted">오늘 컨디션 · 회복 지연</span><b className="t20 semibold">20분 → 10분 걷기</b></span>
-          </Glass>
-          <Glass className="glass-frost hero-card card-band">
-            <span className="band-img">
-              {bandOk ? <img src={img('band.webp')} alt="LOOP band" onError={() => setBandOk(false)} /> : <span className="band-ph" />}
-            </span>
-            <b className="t16 semibold">LOOP band</b>
-            <span className="t12 medium accent">수면 · 심박 연동</span>
-          </Glass>
-          <Glass className="glass-frost hero-card card-remeasure">
-            <DotRing />
-            <span><span className="t14 medium muted">재측정까지</span><b className="t20 semibold">11일 남았어요</b></span>
-          </Glass>
-        </div>
+        <footer className="hero-scene-footer">
+          <span className="hero-scroll-cue">스크롤로 이어보기 <span aria-hidden="true">↓</span></span>
+        </footer>
       </div>
-      <div className="hero-foot t14 medium label">
-        <span>아래로 ↓</span>
-        <span>국민체력100 서비스 경험 리뉴얼 · 디자인씽킹스튜디오 2026</span>
+      <div className="hero-bridge">
+        <h2 className="hero-bridge-question"><span className="hero-question-badge" aria-hidden="true">Q</span>체력은 알았는데, 오늘은 무엇부터 시작할까요?</h2>
       </div>
     </section>
   )

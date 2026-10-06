@@ -13,3 +13,5 @@
 @media (max-width: 480px) {
   .outro-word { margin-top: 32px; }
 }
+
+.outro-links { display: flex; align-items: center; flex-wrap: wrap; gap: var(--fs-24); margin-top: var(--fs-24); }

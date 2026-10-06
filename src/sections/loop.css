@@ -1,4 +1,4 @@
-.loop { height: 420vh; position: relative; background: var(--gray-50); }
+.loop { height: 280vh; position: relative; background: var(--gray-50); }
 .loop-pin { position: sticky; top: 0; height: 100svh; min-height: 720px; display: flex; }
 .loop-in { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; height: 100%; }
 .loop-left { display: flex; flex-direction: column; gap: clamp(24px, 4vh, 56px); min-height: 0; }
@@ -70,3 +70,11 @@
   .loop-phone.is-prev { opacity: 0; }
   .loop-card { position: relative; right: auto; top: auto; bottom: auto; transform: none; width: 100%; animation: none; }
 }
+
+.loop-selector { display: flex; flex-wrap: wrap; gap: var(--fs-12); }
+.loop-selector button { border: 0; cursor: pointer; }
+@media (max-width: 1024px), (prefers-reduced-motion: reduce) {
+ .loop { height: auto; }
+ .loop-pin { position: relative; top: 0; height: auto; min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) and (min-width: 1025px) { .loop-pin { min-height: 100svh; } }

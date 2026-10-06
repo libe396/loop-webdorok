@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Link, Navigate, useLocation, useParams } from 'react-router-dom'
 import { getChapter, nextChapter } from '../data/archive'
+import { getLandingReturnState } from '../lib/returnPosition'
 import { introDone } from '../sections/Intro'
 import { scrollToTarget } from '../lib/scroll'
 import ArchiveLightbox from '../components/ArchiveLightbox'
@@ -88,7 +89,7 @@ function ChapterPage({ ch }) {
   return (
     <main className="ar">
       <header className="ar-head inner">
-        <Link className="ar-back t16 semibold" to="/">← 서비스 소개로</Link>
+        <Link className="ar-back t16 semibold" to="/" state={getLandingReturnState()}>← 서비스 소개로</Link>
         <p className="ar-eyebrow t16 semibold">{ch.eyebrow}</p>
         <h1 className="t56 semibold">{ch.title}</h1>
         <p className="ar-summary t20 medium">{ch.summary}</p>
@@ -148,7 +149,7 @@ function ChapterPage({ ch }) {
       )}
 
       <div className="inner">
-        <Link className="ar-back ar-back-bottom t16 semibold" to="/">← 서비스 소개로</Link>
+        <Link className="ar-back ar-back-bottom t16 semibold" to="/" state={getLandingReturnState()}>← 서비스 소개로</Link>
         <Link className="ar-next" to={`/archive/${next.id}`}>
           <span className="t16 medium muted">{next.id === 'research' ? '처음으로' : '다음 챕터'}</span>
           <span className="ar-next-t t48 semibold">{next.title} <span aria-hidden="true">→</span></span>

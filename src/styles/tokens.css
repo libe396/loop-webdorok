@@ -18,8 +18,18 @@
   /* Key visual · Radial_blue (Figma Gradient System 2673:35906) — 섹션 배경용 */
   --grad-kv: radial-gradient(ellipse 296% 55% at 50% 45%, #495AEE 17.8%, #6E7CF0 44.5%, #929DF1 71.2%, #B7BFF3 89.9%, #DCE1F4 100%);
   --shadow-kv: 0 0 12px var(--violet-100); /* 카드 바깥 그림자 */
+  /* lOOP DS radial fills + inner shadows, p.9 */
+  --grad-radial-blue: radial-gradient(ellipse at 50% 50%, #495AEE 0%, #DCE1F4 100%);
+  --grad-radial-peach: radial-gradient(ellipse at 50% 50%, #F7A27A 0%, #EFB9EE 100%);
+  --grad-radial-aqua: radial-gradient(ellipse at 50% 50%, #8ED6E4 0%, #D2F964 100%);
+  --inner-blue-l: inset 0 0 20px #DCE1F4;
+  --inner-peach-l: inset 0 0 20px #F7F3EB;
+  --inner-aqua-l: inset 0 0 20px #FFFFFF;
+  --shadow-small: 0 30px 30px rgb(176 176 176 / 5%);
+  --shadow-medium: 0 16px 16px rgb(143 143 143 / 10%);
+  --shadow-large: 0 10px 16px rgb(159 160 167 / 20%);
   /* radius */
-  --r-sm: 8px; --r-md: 16px; --r-lg: 28px; --r-card: 32px; --r-full: 999px;
+  --r-sm: 8px; --r-md: 16px; --r-lg: 28px; --r-card: 28px; --r-full: 999px;
 
   /* Figma iPhone 17 instance: outer 450×920, viewport (24,23) 402×874 */
   --phone-ratio: 450 / 920;

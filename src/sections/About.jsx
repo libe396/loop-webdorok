@@ -27,10 +27,16 @@ export default function About() {
   return (
     <section className={`section about ${entered ? 'is-on' : ''}`} id="about" ref={ref}>
       <div className="inner about-in">
-        <h2 className="t48 semibold about-title">건강을 위한 공공서비스가 우리의 일상에 더 오래 함께할 수는 없을까?</h2>
+        <div className="head">
+          <p className="eyebrow">측정 다음의 일상</p>
+          <h2 className="t48 semibold about-title">결과지에서 끝나지 않도록.</h2>
+        </div>
         <div className="about-body">
-          <p className="t20 medium">국민체력100은 국민의 건강 증진을 위해 체력 측정과 맞춤형 운동 처방을 무료로 제공하는 공공 스포츠 복지 서비스입니다. 그러나 자신의 체력을 이해하고 운동 방법을 안내받더라도, 이를 일상에서 꾸준히 실천하는 일은 여전히 쉽지 않습니다.</p>
-          <p className="t20 medium">lOOP는 체력 측정과 일상 속 실천 사이의 간격을 좁히는 맞춤형 체력 관리 서비스입니다. 앱과 AIoT 디바이스로 전문가의 코칭을 집까지 연결하고, 주변 공원과 공공 운동시설을 실천의 장소로 확장합니다.</p>
+          <p className="t20 medium">측정 결과는 쉬운 말로, 운동은 내 생활에 맞게. 전문가의 코칭을 집과 동네 공원까지 연결합니다.</p>
+          <details className="about-details">
+            <summary>왜 lOOP인가요? <span aria-hidden="true">+</span></summary>
+            <p className="t16 medium">국민체력100은 체력 측정과 맞춤형 운동 처방을 무료로 제공하는 공공 스포츠 복지 서비스입니다. lOOP는 측정과 일상 속 실천 사이의 간격을 좁힙니다. 그날의 컨디션에 맞춰 운동을 조절하고, 잠시 멈춰도 작은 행동으로 다시 시작하도록 돕습니다.</p>
+          </details>
           <ul className="about-parts">
             {PARTS.map(p => (
               <li key={p.href}>

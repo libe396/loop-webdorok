@@ -36,6 +36,7 @@ export default function Prescriber() {
   const reduced = prefersReducedMotion()
   const [entered, setEntered] = useState(reduced)
   const [lightbox, setLightbox] = useState(null)
+  const [selected, setSelected] = useState(0)
   useEffect(() => {
     if (reduced) return
     const observer = new IntersectionObserver(([entry]) => {
@@ -53,12 +54,13 @@ export default function Prescriber() {
       <div className="inner dash-in">
         <div className="head">
           <h2 className="t56 semibold">처방사 대시보드</h2>
-          <p className="t24 semibold dash-desc">국민체력100 처방사를 위한 <br className="br-l" />lOOP의 회원 운동 관리 대시보드</p>
+          <p className="t24 semibold dash-desc">AI가 제안하고, 전문가가 확정합니다.</p>
         </div>
-        <Shot {...MAIN} className="dash-main" onOpen={() => setLightbox(0)} />
-        <div className="dash-subs">
-          {SUBS.map((s, i) => <Shot key={s.code} {...s} hint={i === 0} className="dash-sub" style={{ '--d': `${0.3 + i * 0.12}s` }} onOpen={() => setLightbox(i + 1)} />)}
+        <p className="t20 medium muted">측정 결과와 AI 초안을 함께 보고, 처방사가 운동 강도와 구성을 조정합니다.</p>
+        <div className="showcase-tabs" aria-label="대시보드 화면 선택">
+          {ALL.map((s, i) => <button type="button" key={s.code} aria-pressed={selected === i} onClick={() => setSelected(i)}>{s.name}</button>)}
         </div>
+        <Shot {...ALL[selected]} className="dash-main" hint onOpen={() => setLightbox(selected)} />
         <Link className="more-link t16 semibold" to="/archive/result?section=dashboard">전체 화면 보기 <span aria-hidden="true">→</span></Link>
       </div>
       {lightbox !== null && <ArchiveLightbox slides={SLIDES} index={lightbox} onIndex={setLightbox} onClose={() => setLightbox(null)} loop noun="화면" label="처방사 대시보드 화면 크게 보기" />}

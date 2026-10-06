@@ -36,8 +36,8 @@ export default function Focus() {
           <div className="focus-copy">
             <div className="head">
               <p className="eyebrow focus-eb">무인 측정 화면</p>
-              <h2 className="t48 semibold">움직이는 동안엔,<br />화면이 어두워집니다.</h2>
-              <p className="t20 medium focus-sub">측정과 운동 중엔 다크 모드로. 필요한 값 하나만 남기고 다 끕니다.</p>
+              <h2 className="t48 semibold">안내를 따라 측정하고,<br />기록은 실시간으로.</h2>
+              <p className="t20 medium focus-sub">기기에 태그하고, 자세 안내에 따라 측정합니다. 측정 중에는 다크 모드로 전환해 현재 기록과 필요한 안내에 집중합니다.</p>
             </div>
             <ol className="focus-steps">
               {STEPS.map((s, k) => (
