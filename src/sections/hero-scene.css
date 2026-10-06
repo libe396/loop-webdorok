@@ -246,3 +246,4 @@ body:has(.hero-scene) header.gnb.is-solid div.gnb-in { background: transparent; 
 .hero-bridge { justify-content: flex-end; padding-bottom: 40px; }
 @media (max-width: 760px) { .hero-scene { --hero-fade-height: 220px; height: calc(130svh + var(--hero-fade-height)); } }
 @media (prefers-reduced-motion: reduce) { .hero-scene { height: auto; } }
+.hero-scene-heading h1 { font-weight: 600; }
