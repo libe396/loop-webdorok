@@ -5,7 +5,7 @@ export default function Behind() {
 
   return (
     <section className="chapter archive-entry" id="behind">
-      <header className="chapter-heading"><p className="kicker">03 / THE DECISIONS</p><h2>리서치는 화면을 바꿉니다.</h2><p>12주 리서치 · 설문 70명<br />경쟁 앱 리뷰 2,562개에서 시작한 결정</p></header>
+      <header className="chapter-heading"><p className="kicker">03 / THE DECISIONS</p><h2>사용자 조사로 정리한 세 가지 설계 방향</h2><p>12주 리서치 · 설문 70명<br />경쟁 앱 리뷰 2,562개에서 시작한 결정</p></header>
       <div className="decision-list">
         <article><div className="decision-icon icon-stack" aria-hidden="true"><i /><i /><i /></div><span>01 / 구조</span><h3>탭 5개 → 4개</h3><p>실내·실외 운동을 루틴 안에서 함께 보여주고, 측정과 처방에 집중했습니다.</p></article>
         <article><div className="decision-icon icon-target" aria-hidden="true"><i /><b /></div><span>02 / 경험</span><h3>장소 목록 → 운동 미션</h3><p>코스를 찾아보는 경험에서, 오늘 실천할 운동을 안내하는 경험으로 바꿨습니다.</p></article>

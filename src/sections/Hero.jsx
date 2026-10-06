@@ -23,18 +23,14 @@ export default function Hero() {
             <Phone key={action ? 'routine' : 'result'} src={screen(action ? 'r00' : 'h0')} code={action ? '오늘의 루틴' : '측정 후 홈'} width="100cqw" />
             <span className="hero-scene-tag">02 · 오늘의 실천</span>
           </div>
-          <div className="hero-scene-caption" aria-live="polite">
-            <span>{action ? '02 / EVERYDAY ACTION' : '01 / UNDERSTAND YOURSELF'}</span>
-            <h2>{action ? <>알게 된 나를,<br />움직이는 나로</> : <>체력 숫자 속에서,<br />나의 강점을 발견하다.</>}</h2>
-            <p>{action ? <>5분 첫 행동부터 이어지는<br />나만의 루틴</> : <>12가지 동물 유형으로<br />이해하는 나의 체력</>}</p>
-          </div>
+
         </div>
         <footer className="hero-scene-footer">
           <span className="hero-scroll-cue">스크롤로 이어보기 <span aria-hidden="true">↓</span></span>
         </footer>
       </div>
       <div className="hero-bridge">
-        <h2 className="hero-bridge-question"><span className="hero-question-badge" aria-hidden="true">Q</span>체력은 알았는데, 오늘은 무엇부터 시작할까요?</h2>
+        <h2 className="hero-bridge-question"><span className="hero-question-badge" aria-hidden="true">Q</span>체력 측정은 완료했는데, 오늘은 무엇부터 시작해야 할까요?</h2>
       </div>
     </section>
   )

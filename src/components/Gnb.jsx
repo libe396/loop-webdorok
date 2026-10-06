@@ -13,24 +13,34 @@ const NAV = [
 export default function Gnb() {
   const [hidden, setHidden] = useState(false)
   const [solid, setSolid] = useState(false)
+  const [lightBackground, setLightBackground] = useState(true)
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
   useEffect(() => {
     let last = window.scrollY
     const onScroll = () => {
       const y = window.scrollY
+      const hero = document.querySelector('.hero-scene')
+      const closing = document.querySelector('.closing')
+      const navHeight = document.querySelector('.gnb')?.offsetHeight || 76
+      const fade = hero ? parseFloat(getComputedStyle(hero, '::after').height) || 220 : 0
+      const blueHero = hero && hero.getBoundingClientRect().bottom - fade * .65 > navHeight
+      const blueClosing = closing && closing.getBoundingClientRect().top <= navHeight && closing.getBoundingClientRect().bottom > 0
+      setLightBackground(!blueHero && !blueClosing)
       setSolid(y > 40)
       setHidden(y > 200 && y > last)
       last = y
     }
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    window.addEventListener('resize', onScroll)
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll) }
+  }, [pathname])
   // 아카이브 목차 칩이 GNB 숨김 여부에 맞춰 sticky 위치를 바꿈
   const isHidden = hidden && !open
   useEffect(() => { document.documentElement.dataset.gnb = isHidden ? 'hidden' : 'shown' }, [isHidden])
   return (
-    <header className={`gnb ${isHidden ? 'is-hidden' : ''} ${solid ? 'is-solid' : ''}`}>
+    <header className={`gnb ${isHidden ? 'is-hidden' : ''} ${solid ? 'is-solid' : ''} ${lightBackground ? 'on-light' : 'on-dark'}`}>
       <div className="gnb-in">
         <a href="#top" className="gnb-logo" aria-label="국민체력 loop 홈"><Wordmark height={30} /></a>
         <nav className={`gnb-nav ${open ? 'is-open' : ''}`} aria-label="주요 메뉴">

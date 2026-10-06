@@ -41,7 +41,6 @@ export default function DesignSystem() {
     <div className="ds-gradient-showcase">
       <header><p className="kicker">GRADIENT LANGUAGE</p><h3>색의 중심에서, 부드럽게 연결되도록</h3><p>Radial 채움과 Inner Shadow를 함께 사용해<br />체력 카드와 작은 UI에 같은 깊이감을 만듭니다.</p></header>
       <div className="ds-gradient-samples">{gradients.map(item => <div key={item.name}><i className={`ds-gradient-${item.name}`} /><b>Radial {item.name}</b><span>{item.from} → {item.to}</span><small>Inner Shadow {item.shadow}</small></div>)}</div>
-      <div className="ds-gradient-specs"><div><h4>크기에 맞춘 깊이</h4><p>L · 180px / Blur 20<br />M · 125px / Blur 10<br />S · 64px / Blur 5</p></div><div><h4>40px 이하의 작은 요소</h4><p>Radial 없이 Inner Shadow M만 적용<br />blue → blue_M<br />peach → pink_M · aqua → lime_M</p></div><div><h4>일관된 효과 규칙</h4><p>Inner Shadow · X 0 / Y 0 / Spread 0<br />배경 블러 · 8 / 16 / 24 / 40 / 80px<br />그림자 · None / Small / Medium / Large</p></div></div>
     </div>
     <Link className="text-action ds-source-link" to="/archive/make">브랜드와 디자인 시스템 장표 보기 ↗</Link>
   </section>

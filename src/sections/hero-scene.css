@@ -248,3 +248,6 @@ body:has(.hero-scene) header.gnb.is-solid div.gnb-in { background: transparent; 
 @media (prefers-reduced-motion: reduce) { .hero-scene { height: auto; } }
 .hero-scene-heading h1 { font-weight: 600; }
 .hero-bridge-question { background: linear-gradient(135deg, rgb(255 255 255 / 70%), rgb(255 255 255 / 44%)); }
+
+.hero-question-badge { left: 4px; }
+@media (max-width: 760px) { .hero-question-badge { left: 2px; } }
